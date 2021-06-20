@@ -1,3 +1,14 @@
 /* 
     General Styles
 */
+.square {
+    background-color: white;
+    border: 0.3vw solid black;
+    height: 5vw;
+    width: 5vw;
+    margin: 0.3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+}
