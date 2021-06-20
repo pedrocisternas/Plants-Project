@@ -3,6 +3,10 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { HomeReg } from "./pages/HomeReg";
+import { HomeUnreg } from "./pages/HomeUnreg";
+import { Login } from "./pages/Login";
+import { SignupPersonal } from "./pages/SignupPersonal";
+import { SignupGarden } from "./pages/SignupGarden";
 // import { Demo } from "./pages/demo";
 // import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
@@ -31,6 +35,12 @@ const Layout = () => {
 						{/* <Route exact path="/single/:theid">
 							<Single />
 						</Route> */}
+						<Route exact path="/signuppersonal">
+							<SignupPersonal />
+						</Route>
+						<Route exact path="/signupgarden">
+							<SignupGarden />
+						</Route>
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
