@@ -9,7 +9,7 @@ export const HomeReg = () => {
 		<>
 			<Grid />
 			<div className="container d-flex flex-column align-items-center">
-				<button type="button" className="btn btn-success btn-block m-3 w-25">
+				<button type="button" className="btn btn-success btn-block mb-3 w-25">
 					Save Your Selection
 				</button>
 				<div>
