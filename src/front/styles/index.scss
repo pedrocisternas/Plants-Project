@@ -19,8 +19,8 @@
 }
 
 .logo-img {
-    height: 5vw;
-    width: 5vw;
+    height: auto;
+    width: 9vw;
 }
 
 .zoom-in {
@@ -42,4 +42,7 @@
     background: green;
 }
 
+.grid-bg {
+    background-image: linear-gradient(to bottom, rgba(57, 247, 73,0), rgba(57, 247, 73,1),rgba(57, 247, 73,0));
+}
 

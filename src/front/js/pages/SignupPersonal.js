@@ -4,8 +4,8 @@ import { Context } from "../store/appContext";
 
 export const SignupPersonal = () => {
 	return (
-		<form className="container w-50">
-			<h1 className="text-center">Sign Up</h1>
+		<form className="container w-50 my-5">
+			<h1 className="text-center">Personal Info</h1>
 			<div className="form-groupn">
 				<label className="text-center">Username </label>
 				<input
@@ -66,12 +66,18 @@ export const SignupPersonal = () => {
 					aria-label="Repeat Password"
 				/>
 			</div>
-
-			<Link to="/signupgarden">
-				<button type="button" className="btn btn-success mb-2">
-					Continue
-				</button>
-			</Link>
+			<div className="d-flex justify-content-around">
+				<Link to="/signupgarden">
+					<button type="button" className="btn btn-success ml-3">
+						Continue
+					</button>
+				</Link>
+				<Link to="/">
+					<button type="button" className="btn btn-success ml-3">
+						Cancel
+					</button>
+				</Link>
+			</div>
 		</form>
 	);
 };

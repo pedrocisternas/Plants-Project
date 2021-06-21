@@ -4,10 +4,14 @@ import { Context } from "../store/appContext";
 
 export const SignupGarden = () => {
 	return (
-		<form className="container w-50">
-			<h1 className="text-center">Sign Up</h1>
+		<form className="container w-50 my-5">
+			<h1 className="text-center">Garden Details</h1>
 			<div className="form-groupn">
-				<label className="text-center">Hardiness Zone </label>
+				<label className="text-center">Hardiness Zone</label>
+				<a href="https://gilmour.com/planting-zones-hardiness-map" target="_blank" rel="noopener noreferrer">
+					{" "}
+					Need help? Find Your Zone
+				</a>
 				<input
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"
@@ -36,24 +40,22 @@ export const SignupGarden = () => {
 				</select>
 			</div>
 			<div className="form-group">
-				<label>Email</label>
-				<input
-					type="text"
-					className="form-control mr-3  mt-2 mb-2"
-					style={{ textAlign: "center" }}
-					placeholder="Email"
-					aria-label="Email"
-				/>
+				<label>Edible Plants</label>
+				<select className="form-control" id="sunshine">
+					<option selected>Do you want to include edible plants?</option>
+					<option>Yes</option>
+					<option>No</option>
+					<option>Undecided</option>
+				</select>
 			</div>
 			<div className="form-group">
-				<label>Another Question</label>
-				<input
-					type="text"
-					className="form-control mr-3 mt-2 mb-2"
-					style={{ textAlign: "center" }}
-					placeholder="Another Q"
-					aria-label="another"
-				/>
+				<label>Annual Plants</label>
+				<select className="form-control" id="sunshine">
+					<option selected>Do you want to include annual plants?</option>
+					<option>Yes</option>
+					<option>No</option>
+					<option>Undecided</option>
+				</select>
 			</div>
 			<div className="form-group">
 				<label>One more question here</label>
@@ -65,12 +67,23 @@ export const SignupGarden = () => {
 					aria-label="one more"
 				/>
 			</div>
-
-			<Link to={"/"}>
-				<button type="button" className="btn btn-success mb-2">
-					Submit
-				</button>
-			</Link>
+			<div className="d-flex justify-content-around">
+				<Link to="/signuppersonal">
+					<button type="button" className="btn btn-success mb-2">
+						Go Back
+					</button>
+				</Link>
+				<Link to="/">
+					<button type="button" className="btn btn-success mb-2">
+						Submit
+					</button>
+				</Link>
+				<Link to="/">
+					<button type="button" className="btn btn-success mb-2">
+						Cancel
+					</button>
+				</Link>
+			</div>
 		</form>
 	);
 };
