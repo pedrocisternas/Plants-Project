@@ -25,7 +25,7 @@ export const Login = () => {
 					<a href="#" className="btn btn-success mb-2">
 						Submit
 					</a>
-					<Link to="/">
+					<Link to="/signuppersonal">
 						<div style={{ color: "gray" }}>Create Account</div>
 					</Link>
 				</div>

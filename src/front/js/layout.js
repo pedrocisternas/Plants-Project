@@ -29,6 +29,9 @@ const Layout = () => {
 					<Navbar />
 					<Switch>
 						<Route exact path="/">
+							<HomeUnreg />
+						</Route>
+						<Route exact path="/homeRegistered">
 							<HomeReg />
 						</Route>
 						<Route exact path="/login">

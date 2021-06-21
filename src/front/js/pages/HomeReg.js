@@ -10,14 +10,14 @@ export const HomeReg = () => {
 			<Grid />
 			<div className="container d-flex flex-column align-items-center">
 				<button type="button" className="btn btn-success btn-block m-3 w-25">
-					Save Grid
+					Save Your Selection
 				</button>
 				<div>
 					<button type="button" className="btn btn-outline-success m-3">
 						Generate List
 					</button>
 					<button type="button" className="btn btn-outline-success m-3">
-						Generate Calendar
+						Show Calendar
 					</button>
 				</div>
 			</div>

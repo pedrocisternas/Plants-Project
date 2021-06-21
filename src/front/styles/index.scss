@@ -24,12 +24,12 @@
 }
 
 .zoom-in {
-    transition: transform 0.4s;
+    transition: transform 0.7s;
     
 }
 
 .zoom-in:hover {
-    transform: scale(1.2) rotate(90deg);
+    transform: scale(1.25) rotateZ(-360deg);
     background: lightgreen;
     
     //border: 0.3px solid green;

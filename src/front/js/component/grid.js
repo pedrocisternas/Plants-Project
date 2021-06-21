@@ -12,7 +12,7 @@ export const Grid = () => {
 			<div className="container justify-content-center d-flex flex-row flex-wrap">
 				{numbers.map((el, i) => (
 					<div className="square zoom-in" key={i}>
-						<i className="fas fa-plus color-item" />
+						<i className="fas fa-seedling color-item" />
 					</div>
 				))}
 			</div>
