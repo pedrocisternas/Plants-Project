@@ -4,10 +4,13 @@ import { Context } from "../store/appContext";
 
 export const Login = () => {
 	return (
-		<div className="container">
-			<div className="card text-center">
-				<div className="card-body d-flex flex-column align-items-center">
-					<h1 className="card-title">Login</h1>
+		<div className="container w-50 my-5 ">
+			<div className="card text-center border-0">
+				<div className="card-body d-flex flex-column align-items-center ">
+					<h1 className="card-title heading">Login</h1>
+					<p>
+						<i className="fab fa-pagelines fa-2x color-item" />
+					</p>
 					<input
 						type="text"
 						className="form-control mr-3 ml-3 mt-2 mb-2"
@@ -26,7 +29,7 @@ export const Login = () => {
 						Submit
 					</a>
 					<Link to="/signuppersonal">
-						<div style={{ color: "gray" }}>Create Account</div>
+						<div className="color-item mt-3">Create Account</div>
 					</Link>
 				</div>
 			</div>

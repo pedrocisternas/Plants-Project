@@ -5,10 +5,12 @@ import { Context } from "../store/appContext";
 export const Logout = () => {
 	return (
 		<div className="container">
-			<div className="card text-center">
+			<div className="card text-center border-0">
 				<div className="card-body d-flex flex-column align-items-center">
-					<h1 className="card-title">Logout</h1>
-					<p>You are about to log out</p>
+					<h1 className="card-title heading">Hope to see you back soon!</h1>
+					<p>
+						<i className="fab fa-pagelines fa-2x color-item" />
+					</p>
 					<a href="#" className="btn btn-success mb-2">
 						Logout
 					</a>

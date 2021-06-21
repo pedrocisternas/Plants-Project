@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 export const SignupGarden = () => {
 	return (
 		<form className="container w-50 my-5">
-			<h1 className="text-center">Garden Details</h1>
+			<h1 className="text-center heading">Garden Details</h1>
 			<div className="form-groupn">
 				<label className="text-center">Hardiness Zone</label>
 				<a href="https://gilmour.com/planting-zones-hardiness-map" target="_blank" rel="noopener noreferrer">

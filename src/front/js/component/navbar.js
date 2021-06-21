@@ -19,26 +19,26 @@ export const Navbar = () => {
 			<div className="dropdown ">
 				<button
 					onClick={() => setShowDropdown(!showDropdown)}
-					className="btn bg-success text-white dropdown-toggle"
+					className="btn bg-success text-white dropdown-toggle "
 					type="button"
 					id="dropdownMenuButton"
 					data-toggle="dropdown"
 					aria-haspopup="true"
 					aria-expanded="false">
-					{"Sign up/Log in"}
+					{"Garden Shed"}
 				</button>
 				<div className={showDropdown ? "dropdown-menu show" : "d-none"} aria-labelledby="dropdownMenuButton">
 					<Link to="/signuppersonal" onClick={() => setShowDropdown(!showDropdown)}>
-						<div className="dropdown-item">Sign Up</div>
+						<div className="dropdown-item heading">Sign Up</div>
 					</Link>
 					<Link to="/login" onClick={() => setShowDropdown(!showDropdown)}>
-						<div className="dropdown-item">Log In</div>
+						<div className="dropdown-item heading">Log In</div>
 					</Link>
 					<Link to="/homeReg" onClick={() => setShowDropdown(!showDropdown)}>
-						<div className="dropdown-item">Your Profile</div>
+						<div className="dropdown-item heading">Your Profile</div>
 					</Link>
 					<Link to="/logout" onClick={() => setShowDropdown(!showDropdown)}>
-						<div className="dropdown-item">Log Out</div>
+						<div className="dropdown-item heading">Log Out</div>
 					</Link>
 				</div>
 			</div>

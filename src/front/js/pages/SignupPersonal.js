@@ -5,9 +5,9 @@ import { Context } from "../store/appContext";
 export const SignupPersonal = () => {
 	return (
 		<form className="container w-50 my-5">
-			<h1 className="text-center">Personal Info</h1>
+			<h1 className="text-center heading">Personal Info</h1>
 			<div className="form-groupn">
-				<label className="text-center">Username </label>
+				<label>Username </label>
 				<input
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"
