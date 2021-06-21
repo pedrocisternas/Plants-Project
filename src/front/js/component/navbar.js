@@ -6,7 +6,7 @@ export const Navbar = () => {
 		<nav className="navbar navbar-light bg-white mb-3">
 			<Link to="/">
 				<span className="navbar-brand ml-4 h1">
-					<img className="logo-img" src="https://i.imgur.com/riBIzbc.png" />
+					<img className="logo-img" src="https://i.imgur.com/xU3Idvh.png" />
 				</span>
 			</Link>
 

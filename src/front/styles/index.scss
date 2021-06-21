@@ -4,6 +4,7 @@
 .square {
     background-color: white;
     border: 1px solid gray;
+    border-radius: 5px;
     height: 5vw;
     width: 5vw;
     margin: 0.3vw;
@@ -19,6 +20,17 @@
 .logo-img {
     height: 8vw;
     width: 8vw;
+}
+
+.zoom-in {
+    transition: transform 0.4s;
+    
+}
+
+.zoom-in:hover {
+    transform: scale(1.5) rotate(180deg);
+    background: lightgreen;
+    border-radius: 0;
 }
 
 
