@@ -3,10 +3,11 @@
 */
 .square {
     background-color: white;
-    border: 1px solid gray;
+    // border: 0.5px solid lightgray;
+    box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    height: 5vw;
-    width: 5vw;
+    height: 5.5vw;
+    width: 5.5vw;
     margin: 0.3vw;
     display: flex;
     justify-content: center;
@@ -28,9 +29,14 @@
 }
 
 .zoom-in:hover {
-    transform: scale(1.5) rotate(180deg);
+    transform: scale(1.2) rotate(90deg);
     background: lightgreen;
-    border-radius: 0;
+    
+    border: 1px solid gray;
+}
+
+.add-item {
+    color: green;
 }
 
 
