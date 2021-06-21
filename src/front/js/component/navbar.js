@@ -25,7 +25,7 @@ export const Navbar = () => {
 					data-toggle="dropdown"
 					aria-haspopup="true"
 					aria-expanded="false">
-					{`User's Name Here`}
+					{"Sign up/Log in"}
 				</button>
 				<div className={showDropdown ? "dropdown-menu show" : "d-none"} aria-labelledby="dropdownMenuButton">
 					<Link to="/signuppersonal">
