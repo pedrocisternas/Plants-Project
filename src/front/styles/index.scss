@@ -3,7 +3,7 @@
 */
 .square {
     background-color: white;
-    border: 0.3vw solid black;
+    border: 1px solid gray;
     height: 5vw;
     width: 5vw;
     margin: 0.3vw;
@@ -14,6 +14,11 @@
 }
 .container {
     width: 70vw;
+}
+
+.logo-img {
+    height: 8vw;
+    width: 8vw;
 }
 
 
