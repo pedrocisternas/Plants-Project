@@ -28,16 +28,18 @@ export const Navbar = () => {
 					{`User's Name Here`}
 				</button>
 				<div className={showDropdown ? "dropdown-menu show" : "d-none"} aria-labelledby="dropdownMenuButton">
-					<Link to="/signuppersonal">
+					<Link to="/signuppersonal" onClick={() => setShowDropdown(!showDropdown)}>
 						<div className="dropdown-item">Sign Up</div>
 					</Link>
-					<Link to="/login">
+					<Link to="/login" onClick={() => setShowDropdown(!showDropdown)}>
 						<div className="dropdown-item">Log In</div>
 					</Link>
-					<Link to="/homeReg">
+					<Link to="/homeReg" onClick={() => setShowDropdown(!showDropdown)}>
 						<div className="dropdown-item">Your Profile</div>
 					</Link>
-					<div className="dropdown-item">Log Out</div>
+					<Link to="/logout" onClick={() => setShowDropdown(!showDropdown)}>
+						<div className="dropdown-item">Log Out</div>
+					</Link>
 				</div>
 			</div>
 		</nav>

@@ -5,6 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { HomeReg } from "./pages/HomeReg";
 import { HomeUnreg } from "./pages/HomeUnreg";
 import { Login } from "./pages/Login";
+import { Logout } from "./pages/Logout";
 import { SignupPersonal } from "./pages/SignupPersonal";
 import { SignupGarden } from "./pages/SignupGarden";
 import { UserProfile } from "./pages/UserProfile";
@@ -36,6 +37,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/login">
 							<Login />
+						</Route>
+						<Route exact path="/logout">
+							<Logout />
 						</Route>
 						<Route exact path="/profile/:id">
 							<UserProfile />
