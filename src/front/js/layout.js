@@ -7,8 +7,10 @@ import { HomeUnreg } from "./pages/HomeUnreg";
 import { Login } from "./pages/Login";
 import { SignupPersonal } from "./pages/SignupPersonal";
 import { SignupGarden } from "./pages/SignupGarden";
-// import { Demo } from "./pages/demo";
-// import { Single } from "./pages/single";
+import { UserProfile } from "./pages/UserProfile";
+import { About } from "./pages/About";
+import { AddPlant } from "./pages/AddPlant";
+
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -28,6 +30,12 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<HomeReg />
+						</Route>
+						<Route exact path="/login">
+							<Login />
+						</Route>
+						<Route exact path="/profile/:id">
+							<UserProfile />
 						</Route>
 						{/* <Route exact path="/demo">
 							<Demo />

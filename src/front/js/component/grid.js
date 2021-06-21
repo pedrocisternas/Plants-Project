@@ -8,11 +8,11 @@ export const Grid = () => {
 	}
 	return (
 		<>
-			<h1 className="text-center py-3">Start Designing Your Garden</h1>
+			<h1 className="text-center py-3 display-4">Start Designing Your Garden</h1>
 			<div className="container justify-content-center d-flex flex-row flex-wrap">
 				{numbers.map((el, i) => (
 					<div className="square zoom-in" key={i}>
-						<i className="fas fa-plus add-item" />
+						<i className="fas fa-plus color-item" />
 					</div>
 				))}
 			</div>

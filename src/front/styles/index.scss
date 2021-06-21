@@ -32,11 +32,15 @@
     transform: scale(1.2) rotate(90deg);
     background: lightgreen;
     
-    border: 1px solid gray;
+    //border: 0.3px solid green;
 }
 
-.add-item {
+.color-item {
     color: green;
+}
+
+.bg-color-item {
+    background: green;
 }
 
 

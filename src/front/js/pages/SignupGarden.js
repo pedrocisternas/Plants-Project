@@ -12,8 +12,8 @@ export const SignupGarden = () => {
 						type="text"
 						className="form-control mr-3 ml-3 mt-2 mb-2"
 						style={{ textAlign: "center" }}
-						placeholder="Location"
-						aria-label="Location"
+						placeholder="Hardiness Zone"
+						aria-label="zone"
 					/>
 					<input
 						type="text"
@@ -26,8 +26,8 @@ export const SignupGarden = () => {
 						type="text"
 						className="form-control mr-3 ml-3 mt-2 mb-2"
 						style={{ textAlign: "center" }}
-						placeholder="Last Name"
-						aria-label="Last Name"
+						placeholder="Sunny/Semi-Sun/Shady"
+						aria-label="sunlight"
 					/>
 					<input
 						type="text"

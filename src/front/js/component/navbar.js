@@ -16,27 +16,28 @@ export const Navbar = () => {
 					<div className="btn btn-primary">Go to Sign-up Page</div>
 				</Link>
 			</div> */}
-			<div className="dropdown">
+			<div className="dropdown ">
 				<button
 					onClick={() => setShowDropdown(!showDropdown)}
-					className="btn btn-secondary dropdown-toggle"
+					className="btn bg-success text-white dropdown-toggle"
 					type="button"
 					id="dropdownMenuButton"
 					data-toggle="dropdown"
 					aria-haspopup="true"
 					aria-expanded="false">
-					Dropdown button
+					{`User's Name Here`}
 				</button>
 				<div className={showDropdown ? "dropdown-menu show" : "d-none"} aria-labelledby="dropdownMenuButton">
 					<Link to="/signuppersonal">
 						<div className="dropdown-item">Sign Up</div>
 					</Link>
-					<Link to="/signuppersonal">
-						<div className="dropdown-item">Sign Up</div>
+					<Link to="/login">
+						<div className="dropdown-item">Log In</div>
 					</Link>
-					<Link to="/signuppersonal">
-						<div className="dropdown-item">Sign Up</div>
+					<Link to="/profile">
+						<div className="dropdown-item">Your Profile</div>
 					</Link>
+					<div className="dropdown-item">Log Out</div>
 				</div>
 			</div>
 		</nav>
