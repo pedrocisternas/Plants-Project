@@ -29,11 +29,13 @@ body {
 }
 
 .zoom-in {
-    transition: transform 0.7s;    
+    transition: transform 0.3s;    
+        
 }
 
 .zoom-in:hover {
-    transform: scale(1.25) rotateZ(-360deg);
+    transform: scale(1.25) skew(20deg, -20deg);
+    
     background: lightgreen;
     
     //border: 0.3px solid green;
