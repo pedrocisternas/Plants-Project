@@ -4,7 +4,7 @@ import { Context } from "../store/appContext";
 
 export const Logout = () => {
 	return (
-		<div className="container">
+		<div className="container grid-bg">
 			<div className="card text-center border-0">
 				<div className="card-body d-flex flex-column align-items-center">
 					<h1 className="card-title heading">Hope to see you back soon!</h1>

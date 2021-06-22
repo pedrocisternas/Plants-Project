@@ -4,8 +4,8 @@ import { Context } from "../store/appContext";
 
 export const SignupPersonal = () => {
 	return (
-		<form className="container w-50 my-5">
-			<h1 className="text-center heading">Personal Info</h1>
+		<form className="container w-50 my-5 grid-bg">
+			<h1 className="text-center heading mb-5">Personal Info</h1>
 			<div className="form-groupn">
 				<label>Username </label>
 				<input
@@ -68,12 +68,12 @@ export const SignupPersonal = () => {
 			</div>
 			<div className="d-flex justify-content-around">
 				<Link to="/signupgarden">
-					<button type="button" className="btn btn-success ml-3">
+					<button type="button" className="btn btn-success my-4">
 						Continue
 					</button>
 				</Link>
 				<Link to="/">
-					<button type="button" className="btn btn-success ml-3">
+					<button type="button" className="btn btn-success my-4">
 						Cancel
 					</button>
 				</Link>

@@ -4,7 +4,7 @@ import { Context } from "../store/appContext";
 
 export const Login = () => {
 	return (
-		<div className="container w-50 my-5 ">
+		<div className="container w-50 my-5 grid-bg">
 			<div className="card text-center border-0">
 				<div className="card-body d-flex flex-column align-items-center ">
 					<h1 className="card-title heading">Login</h1>
