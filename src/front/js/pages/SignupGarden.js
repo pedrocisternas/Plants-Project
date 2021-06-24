@@ -3,8 +3,17 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const SignupGarden = () => {
+	const { store, actions } = useContext(Context);
+	const [plotSize, setPlotSize] = useState(null);
+	const handleSave = () => {
+		actions.emptyGarden();
+		for (let i = 0; i < plotSize; i++) {
+			actions.addSquare();
+		}
+	};
+
 	return (
-		<form className="container w-50 my-5 grid-bg">
+		<form className="container w-50 my-2 grid-bg">
 			<h1 className="text-center heading mb-5">Garden Details</h1>
 			<div className="form-groupn">
 				<label className="text-center">Hardiness Zone</label>
@@ -23,6 +32,7 @@ export const SignupGarden = () => {
 			<div className="form-group">
 				<label>Plot Size</label>
 				<input
+					onChange={e => setPlotSize(parseInt(e.target.value))}
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"
 					style={{ textAlign: "center" }}
@@ -74,7 +84,7 @@ export const SignupGarden = () => {
 					</button>
 				</Link>
 				<Link to="/">
-					<button type="button" className="btn btn-success my-4">
+					<button onClick={() => handleSave()} type="button" className="btn btn-success my-4">
 						Submit
 					</button>
 				</Link>

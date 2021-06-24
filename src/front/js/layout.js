@@ -56,6 +56,9 @@ const Layout = () => {
 						<Route exact path="/signupgarden">
 							<SignupGarden />
 						</Route>
+						<Route exact path="/addplant">
+							<AddPlant />
+						</Route>
 						<Route>
 							<h1>Not found!</h1>
 						</Route>

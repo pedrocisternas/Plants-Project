@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Navbar = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
 	return (
-		<nav className="navbar navbar-light bg-white">
+		<nav className="navbar navbar-light bg-white m-0">
 			<Link to="/">
 				<span className="navbar-brand ml-4 h1">
 					<img className="logo-img" src="https://i.imgur.com/YQrkC1r.png" />

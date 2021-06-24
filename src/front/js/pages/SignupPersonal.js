@@ -4,7 +4,7 @@ import { Context } from "../store/appContext";
 
 export const SignupPersonal = () => {
 	return (
-		<form className="container w-50 my-5 grid-bg">
+		<form className="container w-50 my-2 grid-bg">
 			<h1 className="text-center heading mb-5">Personal Info</h1>
 			<div className="form-groupn">
 				<label>Username </label>

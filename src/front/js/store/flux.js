@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			garden: [],
 			users: [],
 			plants: []
 		},
@@ -9,7 +10,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-
+			addSquare: () => {
+				const new_garden = getStore().garden;
+				new_garden.push(null);
+				setStore({ garden: new_garden });
+			},
+			emptyGarden: () => {
+				const new_garden = getStore().garden;
+				setStore({ garden: [] });
+			},
 			getMessage: () => {
 				// fetching data from the backend
 				fetch(process.env.BACKEND_URL + "/api/hello")
