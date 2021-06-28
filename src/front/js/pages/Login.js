@@ -25,7 +25,7 @@ export const Login = () => {
 						placeholder="Password"
 						aria-label="Password"
 					/>
-					<a href="#" className="btn btn-success mb-2">
+					<a href="#" className="btn btn-style mb-2">
 						Submit
 					</a>
 					<Link to="/signuppersonal">

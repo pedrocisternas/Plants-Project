@@ -1,9 +1,22 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			garden: [],
+			garden: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 			users: [],
-			plants: []
+			plants: [
+				"allium",
+				"alyssum",
+				"aster",
+				"bellflower",
+				"blanketflower",
+				"camellia",
+				"catmint",
+				"clematis",
+				"daylily",
+				"foxglove",
+				"geranium",
+				"honeysuckle"
+			]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -18,6 +31,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			emptyGarden: () => {
 				const new_garden = getStore().garden;
 				setStore({ garden: [] });
+			},
+			generateList: () => {
+				const new_Plantslist = getStore().plants;
+				setStore({ plants: new_Plantslist });
 			},
 			getMessage: () => {
 				// fetching data from the backend

@@ -79,17 +79,17 @@ export const SignupGarden = () => {
 			</div>
 			<div className="d-flex justify-content-around">
 				<Link to="/signuppersonal">
-					<button type="button" className="btn btn-success my-4">
+					<button type="button" className="btn btn-style my-4">
 						Go Back
 					</button>
 				</Link>
 				<Link to="/">
-					<button onClick={() => handleSave()} type="button" className="btn btn-success my-4">
+					<button onClick={() => handleSave()} type="button" className="btn btn-style my-4">
 						Submit
 					</button>
 				</Link>
 				<Link to="/">
-					<button type="button" className="btn btn-success my-4">
+					<button type="button" className="btn btn-style my-4">
 						Cancel
 					</button>
 				</Link>

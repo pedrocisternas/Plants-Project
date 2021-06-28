@@ -15,12 +15,12 @@ export const AddPlant = () => {
 				/>
 				<div className="input-group-append">
 					<button className="btn btn-outline-secondary" type="button" id="button-addon2">
-						Button
+						Search
 					</button>
 				</div>
 			</div>
 			<Link to="/">
-				<button type="button" className="btn btn-success my-4">
+				<button type="button" className="btn btn-style my-4">
 					Go Back
 				</button>
 			</Link>

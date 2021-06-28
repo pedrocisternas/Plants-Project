@@ -1,7 +1,20 @@
 
+* {
+    --persimmon: #f05b05ff;
+    --lemon-curry: #d0a311ff;
+    --lemon-chiffon: #f9f3c8ff;
+    --ivory: #fdfbedff;
+    --mindaro: #defb74ff;
+    --apple-green: #7bb517ff;
+    --avocado: #5c8001ff;
+    --black-chocolate: #140d00ff;
+}
+
 body {
     font-family: Poppins;
     font-size: 1rem;
+    background: var(--ivory);
+    color: var(--black-chocolate);
 }
 .square {
     background-color: white;
@@ -33,23 +46,31 @@ body {
 .zoom-in:hover {
     transform: scale(1.25) skew(20deg, -20deg);
     
-    background: lightgreen;
+    background: var(--avocado);
+    
     
     //border: 0.3px solid green;
 }
 
 .color-item {
-    color: green;
+    color: var(--apple-green);
 }
 
+
+
 .bg-color-item {
-    background: green;
+    background: var(--apple-green);
 }
 
 .grid-bg {
-    background-image: linear-gradient(to bottom, rgba(132, 253, 116, 0), rgba(132, 253, 116,1),rgba(132, 253, 116,0));
+    background-image: linear-gradient(to bottom, rgba(222,251,116, 0), rgba(222,251,116,1),rgba(222,251,116,0));
 }
 
 .heading {
     font-family: Yeseva One;
+}
+
+.btn-style {
+    background: var(--apple-green);
+    color: var(--ivory);
 }

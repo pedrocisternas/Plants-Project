@@ -68,12 +68,12 @@ export const SignupPersonal = () => {
 			</div>
 			<div className="d-flex justify-content-around">
 				<Link to="/signupgarden">
-					<button type="button" className="btn btn-success my-4">
+					<button type="button" className="btn btn-style my-4">
 						Continue
 					</button>
 				</Link>
 				<Link to="/">
-					<button type="button" className="btn btn-success my-4">
+					<button type="button" className="btn btn-style my-4">
 						Cancel
 					</button>
 				</Link>

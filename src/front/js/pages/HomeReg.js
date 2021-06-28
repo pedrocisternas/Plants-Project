@@ -13,9 +13,11 @@ export const HomeReg = () => {
 					Save Your Selection
 				</button>
 				<div>
-					<button type="button" className="btn btn-outline-success m-3">
-						Generate List
-					</button>
+					<Link to="/plantlist">
+						<button type="button" className="btn btn-outline-success m-3">
+							Generate List
+						</button>
+					</Link>
 					<button type="button" className="btn btn-outline-success m-3">
 						Show Calendar
 					</button>

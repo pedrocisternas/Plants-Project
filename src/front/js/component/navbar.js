@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Navbar = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
 	return (
-		<nav className="navbar navbar-light bg-white m-0">
+		<nav className="navbar  m-0">
 			<Link to="/">
 				<span className="navbar-brand ml-4 h1">
 					<img className="logo-img" src="https://i.imgur.com/3VBrs4C.png" />
@@ -19,7 +19,7 @@ export const Navbar = () => {
 			<div className="dropdown ">
 				<button
 					onClick={() => setShowDropdown(!showDropdown)}
-					className="btn bg-success text-white dropdown-toggle "
+					className="btn btn-style text-white dropdown-toggle "
 					type="button"
 					id="dropdownMenuButton"
 					data-toggle="dropdown"
