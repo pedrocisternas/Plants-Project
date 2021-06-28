@@ -14,18 +14,19 @@ export const PlantList = () => {
 	return (
 		<>
 			<h1 className="text-center py-3 heading">Your Selected Plants List</h1>
-			<div className="container ">
+			<i className="fab fa-2x fa-pagelines mx-auto mb-3" />
+			<div className="container">
 				{store.plants.map((el, i) => (
 					<div className="plant-list-box" key={i}>
-						<div className="plant-list">
-							#{i + 1}:{" "}
-							<span className="plant-list-text">
-								{el} <i className="fas fa-seedling" />
-							</span>
-							<div />
-							<button className="btn-style btn-list" onClick={() => toggleDetailsPopup()}>
-								Details
-							</button>
+						<div className="plant-list ">
+							<div className="d-flex justify-content-between align-items-center">
+								<div>
+									#{i + 1}: <span className="plant-list-text"> {el}</span>
+								</div>
+								<button className="btn-style btn-list " onClick={() => toggleDetailsPopup()}>
+									Details
+								</button>
+							</div>
 							{isOpen && (
 								<Popup
 									details={
