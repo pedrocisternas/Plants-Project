@@ -56,7 +56,9 @@ body {
     color: var(--apple-green);
 }
 
-
+.color-item2 {
+    color: var(--persimmon);
+}
 
 .bg-color-item {
     background: var(--apple-green);
@@ -99,4 +101,33 @@ body {
 .plant-list-box {
     margin: 0.8rem;
     
+}
+
+.popup-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    // border: 1px solid var(--persimmon);
+    // border-radius: 5px;
+    //background: var(--ivory);
+    
+    
+}
+
+.popup-content {
+    
+    width: 75%;
+    height: auto;
+    
+    margin: 3rem auto;
+    padding: 3rem;
+    display: flex;
+    flex-direction: row;
+    color: var(--black-chocolate);
+    background: var(--lemon-chiffon);
+    //border: solid 2px var(--persimmon);
+    font-size: 1.1rem;
+    box-shadow: 4px 4px 5px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }

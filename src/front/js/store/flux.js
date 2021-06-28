@@ -12,7 +12,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				"Camellia",
 				"Catmint",
 				"Clematis",
-				"daylily",
+				"Daylily",
 				"Foxglove",
 				"Geranium",
 				"Honeysuckle"
