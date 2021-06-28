@@ -23,9 +23,11 @@ export const PlantList = () => {
 								<div>
 									#{i + 1}: <span className="plant-list-text"> {el}</span>
 								</div>
-								<button className="btn-style btn-list " onClick={() => toggleDetailsPopup()}>
-									Details
-								</button>
+								<div>
+									<button className="btn-style btn-list " onClick={() => toggleDetailsPopup()}>
+										Details
+									</button>
+								</div>
 							</div>
 							{isOpen && (
 								<Popup

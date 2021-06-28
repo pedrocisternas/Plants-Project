@@ -14,7 +14,7 @@ export const AddPlant = () => {
 					aria-describedby="button-addon2"
 				/>
 				<div className="input-group-append">
-					<button className="btn btn-outline-secondary" type="button" id="button-addon2">
+					<button className="btn btn-style" type="button" id="button-addon2">
 						Search
 					</button>
 				</div>
