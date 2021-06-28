@@ -6,7 +6,7 @@ export const Navbar = () => {
 	return (
 		<nav className="navbar  m-0">
 			<Link to="/">
-				<span className="navbar-brand ml-4 h1" onClick={() => setShowDropdown(!showDropdown)}>
+				<span className="navbar-brand ml-4 h1">
 					<img className="logo-img" src="https://i.imgur.com/3VBrs4C.png" />
 				</span>
 			</Link>

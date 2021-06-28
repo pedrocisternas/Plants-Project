@@ -5,6 +5,7 @@ import { Context } from "../store/appContext";
 export const AddPlant = () => {
 	return (
 		<div className="container">
+			<h1 className="text-center py-3 heading">Search for a Plant</h1>
 			<div className="input-group mb-3">
 				<input
 					type="text"
