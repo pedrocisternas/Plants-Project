@@ -4,18 +4,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			garden: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 			users: [],
 			plants: [
-				"allium",
-				"alyssum",
-				"aster",
-				"bellflower",
-				"blanketflower",
-				"camellia",
-				"catmint",
-				"clematis",
+				"Allium",
+				"Alyssum",
+				"Aster",
+				"Bellflower",
+				"Blanketflower",
+				"Camellia",
+				"Catmint",
+				"Clematis",
 				"daylily",
-				"foxglove",
-				"geranium",
-				"honeysuckle"
+				"Foxglove",
+				"Geranium",
+				"Honeysuckle"
 			]
 		},
 		actions: {

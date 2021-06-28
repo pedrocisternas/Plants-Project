@@ -73,4 +73,30 @@ body {
 .btn-style {
     background: var(--apple-green);
     color: var(--ivory);
+    font-size: 1.1rem;
+}
+
+.btn-list {
+    border: 0.5px solid var(--avocado);
+    border-radius: 5px;
+    margin: 0 0.5rem 0.9rem 0.9rem;
+}
+
+.plant-list {
+    border: 1px solid var(--persimmon);
+    border-radius: 5px;
+    background: var(--lemon-chiffon);
+    font-size: 2rem;
+    color: var(--avocado);
+    padding: 0.9rem;
+}
+
+.plant-list-text {
+    font-family: Yeseva One;
+    
+}
+
+.plant-list-box {
+    margin: 0.8rem;
+    
 }
