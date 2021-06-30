@@ -32,7 +32,11 @@ export const SignupGarden = () => {
 			<div className="form-group">
 				<label>Plot Size</label>
 				<input
-					onChange={e => setPlotSize(parseInt(e.target.value))}
+					onChange={e => {
+						if (e.target.value != null) {
+							setPlotSize(parseInt(e.target.value));
+						}
+					}}
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"
 					style={{ textAlign: "center" }}

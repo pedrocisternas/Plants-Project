@@ -20,7 +20,7 @@ export const AddPlant = () => {
 					</button>
 				</div>
 			</div>
-			<Link to="/">
+			<Link to="/homeReg">
 				<button type="button" className="btn btn-style my-4">
 					Go Back
 				</button>
