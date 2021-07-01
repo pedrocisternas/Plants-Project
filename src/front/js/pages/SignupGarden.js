@@ -33,12 +33,7 @@ export const SignupGarden = () => {
 				<label>Plot Size</label>
 				<input
 					onChange={e => {
-						if (e.target.value != null) {
-							setPlotSize(parseInt(e.target.value));
-						} else {
-							setPlotSize(store.garden.length());
-							console.log(store.garden.length());
-						}
+						setPlotSize(parseInt(e.target.value));
 					}}
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"
