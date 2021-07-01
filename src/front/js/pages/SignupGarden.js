@@ -35,6 +35,9 @@ export const SignupGarden = () => {
 					onChange={e => {
 						if (e.target.value != null) {
 							setPlotSize(parseInt(e.target.value));
+						} else {
+							setPlotSize(store.garden.length());
+							console.log(store.garden.length());
 						}
 					}}
 					type="text"
