@@ -12,6 +12,7 @@ import { UserProfile } from "./pages/UserProfile";
 import { About } from "./pages/About";
 import { AddPlant } from "./pages/AddPlant";
 import { PlantList } from "./pages/PlantList";
+import { LandingPage } from "./pages/LandingPage";
 
 import injectContext from "./store/appContext";
 
@@ -31,6 +32,9 @@ const Layout = () => {
 					<Navbar />
 					<Switch>
 						<Route exact path="/">
+							<LandingPage />
+						</Route>
+						<Route exact path="/homeUnreg">
 							<HomeUnreg />
 						</Route>
 						<Route exact path="/homeReg">
@@ -45,12 +49,6 @@ const Layout = () => {
 						<Route exact path="/profile/:id">
 							<UserProfile />
 						</Route>
-						{/* <Route exact path="/demo">
-							<Demo />
-						</Route> */}
-						{/* <Route exact path="/single/:theid">
-							<Single />
-						</Route> */}
 						<Route exact path="/signuppersonal">
 							<SignupPersonal />
 						</Route>

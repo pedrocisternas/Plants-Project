@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			garden: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+			garden: [null, null, null, null, null, null, null, null, null, null, null],
 			users: [],
 			plants: [
 				"Allium",
