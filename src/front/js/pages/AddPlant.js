@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const AddPlant = () => {
+	const { store, actions } = useContext(Context);
+
 	return (
 		<div className="container">
 			<h1 className="text-center py-3 heading">Search for a Plant</h1>
@@ -20,11 +22,23 @@ export const AddPlant = () => {
 					</button>
 				</div>
 			</div>
-			<Link to="/homeReg">
-				<button type="button" className="btn btn-style my-4">
-					Go Back
-				</button>
-			</Link>
+			<div className="d-flex flex-row justtify-content-start align-items-center">
+				<div>
+					<button onClick={() => actions.addAPlant()} className="btn btn-style" type="button">
+						Add Plant
+					</button>
+				</div>
+				<Link to="/plantlist">
+					<button type="button" className="btn btn-style btn-list m-3">
+						See Selected
+					</button>
+				</Link>
+				<Link to="/homeReg">
+					<button type="button" className="btn btn-style mx-4">
+						Go Back
+					</button>
+				</Link>
+			</div>
 		</div>
 	);
 };

@@ -2,7 +2,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			garden: [null, null, null, null, null, null, null, null, null, null, null],
-			users: [],
+			users: [
+				{
+					id: 1,
+					username: "pedroc",
+					first_name: "Pedro",
+					last_name: "Cisternas",
+					email: "pedroc@mail.com",
+					password: "xxxxxxx1"
+				},
+				{
+					id: 2,
+					username: "tonna",
+					first_name: "Ann",
+					last_name: "Tonn",
+					email: "tonna@mail.com",
+					password: "xxxxxxx2"
+				}
+			],
 			plants: [
 				"Allium",
 				"Alyssum",
@@ -35,6 +52,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			generateList: () => {
 				const new_Plantslist = getStore().plants;
 				setStore({ plants: new_Plantslist });
+			},
+			addAPlant: () => {
+				const new_Plants = getStore().plants;
+				new_Plants.push("New Plant Added");
+				setStore({ plants: new_Plants });
 			},
 			getMessage: () => {
 				// fetching data from the backend

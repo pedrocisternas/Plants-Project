@@ -34,8 +34,11 @@ export const Navbar = () => {
 					<Link to="/login" onClick={() => setShowDropdown(!showDropdown)}>
 						<div className="dropdown-item heading">Log In</div>
 					</Link>
-					<Link to="/homeReg" onClick={() => setShowDropdown(!showDropdown)}>
+					<Link to="/profile" onClick={() => setShowDropdown(!showDropdown)}>
 						<div className="dropdown-item heading">Your Profile</div>
+					</Link>
+					<Link to="/homeReg" onClick={() => setShowDropdown(!showDropdown)}>
+						<div className="dropdown-item heading">Select Plants</div>
 					</Link>
 					<Link to="/logout" onClick={() => setShowDropdown(!showDropdown)}>
 						<div className="dropdown-item heading">Log Out</div>
