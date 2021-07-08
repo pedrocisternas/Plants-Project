@@ -25,11 +25,11 @@ export const Navbar = () => {
 					data-toggle="dropdown"
 					aria-haspopup="true"
 					aria-expanded="false">
-					{"Garden Shed"}
+					{"Garden Tools"}
 				</button>
 				<div className={showDropdown ? "dropdown-menu show" : "d-none"} aria-labelledby="dropdownMenuButton">
 					<Link to="/signuppersonal" onClick={() => setShowDropdown(!showDropdown)}>
-						<div className="dropdown-item heading">Sign Up</div>
+						<div className="dropdown-item heading">Join Plotters</div>
 					</Link>
 					<Link to="/login" onClick={() => setShowDropdown(!showDropdown)}>
 						<div className="dropdown-item heading">Log In</div>

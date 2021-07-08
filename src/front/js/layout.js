@@ -13,12 +13,13 @@ import { About } from "./pages/About";
 import { AddPlant } from "./pages/AddPlant";
 import { PlantList } from "./pages/PlantList";
 import { LandingPage } from "./pages/LandingPage";
+import { PersonalInfo } from "./pages/PersonalInfo";
+import { GardenInfo } from "./pages/GardenInfo";
 
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import { PersonalInfo } from "./component/personalInfo";
 
 //create your first component
 const Layout = () => {
@@ -47,8 +48,14 @@ const Layout = () => {
 						<Route exact path="/logout">
 							<Logout />
 						</Route>
-						<Route exact path="/profile/:id">
+						<Route exact path="/profile">
 							<UserProfile />
+						</Route>
+						<Route exact path="/personal">
+							<PersonalInfo />
+						</Route>
+						<Route exact path="/garden">
+							<GardenInfo />
 						</Route>
 						<Route exact path="/signuppersonal">
 							<SignupPersonal />

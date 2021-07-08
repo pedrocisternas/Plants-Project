@@ -5,19 +5,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			users: [
 				{
 					id: 1,
-					username: "pedroc",
-					first_name: "Pedro",
-					last_name: "Cisternas",
-					email: "pedroc@mail.com",
-					password: "xxxxxxx1"
-				},
-				{
-					id: 2,
-					username: "tonna",
-					first_name: "Ann",
-					last_name: "Tonn",
-					email: "tonna@mail.com",
-					password: "xxxxxxx2"
+					username: "gregors",
+					first_name: "Gregor",
+					last_name: "Samsa",
+					email: "gregors@mail.com",
+					password: "xxxxxxx1",
+					hardiness: 11
 				}
 			],
 			plants: [
