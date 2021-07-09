@@ -5,6 +5,11 @@ import { Context } from "../store/appContext";
 export const AddPlant = () => {
 	const { store, actions } = useContext(Context);
 
+	const [newPlant, setNewPlant] = useState("");
+	const plantInput = e => {
+		setNewPlant(e.target.value);
+	};
+
 	return (
 		<div className="container">
 			<h1 className="text-center py-3 heading">Search for a Plant</h1>
@@ -12,6 +17,7 @@ export const AddPlant = () => {
 				<input
 					type="text"
 					className="form-control"
+					onChange={plantInput}
 					placeholder="Type plant name"
 					aria-label="Type plant name"
 					aria-describedby="button-addon2"
@@ -24,7 +30,7 @@ export const AddPlant = () => {
 			</div>
 			<div className="d-flex flex-row justtify-content-start align-items-center">
 				<div>
-					<button onClick={() => actions.addAPlant()} className="btn btn-style" type="button">
+					<button onClick={() => actions.addAPlant(newPlant)} className="btn btn-style" type="button">
 						Add Plant
 					</button>
 				</div>

@@ -4,22 +4,28 @@ import { Context } from "../store/appContext";
 
 export const PersonalInfo = props => {
 	const { store, actions } = useContext(Context);
-	const [loggedInUser, setLoggedInUser] = useState({});
 
 	return (
-		<div>
-			{" "}
-			<h3 className="heading">Personal Information</h3>
-			<label>Name: </label>
-			<div>
-				{store.usersPersonal[0]["first_name"]} {store.usersPersonal[0]["last_name"]}
+		<div className=" w-50 m-auto ">
+			<h3 className="heading text-center">Personal Information</h3>
+			<div className="user-info">
+				<h5 className="heading text-center mb-0">Name: </h5>
+				<div className="color-item2 text-center">
+					{store.usersPersonal[0].first_name} {store.usersPersonal[0].last_name}
+				</div>
 			</div>
-			<label>Username: </label>
-			<div>{store.usersPersonal[0]["username"]}</div>
-			<label>Email: </label>
-			<div>{store.usersPersonal[0]["email"]}</div>
-			<label>Password: </label>
-			<div>{store.usersPersonal[0]["password"]}</div>
+			<div className="user-info">
+				<h5 className="heading text-center mb-0">Username: </h5>
+				<div className="color-item2 text-center">{store.usersPersonal[0]["username"]}</div>
+			</div>
+			<div className="user-info">
+				<h5 className="heading text-center mb-0">Email: </h5>
+				<div className="color-item2 text-center">{store.usersPersonal[0]["email"]}</div>
+			</div>
+			<div className="user-info">
+				<h5 className="heading text-center mb-0">Password: </h5>
+				<div className="color-item2 text-center">{store.usersPersonal[0]["password"]}</div>
+			</div>
 		</div>
 	);
 };

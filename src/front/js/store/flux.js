@@ -3,14 +3,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			garden: [null, null, null, null, null, null, null, null, null, null, null],
 			usersPersonal: [
-				// {
-				// 	username: "gregors",
-				// 	first_name: "Gregor",
-				// 	last_name: "Samsa",
-				// 	email: "gregors@mail.com",
-				// 	password: "xxxxxxx1",
-				// 	repeat_password: "xxxxxxx1"
-				// }
+				{
+					username: "gregors",
+					first_name: "Gregor",
+					last_name: "Samsa",
+					email: "gregors@mail.com",
+					password: "xxxxxxx1",
+					repeat_password: "xxxxxxx1"
+				}
 			],
 			plants: [
 				"Allium",
@@ -34,7 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			postUserPersonal: user => {
 				const new_usersPersonal = getStore().usersPersonal;
-				new_usersPersonal.push(user);
+				new_usersPersonal.unshift(user);
 				setStore({ usersPersonal: new_usersPersonal });
 			},
 			getUserPersonal: () => {},
@@ -51,9 +51,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const new_Plantslist = getStore().plants;
 				setStore({ plants: new_Plantslist });
 			},
-			addAPlant: () => {
+			addAPlant: plant => {
 				const new_Plants = getStore().plants;
-				new_Plants.push("New Plant Added");
+				new_Plants.push(plant);
 				setStore({ plants: new_Plants });
 			},
 			getMessage: () => {
