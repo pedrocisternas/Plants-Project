@@ -3,14 +3,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			garden: [null, null, null, null, null, null, null, null, null, null, null],
 			usersPersonal: [
-				{
-					username: "gregors",
-					first_name: "Gregor",
-					last_name: "Samsa",
-					email: "gregors@mail.com",
-					password: "xxxxxxx1",
-					repeat_password: "xxxxxxx1"
-				}
+				// {
+				// 	username: "gregors",
+				// 	first_name: "Gregor",
+				// 	last_name: "Samsa",
+				// 	email: "gregors@mail.com",
+				// 	password: "xxxxxxx1",
+				// 	repeat_password: "xxxxxxx1"
+				// }
 			],
 			plants: [
 				"Allium",

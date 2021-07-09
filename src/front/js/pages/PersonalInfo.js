@@ -2,8 +2,9 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const PersonalInfo = () => {
+export const PersonalInfo = props => {
 	const { store, actions } = useContext(Context);
+	const [loggedInUser, setLoggedInUser] = useState({});
 
 	return (
 		<div>
