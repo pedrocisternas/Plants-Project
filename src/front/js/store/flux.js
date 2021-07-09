@@ -37,6 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				new_usersPersonal.push(user);
 				setStore({ usersPersonal: new_usersPersonal });
 			},
+			getUserPersonal: () => {},
 			addSquare: () => {
 				const new_garden = getStore().garden;
 				new_garden.push(null);

@@ -14,13 +14,13 @@ export const SignupPersonal = props => {
 	});
 
 	const userInput = e => {
-		console.log(e.target);
 		setUserPersonal({ ...userPersonal, [e.target.name]: e.target.value });
+		console.log(e.target.name, e.target.value);
 	};
 
 	const saveUserInput = () => {
 		actions.postUserPersonal(userPersonal);
-		props.history.push("/personal");
+		//props.history.push("/personal");
 	};
 
 	return (
