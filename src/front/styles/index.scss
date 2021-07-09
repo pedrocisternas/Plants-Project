@@ -60,6 +60,10 @@ body {
     color: var(--persimmon);
 }
 
+.color-item3 {
+    color: var(--avocado);
+}
+
 .bg-color-item {
     background: var(--apple-green);
 }
@@ -85,6 +89,12 @@ body {
     margin: 0 0.5rem 0.9rem 0.9rem;
 }
 
+.btn-profile {
+    font-size: 1.5rem;
+    //color: var(--persimmon);
+    //border-bottom: 5px dotted var(--persimmon);
+}
+
 .plant-list-box {
     margin: 0.8rem;
     
@@ -101,9 +111,9 @@ body {
     width: 100%;
 }
 
-.plant-list-text {
+.list-text {
     font-family: Yeseva One;
-    
+    color: var(--avocado);
 }
 
 

@@ -2,15 +2,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			garden: [null, null, null, null, null, null, null, null, null, null, null],
-			users: [
+			usersPersonal: [
 				{
-					id: 1,
 					username: "gregors",
 					first_name: "Gregor",
 					last_name: "Samsa",
 					email: "gregors@mail.com",
 					password: "xxxxxxx1",
-					hardiness: 11
+					repeat_password: "xxxxxxx1"
 				}
 			],
 			plants: [
@@ -32,6 +31,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
+			},
+			postUserPersonal: user => {
+				const new_usersPersonal = getStore().usersPersonal;
+				new_usersPersonal.push(user);
+				setStore({ usersPersonal: new_usersPersonal });
 			},
 			addSquare: () => {
 				const new_garden = getStore().garden;

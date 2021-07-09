@@ -23,7 +23,7 @@ export const PlantList = () => {
 						<div className="plant-list ">
 							<div className="d-flex justify-content-between align-items-center">
 								<div>
-									#{i + 1}: <span className="plant-list-text"> {el}</span>
+									#{i + 1}: <span className="list-text"> {el}</span>
 								</div>
 								<div>
 									<button className="btn-style btn-list " onClick={() => toggleDetailsPopup(el)}>
