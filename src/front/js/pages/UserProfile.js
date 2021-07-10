@@ -6,34 +6,41 @@ export const UserProfile = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div>
-			<h2 className="heading text-center">
-				{store.usersPersonal[0].first_name} {store.usersPersonal[0].last_name}
-			</h2>
+		<div className="container-fluid">
+			<div className="w-100 user-profile-name">
+				<h2 className="heading text-center">
+					{store.usersPersonal[0].first_name} {store.usersPersonal[0].last_name}
+				</h2>
+			</div>
 			<div className="d-flex flex-column justify-content-center align-items-center  w-50 m-auto">
-				<div className="d-flex flex-row align-items-center m-4 p-4 ">
+				<div className="d-flex flex-row align-items-center m-4 p-4 text-anime">
 					<Link to="/personal">
 						<button type="button" className="btn border-0 btn-profile list-text">
 							Personal Information
 						</button>
 					</Link>
-					<i className="far fa-2x color-item3 fa-user-circle" />
+					<img className="ml-5" src="https://i.imgur.com/uXEpgQA.png" alt="scarecrow" />
+					{/* <i className="far fa-2x color-item3 fa-user-circle" /> */}
 				</div>
-				<div className="d-flex flex-row align-items-center m-4 p-4 ">
+				<div className="d-flex flex-row align-items-center m-4 p-4 text-anime">
+					<img className="mr-5" src="https://i.imgur.com/nJOHwX1.png" alt="garden tools" />
 					<Link to="/garden">
 						<button type="button" className="btn border-0 btn-profile list-text">
 							Garden Information
 						</button>
 					</Link>
-					<i className="fas fa-2x color-item3 fa-seedling" />
+
+					{/* <i className="fas fa-2x color-item3 fa-seedling" /> */}
 				</div>
-				<div className="d-flex flex-row align-items-center m-4 p-4 ">
+				<div className="d-flex flex-row align-items-center m-4 p-4 text-anime">
 					<Link to="/plantlist">
 						<button type="button" className="btn border-0 btn-profile list-text">
 							See Your Selections
 						</button>
 					</Link>
-					<i className="far fa-2x color-item3 fa-check-circle" />
+					<span />
+					<img className="ml-5" src="https://i.imgur.com/p5SeFG5.png" alt="flower" />
+					{/* <i className="far fa-2x color-item3 fa-check-circle" /> */}
 				</div>
 			</div>
 		</div>

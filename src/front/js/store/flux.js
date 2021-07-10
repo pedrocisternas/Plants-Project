@@ -35,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			postUserPersonal: user => {
 				const new_usersPersonal = getStore().usersPersonal;
-				new_usersPersonal.push(user);
+				new_usersPersonal.unshift(user);
 				setStore({ usersPersonal: new_usersPersonal });
 			},
 			getUserPersonal: () => {},
