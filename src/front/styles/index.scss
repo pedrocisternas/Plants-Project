@@ -39,17 +39,21 @@ body {
 }
 
 .zoom-in {
-    transition: transform 0.3s;    
-        
+    transition: transform 0.3s;       
 }
 
 .zoom-in:hover {
     transform: scale(1.25) skew(20deg, -20deg);
-    
     background: var(--avocado);
-    
-    
-    //border: 0.3px solid green;
+}
+
+.text-anime {
+    transition: transform 0.3s;
+}
+
+.text-anime:hover {
+    transform: scale3d(1.25, 1.25, 1.25);
+    color: var(--persimmon);
 }
 
 .color-item {
