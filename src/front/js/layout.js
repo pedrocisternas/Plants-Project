@@ -34,11 +34,11 @@ const Layout = () => {
 					<Navbar />
 					<Switch>
 						<Route exact path="/">
-							<LandingPage />
-						</Route>
-						<Route exact path="/homeUnreg">
 							<HomeUnreg />
 						</Route>
+						{/* <Route exact path="/homeUnreg">
+							<HomeUnreg />
+						</Route> */}
 						<Route exact path="/homeReg">
 							<HomeReg />
 						</Route>

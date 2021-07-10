@@ -19,6 +19,7 @@ export const SignupPersonal = props => {
 	};
 
 	const saveUserInput = () => {
+		console.log(userPersonal);
 		actions.postUserPersonal(userPersonal);
 		//props.history.push("/personal");
 	};
