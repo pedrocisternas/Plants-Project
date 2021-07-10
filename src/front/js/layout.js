@@ -36,6 +36,9 @@ const Layout = () => {
 						<Route exact path="/">
 							<HomeUnreg />
 						</Route>
+						{/* <Route exact path="/homeUnreg">
+							<HomeUnreg />
+						</Route> */}
 						<Route exact path="/homeReg">
 							<HomeReg />
 						</Route>

@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			garden: [null, null, null, null, null, null, null, null, null, null, null],
+			garden: ["Allium", "Alyssum", "Aster", "Bellflower", null, null, null, null, null, null, null],
 			usersPersonal: [
 				{
 					username: "gregors",
@@ -12,20 +12,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					repeat_password: "xxxxxxx1"
 				}
 			],
-			plants: [
-				"Allium",
-				"Alyssum",
-				"Aster",
-				"Bellflower",
-				"Blanketflower",
-				"Camellia",
-				"Catmint",
-				"Clematis",
-				"Daylily",
-				"Foxglove",
-				"Geranium",
-				"Honeysuckle"
-			]
+			squareSelected: null
+			// plants: [
+			// 	"Allium",
+			// 	"Alyssum",
+			// 	"Aster",
+			// 	"Bellflower",
+			// 	"Blanketflower",
+			// 	"Camellia",
+			// 	"Catmint",
+			// 	"Clematis",
+			// 	"Daylily",
+			// 	"Foxglove",
+			// 	"Geranium",
+			// 	"Honeysuckle"
+			// ]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -51,10 +52,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const new_Plantslist = getStore().plants;
 				setStore({ plants: new_Plantslist });
 			},
-			addAPlant: plant => {
-				const new_Plants = getStore().plants;
-				new_Plants.push(plant);
-				setStore({ plants: new_Plants });
+			addAPlant: (plant, position) => {
+				const new_garden = getStore().garden;
+				new_garden[position] = plant;
+				setStore({ plants: new_garden });
 			},
 			getMessage: () => {
 				// fetching data from the backend
@@ -62,6 +63,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(data => setStore({ message: data.message }))
 					.catch(error => console.log("Error loading message from backend", error));
+			},
+			updateSquareSelected: position => {
+				setStore({ squareSelected: position });
 			},
 			changeColor: (index, color) => {
 				//get the store
