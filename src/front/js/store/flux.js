@@ -1,7 +1,35 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			garden: ["Allium", "Alyssum", "Aster", "Bellflower", null, null, null, null, null, null, null],
+			garden: [
+				{
+					plantName: "Allium",
+					description:
+						"Dis parturient montes nascetur ridiculus. Eget mauris pharetra et ultrices. A cras semper auctor neque vitae tempus quam pellentesque nec. Nibh mauris cursus mattis molestie a iaculis at. Egestas dui id ornare arcu. Ullamcorper sit amet risus nullam eget felis eget nunc."
+				},
+				{
+					plantName: "Alyssum",
+					description:
+						"Dis parturient montes nascetur ridiculus. Eget mauris pharetra et ultrices. A cras semper auctor neque vitae tempus quam pellentesque nec. Nibh mauris cursus mattis molestie a iaculis at. Egestas dui id ornare arcu. Ullamcorper sit amet risus nullam eget felis eget nunc."
+				},
+				{
+					plantName: "Aster",
+					description:
+						"Dis parturient montes nascetur ridiculus. Eget mauris pharetra et ultrices. A cras semper auctor neque vitae tempus quam pellentesque nec. Nibh mauris cursus mattis molestie a iaculis at. Egestas dui id ornare arcu. Ullamcorper sit amet risus nullam eget felis eget nunc."
+				},
+				{
+					plantName: "Bellflower",
+					description:
+						"Dis parturient montes nascetur ridiculus. Eget mauris pharetra et ultrices. A cras semper auctor neque vitae tempus quam pellentesque nec. Nibh mauris cursus mattis molestie a iaculis at. Egestas dui id ornare arcu. Ullamcorper sit amet risus nullam eget felis eget nunc."
+				},
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null
+			],
 			usersPersonal: [
 				{
 					username: "gregors",
@@ -13,20 +41,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			squareSelected: null
-			// plants: [
-			// 	"Allium",
-			// 	"Alyssum",
-			// 	"Aster",
-			// 	"Bellflower",
-			// 	"Blanketflower",
-			// 	"Camellia",
-			// 	"Catmint",
-			// 	"Clematis",
-			// 	"Daylily",
-			// 	"Foxglove",
-			// 	"Geranium",
-			// 	"Honeysuckle"
-			// ]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -55,6 +69,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addAPlant: (plant, position) => {
 				const new_garden = getStore().garden;
 				new_garden[position] = plant;
+				setStore({ plants: new_garden });
+			},
+			deleteAPlant: position => {
+				const new_garden = getStore().garden;
+				new_garden.splice(position, 1);
 				setStore({ plants: new_garden });
 			},
 			getMessage: () => {

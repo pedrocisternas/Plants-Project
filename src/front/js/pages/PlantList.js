@@ -6,10 +6,17 @@ import { Popup } from "../component/popup";
 export const PlantList = () => {
 	const { store, actions } = useContext(Context);
 	const [isOpen, setIsOpen] = useState(false);
-	const [plant, setPlant] = useState("");
+	const [plantName, setPlantName] = useState("");
+	const [plantDescription, setPlantDescription] = useState("");
+
+	const helper = (el, i) => {
+		actions.updateSquareSelected(i);
+		toggleDetailsPopup(el);
+	};
 
 	const toggleDetailsPopup = elem => {
-		setPlant(elem);
+		setPlantName(elem["plantName"]);
+		setPlantDescription(elem["description"]);
 		setIsOpen(!isOpen);
 	};
 
@@ -25,12 +32,10 @@ export const PlantList = () => {
 								<div className="plant-list ">
 									<div className="d-flex justify-content-between align-items-center">
 										<div>
-											#{i + 1}: <span className="list-text"> {el}</span>
+											#{i + 1}: <span className="list-text">{el["plantName"]}</span>
 										</div>
 										<div>
-											<button
-												className="btn-style btn-list "
-												onClick={() => toggleDetailsPopup(el)}>
+											<button className="btn-style btn-list " onClick={() => helper(el, i)}>
 												Details
 											</button>
 										</div>
@@ -40,7 +45,13 @@ export const PlantList = () => {
 						);
 					}
 				})}
-				{isOpen && <Popup plantDetails={plant} handlePopup={() => toggleDetailsPopup(plant)} />}
+				{isOpen && (
+					<Popup
+						plantName={plantName}
+						plantDescription={plantDescription}
+						handlePopup={() => toggleDetailsPopup(plantName)}
+					/>
+				)}
 			</div>
 		</>
 	);
