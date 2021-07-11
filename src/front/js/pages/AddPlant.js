@@ -34,9 +34,10 @@ export const AddPlant = () => {
 			</div>
 			<div className="d-flex flex-row justtify-content-start align-items-center">
 				<div>
-					<Link to="/homereg">
-						<button
-							onClick={() =>
+					{/* <Link to="/homereg"> */}
+					<button
+						onClick={() => {
+							if (plantName) {
 								actions.addAPlant(
 									{
 										plantName: plantName,
@@ -44,13 +45,16 @@ export const AddPlant = () => {
 											"Here goes the descrption of the added plant. Right now is hardcoded, but the info will come from the API."
 									},
 									store.squareSelected
-								)
+								);
+							} else {
+								alert("You need to enter a plant name.");
 							}
-							className="btn btn-style"
-							type="button">
-							Add Plant
-						</button>
-					</Link>
+						}}
+						className="btn btn-style"
+						type="button">
+						Add Plant
+					</button>
+					{/* </Link> */}
 				</div>
 				<Link to="/plantlist">
 					<button type="button" className="btn btn-style btn-list m-3">

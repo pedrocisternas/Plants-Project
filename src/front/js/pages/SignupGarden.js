@@ -5,17 +5,41 @@ import { Context } from "../store/appContext";
 export const SignupGarden = () => {
 	const { store, actions } = useContext(Context);
 	const [plotSize, setPlotSize] = useState(null);
-	const handleSave = () => {
+	const [userGarden, setUserGarden] = useState({
+		hardiness: null,
+		plot_size: null,
+		sunlight: null,
+		edibles: null,
+		annuals: null,
+		experience: null
+	});
+
+	const userGardenInput = e => {
+		setPlotSize(parseInt(e.target.value));
+		setUserGarden({ ...userGarden, [e.target.name]: e.target.value });
+		console.log(e.target.name, e.target.value);
+	};
+
+	const saveGardenInput = () => {
+		console.log(userGarden);
+		actions.postUserGarden(userGarden);
 		actions.emptyGarden();
 		for (let i = 0; i < plotSize; i++) {
 			actions.addSquare();
 		}
 	};
 
+	// const handleSave = () => {
+	// 	actions.emptyGarden();
+	// 	for (let i = 0; i < plotSize; i++) {
+	// 		actions.addSquare();
+	// 	}
+	// };
+
 	return (
 		<form className="container w-50 my-2 grid-bg">
 			<h1 className="text-center heading mb-5">Garden Details</h1>
-			<div className="form-groupn">
+			<div className="form-group">
 				<label className="text-center">Hardiness Zone</label>
 				<a href="https://gilmour.com/planting-zones-hardiness-map" target="_blank" rel="noopener noreferrer">
 					{" "}
@@ -24,7 +48,9 @@ export const SignupGarden = () => {
 				<input
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"
+					onChange={userGardenInput}
 					style={{ textAlign: "center" }}
+					name="hardiness"
 					placeholder="Hardiness Zone"
 					aria-label="Zone"
 				/>
@@ -32,19 +58,18 @@ export const SignupGarden = () => {
 			<div className="form-group">
 				<label>Plot Size</label>
 				<input
-					onChange={e => {
-						setPlotSize(parseInt(e.target.value));
-					}}
+					onChange={userGardenInput}
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"
 					style={{ textAlign: "center" }}
+					name="plot_size"
 					placeholder="Plot size"
-					aria-label="size"
+					aria-label="plot_size"
 				/>
 			</div>
 			<div className="form-group">
 				<label>Sun/Shade</label>
-				<select className="form-control" id="sunshine">
+				<select className="form-control" id="sunlight" name="sunlight" onChange={userGardenInput}>
 					<option selected>Choose...</option>
 					<option>Sunny</option>
 					<option>Shady</option>
@@ -53,7 +78,7 @@ export const SignupGarden = () => {
 			</div>
 			<div className="form-group">
 				<label>Edible Plants</label>
-				<select className="form-control" id="sunshine">
+				<select className="form-control" id="edibles" name="edibles" onChange={userGardenInput}>
 					<option selected>Do you want to include edible plants?</option>
 					<option>Yes</option>
 					<option>No</option>
@@ -62,7 +87,7 @@ export const SignupGarden = () => {
 			</div>
 			<div className="form-group">
 				<label>Annual Plants</label>
-				<select className="form-control" id="sunshine">
+				<select className="form-control" id="annuals" name="annuals" onChange={userGardenInput}>
 					<option selected>Do you want to include annual plants?</option>
 					<option>Yes</option>
 					<option>No</option>
@@ -70,14 +95,13 @@ export const SignupGarden = () => {
 				</select>
 			</div>
 			<div className="form-group">
-				<label>One more question here</label>
-				<input
-					type="text"
-					className="form-control mr-3 mt-2 mb-4"
-					style={{ textAlign: "center" }}
-					placeholder="One more Q"
-					aria-label="one more"
-				/>
+				<label>Trees</label>
+				<select className="form-control" id="trees" name="trees" onChange={userGardenInput}>
+					<option selected>Do you want to include trees?</option>
+					<option>Yes</option>
+					<option>No</option>
+					<option>Undecided</option>
+				</select>
 			</div>
 			<div className="d-flex justify-content-around">
 				<Link to="/signuppersonal">
@@ -85,8 +109,14 @@ export const SignupGarden = () => {
 						Go Back
 					</button>
 				</Link>
-				<Link to="/">
-					<button onClick={() => handleSave()} type="button" className="btn btn-style my-4">
+				<Link to="/homeReg">
+					<button
+						onClick={() => {
+							// handleSave();
+							saveGardenInput();
+						}}
+						type="button"
+						className="btn btn-style my-4">
 						Submit
 					</button>
 				</Link>

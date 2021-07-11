@@ -9,17 +9,16 @@ export const PlantList = () => {
 	const [plantName, setPlantName] = useState("");
 	const [plantDescription, setPlantDescription] = useState("");
 
-	const helper = (el, i) => {
-		actions.updateSquareSelected(i);
-		toggleDetailsPopup(el);
-	};
-
 	const toggleDetailsPopup = elem => {
 		setPlantName(elem["plantName"]);
 		setPlantDescription(elem["description"]);
 		setIsOpen(!isOpen);
 	};
 
+	const helper = (el, i) => {
+		actions.updateSquareSelected(i);
+		toggleDetailsPopup(el);
+	};
 	return (
 		<>
 			<h1 className="text-center py-3 heading">Your Selected Plants List</h1>

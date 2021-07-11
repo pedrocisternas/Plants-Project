@@ -32,12 +32,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			usersPersonal: [
 				{
-					username: "gregors",
-					first_name: "Gregor",
-					last_name: "Samsa",
-					email: "gregors@mail.com",
-					password: "xxxxxxx1",
-					repeat_password: "xxxxxxx1"
+					username: null
+					// first_name: "Gregor",
+					// last_name: "Samsa",
+					// email: "gregors@mail.com",
+					// password: "xxxxxxx1",
+					// repeat_password: "xxxxxxx1"
+				}
+			],
+			usersGarden: [
+				{
+					hardiness: null,
+					plot_size: null,
+					sunlight: null,
+					edibles: null,
+					annuals: null,
+					experience: null
 				}
 			],
 			squareSelected: null
@@ -51,6 +61,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const new_usersPersonal = getStore().usersPersonal;
 				new_usersPersonal.unshift(user);
 				setStore({ usersPersonal: new_usersPersonal });
+			},
+			postUserGarden: user => {
+				const new_usersGarden = getStore().usersGarden;
+				new_usersGarden.unshift(user);
+				setStore({ usersGarden: new_usersGarden });
 			},
 			getUserPersonal: () => {},
 			addSquare: () => {
@@ -71,6 +86,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				new_garden[position] = plant;
 				setStore({ plants: new_garden });
 			},
+			getDescription: (plant, position) => {},
 			deleteAPlant: position => {
 				const new_garden = getStore().garden;
 				new_garden.splice(position, 1);
