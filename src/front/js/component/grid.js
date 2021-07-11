@@ -4,6 +4,13 @@ import { Context } from "../store/appContext";
 
 export const Grid = () => {
 	const { store, actions } = useContext(Context);
+	// const [squareStyle, setSquareStyle] = useState({ white: true });
+
+	// const changeSquareColor = () => {
+	// 	setSquareStyle(!squareStyle);
+	// };
+
+	// const squareClass = squareStyle.white ? "square" : "square-selected";
 
 	return (
 		<>

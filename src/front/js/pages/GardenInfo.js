@@ -32,6 +32,13 @@ export const GardenInfo = props => {
 				<h5 className="heading text-center mb-0">Trees included: </h5>
 				<div className="color-item2 text-center">{store.usersGarden[0]["trees"]}</div>
 			</div>
+			<div className="w-25 m-auto">
+				<Link to="/profile">
+					<button type="button" className="btn btn-style m-auto w-100">
+						Go back to Profile
+					</button>
+				</Link>
+			</div>
 		</div>
 	);
 };

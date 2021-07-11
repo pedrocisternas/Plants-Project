@@ -52,6 +52,22 @@ export const PlantList = () => {
 					/>
 				)}
 			</div>
+			<div className="w-50 d-flex justify-content-around m-auto">
+				<div className="w-25 m-auto">
+					<Link to="/profile">
+						<button type="button" className="btn btn-style m-auto w-100">
+							Go to Profile
+						</button>
+					</Link>
+				</div>
+				<div className="w-25 m-auto">
+					<Link to="/homeReg">
+						<button type="button" className="btn btn-style m-auto w-100">
+							Add a Plant
+						</button>
+					</Link>
+				</div>
+			</div>
 		</>
 	);
 };
