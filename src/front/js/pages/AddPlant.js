@@ -12,7 +12,7 @@ export const AddPlant = () => {
 	// };
 
 	return (
-		<div className="container">
+		<div className="container h-100">
 			<h1 className="text-center py-3 heading">Search for a Plant</h1>
 			<div className="input-group mb-3">
 				<input
@@ -27,7 +27,7 @@ export const AddPlant = () => {
 					aria-describedby="button-addon2"
 				/>
 				<div className="input-group-append">
-					<button className="btn btn-style" type="button" id="button-addon2">
+					<button className="btn btn-style m-0" type="button" id="button-addon2">
 						Search
 					</button>
 				</div>

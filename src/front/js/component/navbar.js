@@ -38,7 +38,7 @@ export const Navbar = () => {
 						<div className="dropdown-item heading">Your Profile</div>
 					</Link>
 					<Link to="/homeReg" onClick={() => setShowDropdown(!showDropdown)}>
-						<div className="dropdown-item heading">Select Plants</div>
+						<div className="dropdown-item heading">Add Plants</div>
 					</Link>
 					<Link to="/logout" onClick={() => setShowDropdown(!showDropdown)}>
 						<div className="dropdown-item heading">Log Out</div>

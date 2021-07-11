@@ -4,12 +4,13 @@ import { Context } from "../store/appContext";
 
 export const Login = () => {
 	return (
-		<div className="container w-50 my-5 grid-bg">
-			<div className="card text-center border-0">
+		<div className="container w-50 h-100 ">
+			<div className="card card-style text-center border-0">
 				<div className="card-body d-flex flex-column align-items-center ">
-					<h1 className="card-title heading">Login</h1>
+					<h1 className="card-title heading">Welcome back!</h1>
 					<p>
-						<i className="fab fa-pagelines fa-2x color-item" />
+						<img src="https://i.imgur.com/FCpAaaE.png" alt="floral design" />
+						{/* <i className="fab fa-pagelines fa-2x color-item" /> */}
 					</p>
 					<input
 						type="text"

@@ -4,12 +4,12 @@ import { Context } from "../store/appContext";
 
 export const Logout = () => {
 	return (
-		<div className="container grid-bg my-3">
-			<div className="card text-center border-0">
+		<div className="container h-100 ">
+			<div className="card card-style text-center border-0">
 				<div className="card-body d-flex flex-column align-items-center">
 					<h1 className="card-title heading">Hope to see you back soon!</h1>
 					<p>
-						<i className="fab fa-pagelines fa-2x color-item" />
+						<img src="https://i.imgur.com/XC46xXX.png" alt="floral design" />
 					</p>
 					<a href="#" className="btn btn-style mb-2">
 						Logout

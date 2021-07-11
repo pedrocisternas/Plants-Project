@@ -37,8 +37,11 @@ export const SignupGarden = () => {
 	// };
 
 	return (
-		<form className="container w-50 my-2 grid-bg">
-			<h1 className="text-center heading mb-5">Garden Details</h1>
+		<form className="container w-50 m-auto">
+			<h1 className="text-center heading">Garden Details</h1>
+			<p className="text-center mb-1">
+				<img src="https://i.imgur.com/8ratEk4.png" alt="floral design" />
+			</p>
 			<div className="form-group">
 				<label className="text-center">Hardiness Zone</label>
 				<a href="https://gilmour.com/planting-zones-hardiness-map" target="_blank" rel="noopener noreferrer">
