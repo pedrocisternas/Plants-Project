@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
 
-export const SignupGarden = () => {
+export const SignupGarden = props => {
 	const { store, actions } = useContext(Context);
 	const [plotSize, setPlotSize] = useState(null);
 	const [userGarden, setUserGarden] = useState({
@@ -27,14 +28,8 @@ export const SignupGarden = () => {
 		for (let i = 0; i < plotSize; i++) {
 			actions.addSquare();
 		}
+		props.showButtons();
 	};
-
-	// const handleSave = () => {
-	// 	actions.emptyGarden();
-	// 	for (let i = 0; i < plotSize; i++) {
-	// 		actions.addSquare();
-	// 	}
-	// };
 
 	return (
 		<form className="container w-50 m-auto">
@@ -115,7 +110,6 @@ export const SignupGarden = () => {
 				<Link to="/homeReg">
 					<button
 						onClick={() => {
-							// handleSave();
 							saveGardenInput();
 						}}
 						type="button"
@@ -131,4 +125,8 @@ export const SignupGarden = () => {
 			</div>
 		</form>
 	);
+};
+
+SignupGarden.propTypes = {
+	showButtons: PropTypes.func
 };

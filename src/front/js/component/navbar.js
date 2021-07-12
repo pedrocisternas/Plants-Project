@@ -1,22 +1,32 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-export const Navbar = () => {
+export const Navbar = props => {
 	const [showDropdown, setShowDropdown] = useState(false);
 	return (
-		<nav className="navbar  m-0">
+		<nav className="navbar m-0">
 			<Link to="/">
 				<span className="navbar-brand ml-4 h1">
 					<img className="logo-img" src="https://i.imgur.com/3VBrs4C.png" />
 				</span>
 			</Link>
-
+			{props.show ? (
+				<>
+					<Link to="/homereg">
+						<span className="color-item mt-3 mx-3">My garden</span>
+					</Link>
+					<Link to="/plantlist">
+						<span className="color-item mt-3 mx-3">Plants list</span>
+					</Link>
+				</>
+			) : null}
 			{/* <div className="ml-auto">
 				<Link to="/signuppersonal">
 					<div className="btn btn-primary">Go to Sign-up Page</div>
 				</Link>
 			</div> */}
-			<div className="dropdown ">
+			<div className="dropdown ml-auto">
 				<button
 					onClick={() => setShowDropdown(!showDropdown)}
 					className="btn btn-style text-white dropdown-toggle "
@@ -47,4 +57,8 @@ export const Navbar = () => {
 			</div>
 		</nav>
 	);
+};
+
+Navbar.propTypes = {
+	show: PropTypes.bool
 };

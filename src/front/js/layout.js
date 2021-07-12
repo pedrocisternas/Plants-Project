@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
@@ -26,12 +26,13 @@ const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
 	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
+	const [show, setShow] = useState(false);
 
 	return (
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
+					<Navbar show={show} />
 					<Switch>
 						<Route exact path="/">
 							<HomeUnreg />
@@ -61,7 +62,7 @@ const Layout = () => {
 							<SignupPersonal />
 						</Route>
 						<Route exact path="/signupgarden">
-							<SignupGarden />
+							<SignupGarden showButtons={() => setShow(true)} />
 						</Route>
 						<Route exact path="/addplant">
 							<AddPlant />
