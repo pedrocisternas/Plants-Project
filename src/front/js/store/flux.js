@@ -89,7 +89,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getDescription: (plant, position) => {},
 			deleteAPlant: position => {
 				const new_garden = getStore().garden;
-				new_garden.splice(position, 1);
+				// new_garden.splice(position, 1);
+				new_garden[position] = null;
 				setStore({ plants: new_garden });
 			},
 			getMessage: () => {
