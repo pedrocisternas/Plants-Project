@@ -54,15 +54,27 @@ export const SignupGarden = props => {
 				/>
 			</div>
 			<div className="form-group">
-				<label>Plot Size</label>
+				<label>Plot Width</label>
 				<input
 					onChange={userGardenInput}
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"
 					style={{ textAlign: "center" }}
 					name="plot_size"
-					placeholder="Plot size"
-					aria-label="plot_size"
+					placeholder="Plot width"
+					aria-label="plot_width"
+				/>
+			</div>
+			<div className="form-group">
+				<label>Plot Height</label>
+				<input
+					onChange={userGardenInput}
+					type="text"
+					className="form-control mr-3 mt-2 mb-2"
+					style={{ textAlign: "center" }}
+					name="plot_size"
+					placeholder="Plot height"
+					aria-label="plot_height"
 				/>
 			</div>
 			<div className="form-group">

@@ -31,7 +31,7 @@ export const SignupPersonal = props => {
 				<img src="https://i.imgur.com/2vaTvrN.png" alt="floral design" />
 			</p>
 			<div className="form-group">
-				<label>Username </label>
+				<label>Username</label>
 				<input
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"

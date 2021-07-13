@@ -54,9 +54,9 @@ export const PlantList = () => {
 			</div>
 			<div className="w-50 d-flex justify-content-around m-auto">
 				<div className="w-25 m-auto">
-					<Link to="/profile">
+					<Link to="/homereg">
 						<button type="button" className="btn btn-style m-auto w-100">
-							Go to Profile
+							Go to Garden
 						</button>
 					</Link>
 				</div>
