@@ -19,8 +19,8 @@ export const Grid = () => {
 				{store.garden.map(
 					(el, i) =>
 						el ? (
-							<div className="square-selected" key={i} onClick={() => helper(i)} to="/addplant">
-								<img src="https://i.imgur.com/KlyBk8R.png" alt="seedling" />
+							<div className="square-selected" key={i} onClick={() => helper(i)}>
+								<img src="https://i.imgur.com/0fftZmM.png" alt="seedling" />
 							</div>
 						) : (
 							<div className="square zoom-in" key={i}>

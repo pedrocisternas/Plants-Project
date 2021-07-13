@@ -19,7 +19,7 @@ export const Navbar = props => {
 						<span className="color-item mt-3 mx-3">My garden</span>
 					</Link>
 					<Link to="/plantlist">
-						<span className="color-item mt-3 mx-3">Plants list</span>
+						<span className="color-item mt-3 mx-3">Selected Plants</span>
 					</Link>
 				</>
 			) : null}

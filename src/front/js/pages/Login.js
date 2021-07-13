@@ -10,7 +10,6 @@ export const Login = () => {
 					<h1 className="card-title heading">Welcome back!</h1>
 					<p>
 						<img src="https://i.imgur.com/FCpAaaE.png" alt="floral design" />
-						{/* <i className="fab fa-pagelines fa-2x color-item" /> */}
 					</p>
 					<input
 						type="text"

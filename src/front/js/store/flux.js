@@ -54,11 +54,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			usersPersonal: [
 				{
-					username: null
+					username: null,
 					// first_name: "Gregor",
 					// last_name: "Samsa",
 					// email: "gregors@mail.com",
-					// password: "xxxxxxx1",
+					password: null
 					// repeat_password: "xxxxxxx1"
 				}
 			],

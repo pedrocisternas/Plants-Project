@@ -30,7 +30,7 @@ body {
 }
 
 .square-selected {
-    background-color: var(--lemon-chiffon);
+    background-color: var(--apple-green);
     
     box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
@@ -62,8 +62,9 @@ body {
 }
 
 .zoom-in:hover {
-    transform: scale(1.25) skew(20deg, -20deg);
-    background: var(--avocado);
+    // transform: scale(1.25) skew(20deg, -20deg);
+    transform: scale3d(1.35, 1.35, 1.35);
+    background: var(--mindaro);
 }
 
 .text-anime {
