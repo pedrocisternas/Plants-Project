@@ -20,8 +20,8 @@ body {
     background-color: white;
     box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    height: 5.5vw;
-    width: 5.5vw;
+    min-height: 5.5vw;
+    min-width: 5.5vw;
     margin: 0.3vw;
     display: flex;
     justify-content: center;

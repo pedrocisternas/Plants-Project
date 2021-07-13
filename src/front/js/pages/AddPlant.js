@@ -34,7 +34,7 @@ export const AddPlant = () => {
 			</div>
 			<div className="d-flex flex-row justtify-content-start align-items-center">
 				<div>
-					<Link to="/plantlist">
+					<Link to="/homereg">
 						<button
 							onClick={() => {
 								if (plantName) {
