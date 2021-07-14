@@ -90,6 +90,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ usersGarden: new_usersGarden });
 			},
 			getUserPersonal: () => {},
+			userLogin: user => {
+				const login_user = getStore().usersPersonal;
+				login_user[0].username = user.username;
+				login_user[0].password = user.password;
+				setStore({ usersPersonal: login_user });
+			},
+			userLogout: () => {
+				const logout_user = getStore().usersPersonal;
+				logout_user[0].username = null;
+				logout_user[0].password = null;
+				setStore({ usersPersonal: logout_user });
+			},
 			addSquare: () => {
 				const new_garden = getStore().garden;
 				new_garden.push(null);

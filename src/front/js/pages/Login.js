@@ -1,8 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
 
-export const Login = () => {
+export const Login = props => {
+	const { store, actions } = useContext(Context);
+
+	const logIn = () => {
+		actions.userLogin(store.usersPersonal[0]);
+		props.showButtons();
+	};
+
 	return (
 		<div className="container w-50 h-100 ">
 			<div className="card card-style text-center border-0">
@@ -25,9 +33,11 @@ export const Login = () => {
 						placeholder="Password"
 						aria-label="Password"
 					/>
-					<a href="#" className="btn btn-style mb-2">
-						Submit
-					</a>
+					<Link to="/homeReg">
+						<button onCLick={logIn} className="btn btn-style mb-2">
+							Submit
+						</button>
+					</Link>
 					<Link to="/signuppersonal">
 						<div className="color-item mt-3">Create Account</div>
 					</Link>
@@ -35,4 +45,8 @@ export const Login = () => {
 			</div>
 		</div>
 	);
+};
+
+Login.propTypes = {
+	showButtons: PropTypes.func
 };

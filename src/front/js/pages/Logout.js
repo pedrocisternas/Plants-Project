@@ -1,8 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
 
-export const Logout = () => {
+export const Logout = props => {
+	const { store, actions } = useContext(Context);
+
+	const logOut = () => {
+		actions.userLogout();
+		props.showButtons();
+	};
+
 	return (
 		<div className="container h-100 ">
 			<div className="card card-style text-center border-0">
@@ -11,9 +19,11 @@ export const Logout = () => {
 					<p>
 						<img src="https://i.imgur.com/XC46xXX.png" alt="floral design" />
 					</p>
-					<a href="#" className="btn btn-style mb-2">
-						Logout
-					</a>
+					<Link to="/">
+						<button onClick={logOut} className="btn btn-style mb-2">
+							Logout
+						</button>
+					</Link>
 					<Link to="/homeReg">
 						<div style={{ color: "gray" }}>Go back to profile</div>
 					</Link>
@@ -21,4 +31,8 @@ export const Logout = () => {
 			</div>
 		</div>
 	);
+};
+
+Logout.propTypes = {
+	showButtons: PropTypes.func
 };

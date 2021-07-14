@@ -44,10 +44,10 @@ const Layout = () => {
 							<HomeReg />
 						</Route>
 						<Route exact path="/login">
-							<Login />
+							<Login showButtons={() => setShow(true)} />
 						</Route>
 						<Route exact path="/logout">
-							<Logout />
+							<Logout showButtons={() => setShow(false)} />
 						</Route>
 						<Route exact path="/profile">
 							<UserProfile />

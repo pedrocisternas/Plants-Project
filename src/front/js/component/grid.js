@@ -22,9 +22,15 @@ export const Grid = () => {
 							<div className="square-selected" key={i} onClick={() => helper(i)}>
 								<img src="https://i.imgur.com/0fftZmM.png" alt="seedling" />
 							</div>
-						) : (
+						) : store.usersPersonal.username != null ? (
 							<div className="square zoom-in" key={i}>
 								<Link onClick={() => actions.updateSquareSelected(i)} to="/addplant">
+									<img src="https://i.imgur.com/KlyBk8R.png" alt="seedling" />
+								</Link>
+							</div>
+						) : (
+							<div className="square zoom-in" key={i}>
+								<Link to="/signuppersonal">
 									<img src="https://i.imgur.com/KlyBk8R.png" alt="seedling" />
 								</Link>
 							</div>
