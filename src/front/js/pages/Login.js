@@ -46,7 +46,7 @@ export const Login = props => {
 						aria-label="Password"
 					/>
 					<Link to="/homeReg">
-						<button onCLick={logIn} className="btn btn-style mb-2">
+						<button onClick={() => logIn()} className="btn btn-style mb-2" type="button">
 							Submit
 						</button>
 					</Link>
