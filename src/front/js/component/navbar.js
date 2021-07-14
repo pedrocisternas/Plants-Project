@@ -8,7 +8,7 @@ export const Navbar = props => {
 	const [showDropdown, setShowDropdown] = useState(false);
 	return (
 		<nav className="navbar m-0">
-			<Link to="/">
+			<Link to={store.usersPersonal[0].username != null ? "/homereg" : "/"}>
 				<span className="navbar-brand ml-4 h1">
 					<img className="logo-img" src="https://i.imgur.com/3VBrs4C.png" />
 				</span>
