@@ -5,9 +5,17 @@ import PropTypes from "prop-types";
 
 export const Login = props => {
 	const { store, actions } = useContext(Context);
+	const [userLog, setUserLog] = useState({
+		username: null,
+		password: null
+	});
+
+	const handleUserLog = e => {
+		setUserLog({ ...userLog, [e.target.name]: e.target.value });
+	};
 
 	const logIn = () => {
-		actions.userLogin(store.usersPersonal[0]);
+		actions.userLogin(userLog);
 		props.showButtons();
 	};
 
@@ -22,14 +30,18 @@ export const Login = props => {
 					<input
 						type="text"
 						className="form-control mr-3 ml-3 mt-2 mb-2"
+						onChange={handleUserLog}
 						style={{ textAlign: "center" }}
+						name="username"
 						placeholder="Username"
 						aria-label="Username"
 					/>
 					<input
 						type="text"
 						className="form-control mr-6 ml-6 mt-2 mb-2"
+						onChange={handleUserLog}
 						style={{ textAlign: "center" }}
+						name="password"
 						placeholder="Password"
 						aria-label="Password"
 					/>
