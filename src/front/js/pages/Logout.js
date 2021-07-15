@@ -15,17 +15,17 @@ export const Logout = props => {
 		<div className="container h-100 ">
 			<div className="card card-style text-center border-0">
 				<div className="card-body d-flex flex-column align-items-center">
-					<h1 className="card-title heading">Hope to see you back soon!</h1>
+					<h1 className="card-title heading">See you soon, {store.usersPersonal[0].username}!</h1>
 					<p>
 						<img src="https://i.imgur.com/XC46xXX.png" alt="floral design" />
 					</p>
 					<Link to="/">
 						<button onClick={logOut} className="btn btn-style mb-2">
-							Logout
+							Log Out
 						</button>
 					</Link>
-					<Link to="/homeReg">
-						<div style={{ color: "gray" }}>Go back to profile</div>
+					<Link to="/profile">
+						<div className="color-item mt-3">Go to profile</div>
 					</Link>
 				</div>
 			</div>

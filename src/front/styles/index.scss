@@ -64,7 +64,17 @@ body {
 .zoom-in:hover {
     // transform: scale(1.25) skew(20deg, -20deg);
     transform: scale3d(1.35, 1.35, 1.35);
-    background: var(--mindaro);
+    background: var(--lemon-chiffon);
+}
+
+.zoom-in-plant-list {
+    transition: transform 0.3s;       
+}
+
+.zoom-in-plant-list:hover {
+    // transform: scale(1.25) skew(20deg, -20deg);
+    transform: scale3d(1.35, 1.35, 1.35);
+    background: var(--avocado);
 }
 
 .text-anime {
@@ -104,6 +114,16 @@ body {
     background: var(--apple-green);
     color: var(--ivory);
     font-size: 1rem;
+    margin: 0.5rem;
+    border: 0.5px solid var(--avocado);
+    border-radius: 5px;
+}
+
+
+.btn-style-user {
+    background: var(--lemon-chiffon);
+    color: var(--black-chocolate);
+    font-size: 0.8rem;
     margin: 0.5rem;
 }
 

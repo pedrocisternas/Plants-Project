@@ -16,21 +16,25 @@ export const Navbar = props => {
 			{props.show ? (
 				<>
 					<Link to="/homereg">
-						<span className="color-item mt-3 mx-3">My garden</span>
+						<button type="button" className="zoom-in btn btn-style-user color-item mt-3 mx-3">
+							My garden
+						</button>
 					</Link>
 					<Link to="/plantlist">
-						<span className="color-item mt-3 mx-3">Selected Plants</span>
+						<button type="button" className="zoom-in btn btn-style-user color-item mt-3 mx-3">
+							Selected Plants
+						</button>
 					</Link>
 				</>
 			) : null}
 			{store.usersPersonal[0]["username"] == null ? (
 				<Link to="/login">
-					<button type="button" className="btn btn-style my-4">
+					<button type="button" className="btn btn-style my-4 mr-5">
 						Log In
 					</button>
 				</Link>
 			) : (
-				<div className="dropdown ml-auto">
+				<div className="dropdown ml-auto mr-5">
 					<button
 						onClick={() => setShowDropdown(!showDropdown)}
 						className="btn btn-style text-white dropdown-toggle "
@@ -39,17 +43,11 @@ export const Navbar = props => {
 						data-toggle="dropdown"
 						aria-haspopup="true"
 						aria-expanded="false">
-						{store.usersPersonal[0]["username"]}
+						Hi, {store.usersPersonal[0]["username"]}
 					</button>
 					<div
-						className={showDropdown ? "dropdown-menu show" : "d-none"}
+						className={showDropdown ? "dropdown-menu mr-5 show" : "d-none"}
 						aria-labelledby="dropdownMenuButton">
-						<Link to="/signuppersonal" onClick={() => setShowDropdown(!showDropdown)}>
-							<div className="dropdown-item heading">Join Plotters</div>
-						</Link>
-						<Link to="/login" onClick={() => setShowDropdown(!showDropdown)}>
-							<div className="dropdown-item heading">Log In</div>
-						</Link>
 						<Link to="/profile" onClick={() => setShowDropdown(!showDropdown)}>
 							<div className="dropdown-item heading">Your Profile</div>
 						</Link>

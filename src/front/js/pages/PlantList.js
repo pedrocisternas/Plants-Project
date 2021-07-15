@@ -22,7 +22,10 @@ export const PlantList = () => {
 	return (
 		<>
 			<h1 className="text-center py-3 heading">Your Selected Plants List</h1>
-			<i className="fab fa-2x fa-pagelines mx-auto mb-3" />
+			<p className="text-center">
+				<img src="https://i.imgur.com/lIG5fke.png" alt="green tea" />
+			</p>
+			{/* <i className="fab fa-2x fa-pagelines mx-auto mb-3" /> */}
 			<div className="container">
 				{store.garden.map((el, i) => {
 					if (el != null) {
@@ -34,7 +37,9 @@ export const PlantList = () => {
 											#{i + 1}: <span className="list-text">{el["plantName"]}</span>
 										</div>
 										<div>
-											<button className="btn-style btn-list " onClick={() => helper(el, i)}>
+											<button
+												className="btn-style btn-list zoom-in-plant-list"
+												onClick={() => helper(el, i)}>
 												Details
 											</button>
 										</div>
@@ -53,17 +58,10 @@ export const PlantList = () => {
 				)}
 			</div>
 			<div className="w-50 d-flex justify-content-around m-auto">
-				<div className="w-25 m-auto">
-					<Link to="/homereg">
-						<button type="button" className="btn btn-style m-auto w-100">
-							Go to Garden
-						</button>
-					</Link>
-				</div>
-				<div className="w-25 m-auto">
+				<div className="w-50 m-auto">
 					<Link to="/homeReg">
 						<button type="button" className="btn btn-style m-auto w-100">
-							Add a Plant
+							Add Another Plant
 						</button>
 					</Link>
 				</div>
