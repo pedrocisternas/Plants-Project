@@ -18,7 +18,7 @@ export const Grid = () => {
 			<div className="container justify-content-center d-flex flex-row flex-wrap my-2 py-5">
 				{store.garden.map(
 					(el, i) =>
-						el ? (
+						el && el.plantName != " " ? (
 							<div className="square-selected" key={i} onClick={() => helper(i)}>
 								<img src="https://i.imgur.com/0fftZmM.png" alt="seedling" />
 							</div>

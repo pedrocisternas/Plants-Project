@@ -9,15 +9,6 @@ export const Logout = props => {
 	const logOut = () => {
 		actions.userLogout();
 		props.showButtons();
-		store.garden.map((el, i) => {
-			if (el == null) {
-				<div className="square zoom-in" key={i}>
-					<Link to="/signuppersonal">
-						<img src="https://i.imgur.com/KlyBk8R.png" alt="seedling" />
-					</Link>
-				</div>;
-			}
-		});
 	};
 
 	return (

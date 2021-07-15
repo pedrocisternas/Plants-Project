@@ -101,10 +101,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const logout_garden = getStore().garden;
 				logout_garden.map((el, i) => {
 					if (el) {
-						el = null;
+						el.plantName = " ";
+						el.description = " ";
 					}
 				});
-
 				logout_user[0].username = null;
 				logout_user[0].password = null;
 				setStore({ usersPersonal: logout_user, garden: logout_garden });
