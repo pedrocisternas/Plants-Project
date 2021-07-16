@@ -6,6 +6,8 @@ import PropTypes from "prop-types";
 export const SignupGarden = props => {
 	const { store, actions } = useContext(Context);
 	const [plotSize, setPlotSize] = useState(null);
+	const [plotWidth, setPlotWidth] = useState(null);
+	const [plotLength, setPlotLength] = useState(null);
 	const [userGarden, setUserGarden] = useState({
 		hardiness: null,
 		plot_size: null,
@@ -60,7 +62,7 @@ export const SignupGarden = props => {
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"
 					style={{ textAlign: "center" }}
-					name="plot_size"
+					name="plot_width"
 					placeholder="Plot width"
 					aria-label="plot_width"
 				/>
@@ -72,7 +74,7 @@ export const SignupGarden = props => {
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"
 					style={{ textAlign: "center" }}
-					name="plot_size"
+					name="plot_length"
 					placeholder="Plot length"
 					aria-label="plot_length"
 				/>
