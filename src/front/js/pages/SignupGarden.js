@@ -10,7 +10,6 @@ export const SignupGarden = props => {
 	const [plotLength, setPlotLength] = useState(null);
 	const [userGarden, setUserGarden] = useState({
 		hardiness: null,
-		plot_size: null,
 		sunlight: null,
 		edibles: null,
 		annuals: null,
@@ -18,16 +17,38 @@ export const SignupGarden = props => {
 	});
 
 	const userGardenInput = e => {
-		setPlotSize(parseInt(e.target.value));
+		// setPlotSize(parseInt(e.target.value));
 		setUserGarden({ ...userGarden, [e.target.name]: e.target.value });
 		console.log(e.target.name, e.target.value);
 	};
+
+	const theLength = e => {
+		setPlotLength(parseInt(e.target.value));
+		setUserGarden({ ...userGarden, [e.target.name]: e.target.value });
+		actions.setPlotLength(parseInt(e.target.value));
+	};
+
+	const theWidth = e => {
+		setPlotWidth(parseInt(e.target.value));
+		setUserGarden({ ...userGarden, [e.target.name]: e.target.value });
+		actions.setPlotWidth(parseInt(e.target.value));
+	};
+
+	// const saveGardenInput = () => {
+	// 	console.log(userGarden);
+	// 	actions.postUserGarden(userGarden);
+	// 	actions.emptyGarden();
+	// 	for (let i = 0; i < plotSize; i++) {
+	// 		actions.addSquare();
+	// 	}
+	// 	props.showButtons();
+	// };
 
 	const saveGardenInput = () => {
 		console.log(userGarden);
 		actions.postUserGarden(userGarden);
 		actions.emptyGarden();
-		for (let i = 0; i < plotSize; i++) {
+		for (let i = 0; i < plotLength * plotWidth; i++) {
 			actions.addSquare();
 		}
 		props.showButtons();
@@ -58,7 +79,7 @@ export const SignupGarden = props => {
 			<div className="form-group">
 				<label>Plot Width</label>
 				<input
-					onChange={userGardenInput}
+					onChange={theWidth}
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"
 					style={{ textAlign: "center" }}
@@ -70,7 +91,7 @@ export const SignupGarden = props => {
 			<div className="form-group">
 				<label>Plot Length</label>
 				<input
-					onChange={userGardenInput}
+					onChange={theLength}
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"
 					style={{ textAlign: "center" }}

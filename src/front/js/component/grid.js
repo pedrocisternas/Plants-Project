@@ -12,6 +12,10 @@ export const Grid = () => {
 		actions.updateSquareSelected(i);
 	};
 
+	const number = 72 / (store.plotWidth + 1);
+	const width = 0.9 * number + "vw";
+	const margin = 0.1 * number + "vw";
+
 	return (
 		<>
 			<h1 className="text-center py-3 heading">Start Designing Your Garden</h1>
@@ -19,17 +23,27 @@ export const Grid = () => {
 				{store.garden.map(
 					(el, i) =>
 						el && el.plantName != " " ? (
-							<div className="square-selected" key={i} onClick={() => helper(i)}>
+							<div
+								className="square-selected"
+								style={{ width: width, height: width, margin: margin }}
+								key={i}
+								onClick={() => helper(i)}>
 								<img src="https://i.imgur.com/0fftZmM.png" alt="seedling" />
 							</div>
 						) : store.usersPersonal[0].username != null ? (
-							<div className="square zoom-in" key={i}>
+							<div
+								className="square zoom-in"
+								style={{ width: width, height: width, margin: margin }}
+								key={i}>
 								<Link onClick={() => actions.updateSquareSelected(i)} to="/addplant">
 									<img src="https://i.imgur.com/KlyBk8R.png" alt="seedling" />
 								</Link>
 							</div>
 						) : (
-							<div className="square zoom-in" key={i}>
+							<div
+								className="square zoom-in"
+								style={{ width: width, height: width, margin: margin }}
+								key={i}>
 								<Link to="/signuppersonal">
 									<img src="https://i.imgur.com/KlyBk8R.png" alt="seedling" />
 								</Link>

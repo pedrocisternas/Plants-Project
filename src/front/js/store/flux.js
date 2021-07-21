@@ -47,11 +47,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				null,
 				null,
 				null,
-				null,
-				null,
-				null,
 				null
 			],
+			plotWidth: 10,
+			plotLength: 8,
 			usersPersonal: [
 				{
 					username: null,
@@ -76,8 +75,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			setPlotWidth: l => {
+				setStore({ plotWidth: l });
+			},
+			setPlotLength: l => {
+				setStore({ plotLength: l });
 			},
 			postUserPersonal: user => {
 				const new_usersPersonal = getStore().usersPersonal;
