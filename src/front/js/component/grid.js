@@ -15,6 +15,7 @@ export const Grid = () => {
 	const number = 72 / (store.plotWidth + 1);
 	const width = 0.9 * number + "vw";
 	const margin = 0.1 * number + "vw";
+	const image = 0.4 * number + "vw";
 
 	return (
 		<>
@@ -28,7 +29,7 @@ export const Grid = () => {
 								style={{ width: width, height: width, margin: margin }}
 								key={i}
 								onClick={() => helper(i)}>
-								<img src="https://i.imgur.com/0fftZmM.png" alt="seedling" />
+								<img style={{ width: image }} src="https://i.imgur.com/0fftZmM.png" alt="seedling" />
 							</div>
 						) : store.usersPersonal[0].username != null ? (
 							<div
@@ -36,7 +37,11 @@ export const Grid = () => {
 								style={{ width: width, height: width, margin: margin }}
 								key={i}>
 								<Link onClick={() => actions.updateSquareSelected(i)} to="/addplant">
-									<img src="https://i.imgur.com/KlyBk8R.png" alt="seedling" />
+									<img
+										style={{ width: image }}
+										src="https://i.imgur.com/KlyBk8R.png"
+										alt="seedling"
+									/>
 								</Link>
 							</div>
 						) : (
@@ -45,7 +50,11 @@ export const Grid = () => {
 								style={{ width: width, height: width, margin: margin }}
 								key={i}>
 								<Link to="/signuppersonal">
-									<img src="https://i.imgur.com/KlyBk8R.png" alt="seedling" />
+									<img
+										style={{ width: image }}
+										src="https://i.imgur.com/KlyBk8R.png"
+										alt="seedling"
+									/>
 								</Link>
 							</div>
 						)

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 export const SignupGarden = props => {
 	const { store, actions } = useContext(Context);
-	const [plotSize, setPlotSize] = useState(null);
+	// const [plotSize, setPlotSize] = useState(null);
 	const [plotWidth, setPlotWidth] = useState(null);
 	const [plotLength, setPlotLength] = useState(null);
 	const [userGarden, setUserGarden] = useState({
