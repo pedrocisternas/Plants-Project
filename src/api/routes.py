@@ -18,7 +18,8 @@ def user():
             user = user.serialize()
             return jsonify(user), 200
     elif request.method == "POST":
-        new_user = User(username=request_body["username"], email=request_body["email"], password=request_body["password"], grid_width=request_body["grid_length"], grid_length=request_body["grid_length"])
+        new_user = User(username=request_body["username"], email=request_body["email"], password=request_body["password"], first_name=request_body["first_name"], last_name=request_body["last_name"])
+        # Add grid_width=request_body["grid_length"], grid_length=request_body["grid_length"] ?
         db.session.add(new_user)
         db.session.commit() 
         return jsonify(new_user.username + " was added correctly"), 200
