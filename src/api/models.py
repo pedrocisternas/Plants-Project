@@ -8,7 +8,12 @@ class User(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     username = db.Column(db.String(20), unique=True, nullable=False)
     plants = db.relationship('Plant', backref='user')
-    grid_size = db.Column(db.Integer, unique=False, nullable=False)
+    grid_width = db.Column(db.Integer, unique=False, nullable=True)
+    grid_length = db.Column(db.Integer, unique=False, nullable=True)
+    # sun_shade = db.Column(db.String(20), unique=True, nullable=False)
+    # edible = db.Column(db.String(20), unique=True, nullable=False)
+    # annual = db.Column(db.String(20), unique=True, nullable=False)
+    # trees = db.Column(db.String(20), unique=True, nullable=False)
 
     def __repr__(self):
         return '<User %r,%r>' % (self.id, self.username)
@@ -18,22 +23,30 @@ class User(db.Model):
             "id": self.id,
             "email": self.email,
             "username": self.username,
-            "plants": [plant.serialize() for plants in self.plants ]
+            "plants": [plant.serialize() for plant in self.plants ],
+            "grid_width": self.grid_width,
+            "grid_length": self.grid_length,
+            # "sun_shade": self.sun_shade,
+            # "edible": self.edible,
+            # "annual": self.annual,
+            # "trees": self.trees
             # do not serialize the password, its a security breach
         }
 
 class Plant(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=False, nullable=False)
-    username = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     grid_location = db.Column(db.Integer, unique=False, nullable=False)
 
     def __repr__(self):
-        return '<Plant %r,%r>' % (self.id, self.name)
+        return '<Plant %r,%r,%r,%r>' % (self.id, self.name, self.user_id, self.grid_location)
 
     def serialize(self):
         return {
             "id": self.id,
             "name": self.name,
+            "username": self.user_id,
+            "grid_location": self.grid_location
             # do not serialize the password, its a security breach
         }
