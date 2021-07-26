@@ -11,14 +11,32 @@ export const AddPlant = () => {
 	// 	setPlantName(e.target.value);
 	// };
 
+	const [searchTerm, setSearchTerm] = useState("");
+	const [searchResults, setSearchResults] = useState([]);
+
+	const handleChange = event => {
+		setSearchTerm(event.target.value);
+	};
+	useEffect(
+		() => {
+			const results = store.plantLibrary.filter(plant =>
+				plant.commonName.toLowerCase().includes(searchTerm.toLowerCase())
+			);
+			setSearchResults(results);
+		},
+		[searchTerm]
+	);
+
 	return (
 		<div className="container h-100">
 			<h1 className="text-center py-3 heading">Search for a Plant</h1>
 			<div className="input-group mb-3">
 				<input
-					onChange={e => {
-						setPlantName(e.target.value);
-					}}
+					// onChange={e => {
+					// 	setPlantName(e.target.value);
+					// }}
+					onChange={handleChange}
+					value={searchTerm}
 					type="text"
 					className="form-control"
 					// onChange={plantInput}
@@ -26,11 +44,16 @@ export const AddPlant = () => {
 					aria-label="Type plant name"
 					aria-describedby="button-addon2"
 				/>
-				<div className="input-group-append">
+				{/* <div className="input-group-append">
 					<button className="btn btn-style m-0" type="button" id="button-addon2">
 						Search
 					</button>
-				</div>
+				</div> */}
+				<ul>
+					{searchResults.map((plant, i) => (
+						<li key={i}>{plant}</li>
+					))}
+				</ul>
 			</div>
 			<div className="d-flex flex-row justtify-content-start align-items-center">
 				<div>

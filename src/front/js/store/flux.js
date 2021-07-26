@@ -2,6 +2,90 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			apiAddress: "https://3001-sapphire-landfowl-wrh9t8u8.ws-us11.gitpod.io/api/",
+			plantLibrary: [
+				{
+					scientificName: "Papaver somniferum",
+					commonName: "Atlas Poppy",
+					plantType: ["annual"],
+					leafType: "Broadleaf",
+					hardinessZone: [6, 7, 8, 9],
+					height: 4,
+					bloomTime: ["Spring"],
+					flowerColor: "Various",
+					// fruitPresent: "Summer",
+					// fruitColor: ["Green", "Brown"],
+					lightExposure: ["Sun"],
+					comments:
+						"Seed sewn from September to April. Planted in the deep south at the earlier date and in the north in spring. Red or pink are the colors most commonly planted. This is the plant from which opium is eventually made. Opium is used in the manufacture of morphine, which is a widely used pain killer in medical practices."
+				},
+				{
+					scientificName: "Osteospermum hybrids",
+					commonName: "African Daisy",
+					plantType: ["perennial", "annual"],
+					leafType: "Broadleaf",
+					hardinessZone: [9, 10, 11],
+					height: 1,
+					bloomTime: ["Spring", "Summer", "Fall"],
+					flowerColor: "Various",
+					// fruitPresent: null,
+					// fruitColor: [null],
+					lightExposure: ["Sun", "Part Sun"],
+					comments:
+						"A flowering annual except in zones 9-11 where it is a perennial. Flowers from time of planting until frost. After plants are established, they will need little suppemental water. Use in rock gardens, containers, in ground beds and as a cut flower. Attracts hummingbirds and butterflies. It is drought tolerant and deer resistant."
+				},
+				{
+					scientificName: "Tagetes erecta",
+					commonName: "Marigold",
+					plantType: ["annual"],
+					leafType: "Broadleaf",
+					hardinessZone: [9, 10, 11],
+					height: 2,
+					bloomTime: ["Summer", "Fall"],
+					flowerColor: ["Yellow", "Orange"],
+					lightExposure: ["Sun"],
+					comments:
+						"Marigolds have been around since pre-historic times. They grow best in full sunlight and in well drained soils. Marigolds cannot tolerate wet, humid conditions. They love drier climates where soils stay only moderately moist. Marigolds bloom from early summer through the fall if conditions are favorable. There can be a period during the hottest part of the summer when marigolds may cease to bloom until the temperatures fall below 90 F."
+				},
+				{
+					scientificName: "Begonia semperflorens",
+					commonName: "Begonia",
+					plantType: ["annual"],
+					leafType: "Broadleaf",
+					hardinessZone: [10],
+					height: 1,
+					bloomTime: ["Spring", "Summer", "Fall"],
+					flowerColor: "Various",
+					lightExposure: ["Sun", "Part Sun"],
+					comments:
+						"Grown as annual bedding plant. Grows in full sun, but can't stand drought. Various colored foliage and flowers offer contrast in the annual garden. A popular choice for mass plantings in public places. Cannot tolerate wet soils, consequently best performance is in elevated beds to insure adequate drainage."
+				},
+				{
+					scientificName: "Platycodon grandiflorus",
+					commonName: "Balloon Flower",
+					plantType: ["perennial"],
+					leafType: "Broadleaf",
+					hardinessZone: [3, 4, 5, 6, 7, 8],
+					height: 2,
+					bloomTime: ["Summer"],
+					flowerColor: "Blue",
+					lightExposure: ["Sun", "Part Sun"],
+					comments:
+						"This clump forming perennial dies down in winter and returns in spring. Leave some of the previous years stems so they can be located and not damaged when spring gardening activity begins. Upward facing flower buds expand like a hot air balloon prior to opening and thus its name 'Balloon Flower'."
+				},
+				{
+					scientificName: "Pelargonium x hortorum",
+					commonName: "Garden Geranium",
+					plantType: ["perennial"],
+					leafType: "Broadleaf",
+					hardinessZone: [9, 10],
+					height: 2,
+					bloomTime: ["Spring", "Summer", "Fall"],
+					flowerColor: "Various",
+					lightExposure: ["Part Sun"],
+					comments:
+						"Geraniums are popular for their wide range of brilliant flower colors and attractive leaves. They flower during the warm months. However, when daily temperature exceeds 85 degrees F. for many days, flowering will not occur. This happens in the deep south, but flowering will return as temperatures moderate in the fall. Geraniums like sunlight for a minimum of four hours per day, a well drained, moist, and fertile soil."
+				}
+			],
 			garden: [
 				{
 					plantName: "Allium",
