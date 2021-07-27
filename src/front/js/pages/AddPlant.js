@@ -51,7 +51,7 @@ export const AddPlant = () => {
 				</div> */}
 				<ul>
 					{searchResults.map((plant, i) => (
-						<li key={i}>{plant}</li>
+						<li key={i}>{plant.commonName}</li>
 					))}
 				</ul>
 			</div>

@@ -139,9 +139,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			usersPersonal: [
 				{
 					username: null,
-					// first_name: "Gregor",
-					// last_name: "Samsa",
-					// email: "gregors@mail.com",
+					first_name: null,
+					last_name: null,
+					email: null,
 					password: null
 					// repeat_password: "xxxxxxx1"
 				}
@@ -159,6 +159,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 			squareSelected: null
 		},
 		actions: {
+			findHardinessZone: zip => {
+				fetch("https://plant-hardiness-zone.p.rapidapi.com/zipcodes" + "/" + zip, {
+					// method: "GET",
+					headers: {
+						"content-type": "application/json",
+						"x-rapidapi-key": "40ebbe3ed3msh3a39f76c326acf4p14e3c2jsnb80f8a9d0f8c",
+						"x-rapidapi-host": "plant-hardiness-zone.p.rapidapi.com"
+					},
+					body: {
+						key1: "value",
+						key2: "value"
+					}
+				})
+					.then(response => {
+						console.log(response);
+					})
+					.catch(err => {
+						console.error(err);
+					});
+			},
 			// Use getActions to call a function within a fuction
 			postNewUser: user => {
 				fetch(getStore().apiAddress + "user", {
@@ -218,6 +238,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				logout_user[0].password = null;
 				setStore({ usersPersonal: logout_user, garden: logout_garden });
 			},
+			// userSignUp: (username, first_name, last_name, email, password) => {
+			//     const new_userSignUp = getStore().usersPersonal;
+			//     setStore({})
+			// },
 			addSquare: () => {
 				const new_garden = getStore().garden;
 				new_garden.push(null);
