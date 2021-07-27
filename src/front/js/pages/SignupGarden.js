@@ -22,17 +22,17 @@ export const SignupGarden = props => {
 		console.log(e.target.name, e.target.value);
 	};
 
-	const theLength = e => {
-		setPlotLength(parseInt(e.target.value));
-		setUserGarden({ ...userGarden, [e.target.name]: e.target.value });
-		actions.setPlotLength(parseInt(e.target.value));
-	};
+	// const theLength = e => {
+	// 	setPlotLength(parseInt(e.target.value));
+	// 	setUserGarden({ ...userGarden, [e.target.name]: e.target.value });
+	// 	actions.setPlotLength(parseInt(e.target.value));
+	// };
 
-	const theWidth = e => {
-		setPlotWidth(parseInt(e.target.value));
-		setUserGarden({ ...userGarden, [e.target.name]: e.target.value });
-		actions.setPlotWidth(parseInt(e.target.value));
-	};
+	// const theWidth = e => {
+	// 	setPlotWidth(parseInt(e.target.value));
+	// 	setUserGarden({ ...userGarden, [e.target.name]: e.target.value });
+	// 	actions.setPlotWidth(parseInt(e.target.value));
+	// };
 
 	// const saveGardenInput = () => {
 	// 	console.log(userGarden);
@@ -45,12 +45,13 @@ export const SignupGarden = props => {
 	// };
 
 	const saveGardenInput = () => {
-		console.log(userGarden);
-		actions.postUserGarden(userGarden);
-		actions.emptyGarden();
-		for (let i = 0; i < plotLength * plotWidth; i++) {
-			actions.addSquare();
-		}
+		// console.log(userGarden);
+		// actions.postUserGarden(userGarden);
+		// actions.emptyGarden();
+		// for (let i = 0; i < plotLength * plotWidth; i++) {
+		// 	actions.addSquare();
+		// }
+		actions.putInfoUser(userGarden);
 		props.showButtons();
 	};
 
@@ -79,7 +80,7 @@ export const SignupGarden = props => {
 			<div className="form-group">
 				<label>Plot Width</label>
 				<input
-					onChange={theWidth}
+					onChange={userGardenInput}
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"
 					style={{ textAlign: "center" }}
@@ -91,7 +92,7 @@ export const SignupGarden = props => {
 			<div className="form-group">
 				<label>Plot Length</label>
 				<input
-					onChange={theLength}
+					onChange={userGardenInput}
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"
 					style={{ textAlign: "center" }}

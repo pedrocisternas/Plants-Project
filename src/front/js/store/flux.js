@@ -199,6 +199,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(function(responseAsJson) {
 						console.log(responseAsJson);
+						const new_usersPersonal = getStore().usersPersonal;
+						new_usersPersonal.unshift(responseAsJson);
+						setStore({ usersPersonal: new_usersPersonal });
 					})
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
@@ -261,6 +264,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// 	.catch(function(error) {
 				// 		console.log("Looks like there was a problem: \n", error);
 				// 	});
+			},
+			putInfoUser: user => {
+				fetch(getStore().apiAddress + "api/user", {
+					method: "PUT",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						username: getStore().usersPersonal[0]["username"],
+						grid_width: user["plot_width"],
+						grid_length: user["plot_length"]
+					})
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						if (response.status == 401) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(function(responseAsJson) {
+						console.log(responseAsJson);
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
 			},
 			// postNewPlant: plant => {
 			// 	fetch(getStore().apiAddress + "api/user", {

@@ -22,7 +22,8 @@ def user():
         # Add grid_width=request_body["grid_length"], grid_length=request_body["grid_length"] ?
         db.session.add(new_user)
         db.session.commit() 
-        return jsonify(new_user.username + " was added correctly"), 200
+        new_user = new_user.serialize()
+        return jsonify(new_user), 200
     elif request.method == "PUT":
         user = User.query.filter_by(username=request_body["username"]).first()
         if user is None:
