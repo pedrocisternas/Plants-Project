@@ -15,7 +15,8 @@ export const Login = props => {
 	};
 
 	const logIn = () => {
-		actions.userLogin(userLog);
+		// actions.userLogin(userLog);
+		actions.getUser(userLog);
 		props.showButtons();
 	};
 
@@ -46,7 +47,13 @@ export const Login = props => {
 						aria-label="Password"
 					/>
 					<Link to="/homeReg">
-						<button onClick={() => logIn()} className="btn btn-style mb-2" type="button">
+						<button
+							onClick={() => {
+								actions.getUser(userLog);
+								props.showButtons();
+							}}
+							className="btn btn-style mb-2"
+							type="button">
 							Submit
 						</button>
 					</Link>

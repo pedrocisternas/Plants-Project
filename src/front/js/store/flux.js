@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			apiAddress: "https://3001-sapphire-landfowl-wrh9t8u8.ws-us11.gitpod.io/api/",
+			apiAddress: "https://3001-sapphire-landfowl-wrh9t8u8.ws-us11.gitpod.io/",
 			plantLibrary: [
 				{
 					scientificName: "Papaver somniferum",
@@ -139,6 +139,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			usersPersonal: [
 				{
 					username: null,
+					id: null,
 					// first_name: "Gregor",
 					// last_name: "Samsa",
 					// email: "gregors@mail.com",
@@ -161,7 +162,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			// Use getActions to call a function within a fuction
 			postNewUser: user => {
-				fetch(getStore().apiAddress + "user", {
+				fetch(getStore().apiAddress + "api/user", {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify(user)
@@ -182,6 +183,50 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log("Looks like there was a problem: \n", error);
 					});
 			},
+			getUser: user => {
+				fetch(getStore().apiAddress + "api/user", {
+					method: "GET",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify(user)
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						if (response.status == 401) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(function(responseAsJson) {
+						console.log(responseAsJson);
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+			},
+			// postNewPlant: plant => {
+			// 	fetch(getStore().apiAddress + "api/user", {
+			// 		method: "POST",
+			// 		headers: { "Content-Type": "application/json" },
+			// 		body: JSON.stringify(plant)
+			// 	})
+			// 		.then(function(response) {
+			// 			if (!response.ok) {
+			// 				throw Error(response.statusText);
+			// 			}
+			// 			if (response.status == 401) {
+			// 				throw Error(response.statusText);
+			// 			}
+			// 			return response.json();
+			// 		})
+			// 		.then(function(responseAsJson) {
+			// 			console.log(responseAsJson);
+			// 		})
+			// 		.catch(function(error) {
+			// 			console.log("Looks like there was a problem: \n", error);
+			// 		});
+			// },
 			setPlotWidth: l => {
 				setStore({ plotWidth: l });
 			},
@@ -243,13 +288,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				new_garden[position] = null;
 				setStore({ plants: new_garden });
 			},
-			getMessage: () => {
-				// fetching data from the backend
-				fetch(process.env.BACKEND_URL + "/api/hello")
-					.then(resp => resp.json())
-					.then(data => setStore({ message: data.message }))
-					.catch(error => console.log("Error loading message from backend", error));
-			},
+			// getMessage: () => {
+			// 	// fetching data from the backend
+			// 	fetch(process.env.BACKEND_URL + "/api/hello")
+			// 		.then(resp => resp.json())
+			// 		.then(data => setStore({ message: data.message }))
+			// 		.catch(error => console.log("Error loading message from backend", error));
+			// },
 			updateSquareSelected: position => {
 				setStore({ squareSelected: position });
 			},
