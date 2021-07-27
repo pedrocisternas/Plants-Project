@@ -223,8 +223,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ usersPersonal: new_usersPersonal });
 						setStore({ garden: [] });
 						const garden_array = [];
+						var helper = false;
 						for (let i = 0; i < responseAsJson["grid_width"] * responseAsJson["grid_length"]; i++) {
-							garden_array.push(null);
+							helper = false;
+							for (let plant of responseAsJson["plants"]) {
+								if (plant["grid_location"] == i) {
+									garden_array.push(plant);
+									helper = true;
+								}
+							}
+							if (helper == false) {
+								garden_array.push(null);
+							}
 						}
 						setStore({ garden: garden_array });
 					})
