@@ -11,7 +11,7 @@ export const SearchPlant = ()=> {
     };
     useEffect(() => {
         const results = store.plantLibrary.filter(plant =>
-            plant.commonName.toLowerCase().includes(searchTerm)
+            plant.commonName.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setSearchResults(results);
     }, [searchTerm]);
@@ -27,7 +27,7 @@ export const SearchPlant = ()=> {
         />
         <ul>
             {searchResults.map(plant => (
-             <li>{plant}</li>
+             <li>{plant.commonName}</li>
         ))}
         </ul>
         <button type="button" className="btn btn-style" onClick={actions.addPlant}></button>

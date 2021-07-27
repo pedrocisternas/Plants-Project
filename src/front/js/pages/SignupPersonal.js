@@ -103,9 +103,9 @@ export const SignupPersonal = props => {
 				/>
 			</div>
 			<div className="d-flex justify-content-around">
-				<Link to="/signupgarden">
+				<Link to="/SignupGarden">
 					<button onClick={saveUserInput} type="button" className="btn btn-style my-4">
-						Continue
+						Next
 					</button>
 				</Link>
 				<Link to="/">

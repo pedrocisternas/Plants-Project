@@ -61,7 +61,7 @@ export const SignupGarden = props => {
 				<img src="https://i.imgur.com/8ratEk4.png" alt="floral design" />
 			</p>
 			<div className="form-group">
-				<label className="text-center">Hardiness Zone</label>
+				{/* <label className="text-center">Hardiness Zone</label>
 				<a href="https://gilmour.com/planting-zones-hardiness-map" target="_blank" rel="noopener noreferrer">
 					{" "}
 					Need help? Find Your Zone
@@ -74,7 +74,7 @@ export const SignupGarden = props => {
 					name="hardiness"
 					placeholder="Hardiness Zone"
 					aria-label="Zone"
-				/>
+				/> */}
 			</div>
 			<div className="form-group">
 				<label>Plot Width</label>
