@@ -140,11 +140,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					username: null,
 					id: null,
-					// first_name: "Gregor",
-					// last_name: "Samsa",
-					// email: "gregors@mail.com",
-					password: null
-					// repeat_password: "xxxxxxx1"
+					first_name: "Gregor",
+					last_name: "Samsa",
+					email: "gregors@mail.com",
+					password: null,
+					plot_width: 10,
+					plot_length: 3
 				}
 			],
 			usersGarden: [
@@ -216,9 +217,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(function(responseAsJson) {
+						console.log(responseAsJson);
 						const new_usersPersonal = getStore().usersPersonal;
 						new_usersPersonal.unshift(responseAsJson);
 						setStore({ usersPersonal: new_usersPersonal });
+						setStore({ garden: [] });
+						const garden_array = [];
+						for (let i = 0; i < responseAsJson["grid_width"] * responseAsJson["grid_length"]; i++) {
+							garden_array.push(null);
+						}
+						setStore({ garden: garden_array });
 					})
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);

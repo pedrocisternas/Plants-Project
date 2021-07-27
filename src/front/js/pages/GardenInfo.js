@@ -13,8 +13,12 @@ export const GardenInfo = props => {
 				<div className="color-item2 text-center">{store.usersGarden[0].hardiness}</div>
 			</div>
 			<div className="user-info">
-				<h5 className="heading text-center mb-0">Plot Size: </h5>
-				<div className="color-item2 text-center">{store.usersGarden[0]["plot_size"]}</div>
+				<h5 className="heading text-center mb-0">Plot Width: </h5>
+				<div className="color-item2 text-center">{store.usersPersonal[0]["grid_width"]}</div>
+			</div>
+			<div className="user-info">
+				<h5 className="heading text-center mb-0">Plot Length: </h5>
+				<div className="color-item2 text-center">{store.usersPersonal[0]["grid_length"]}</div>
 			</div>
 			<div className="user-info">
 				<h5 className="heading text-center mb-0">Sunlight: </h5>

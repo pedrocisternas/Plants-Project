@@ -25,6 +25,8 @@ class User(db.Model):
             "id": self.id,
             "email": self.email,
             "username": self.username,
+            "first_name": self.first_name,
+            "last_name": self.last_name,
             "plants": [plant.serialize() for plant in self.plants ],
             "grid_width": self.grid_width,
             "grid_length": self.grid_length,
