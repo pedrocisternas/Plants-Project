@@ -7,17 +7,17 @@ from api.utils import generate_sitemap, APIException
 
 api = Blueprint('api', __name__)
 
-@api.route('/user', methods=['POST', 'GET', 'PUT'])
+@api.route('/user', methods=['POST', 'PUT'])
 def user():
     request_body = request.get_json()
-    if request.method == "GET":
-        user = User.query.filter_by(username=request_body["username"], password=request_body["password"]).first()
-        if user is None:
-            return jsonify("user not found"), 404
-        else:
-            user = user.serialize()
-            return jsonify(user), 200
-    elif request.method == "POST":
+    # if request.method == "GET":
+    #     user = User.query.filter_by(username=request_body["username"], password=request_body["password"]).first()
+    #     if user is None:
+    #         return jsonify("user not found"), 404
+    #     else:
+    #         user = user.serialize()
+    #         return jsonify(user), 200
+    if request.method == "POST":
         new_user = User(username=request_body["username"], email=request_body["email"], password=request_body["password"], first_name=request_body["first_name"], last_name=request_body["last_name"])
         # Add grid_width=request_body["grid_length"], grid_length=request_body["grid_length"] ?
         db.session.add(new_user)
@@ -49,3 +49,12 @@ def plant():
         db.session.add(new_plant)
         db.session.commit() 
         return jsonify(new_plant.name + " was added correctly"), 200
+
+@api.route('/user/<username>', methods=['GET'])
+def get_user(username):
+    user = User.query.filter_by(username=username).first()
+    if user is None:
+        return jsonify("user not found"), 404
+    else:
+        user = user.serialize()
+        return jsonify(user), 200

@@ -139,16 +139,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			usersPersonal: [
 				{
 					username: null,
-<<<<<<< HEAD
 					id: null,
 					// first_name: "Gregor",
 					// last_name: "Samsa",
 					// email: "gregors@mail.com",
-=======
-					first_name: null,
-					last_name: null,
-					email: null,
->>>>>>> 108cb1a34d9dbf6738916c1c467884428e593ef8
 					password: null
 					// repeat_password: "xxxxxxx1"
 				}
@@ -210,11 +204,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getUser: user => {
-				fetch(getStore().apiAddress + "api/user", {
-					method: "GET",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify(user)
-				})
+				console.log(user.password);
+				fetch(getStore().apiAddress + "api/user/" + user.username)
 					.then(function(response) {
 						if (!response.ok) {
 							throw Error(response.statusText);
@@ -225,11 +216,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(function(responseAsJson) {
-						console.log(responseAsJson);
+						const new_usersPersonal = getStore().usersPersonal;
+						new_usersPersonal.unshift(responseAsJson);
+						setStore({ usersPersonal: new_usersPersonal });
 					})
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
 					});
+				// fetch(getStore().apiAddress + "api/user", {
+				// 	method: "GET",
+				// 	headers: { "Content-Type": "application/json" },
+				// 	body: JSON.stringify(user)
+				// })
+				// 	.then(function(response) {
+				// 		if (!response.ok) {
+				// 			throw Error(response.statusText);
+				// 		}
+				// 		if (response.status == 401) {
+				// 			throw Error(response.statusText);
+				// 		}
+				// 		return response.json();
+				// 	})
+				// 	.then(function(responseAsJson) {
+				// 		console.log(responseAsJson);
+				// 	})
+				// 	.catch(function(error) {
+				// 		console.log("Looks like there was a problem: \n", error);
+				// 	});
 			},
 			// postNewPlant: plant => {
 			// 	fetch(getStore().apiAddress + "api/user", {
