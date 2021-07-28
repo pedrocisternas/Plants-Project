@@ -40,6 +40,7 @@ export const SignupPersonal = props => {
 					name="username"
 					placeholder="Username"
 					aria-label="Username"
+					required
 				/>
 			</div>
 			<div className="form-group">
