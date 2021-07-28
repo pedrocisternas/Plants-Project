@@ -16,7 +16,6 @@ export const Grid = () => {
 	const width = 0.9 * number + "vw";
 	const margin = 0.1 * number + "vw";
 	const image = 0.4 * number + "vw";
-	//usersPersonal[0]["grid_width"]
 
 	return (
 		<>
@@ -62,8 +61,11 @@ export const Grid = () => {
 				)}
 				{isOpen && (
 					<Popup
-						plantName={store.garden[store.squareSelected].plantName}
-						plantDescription={store.garden[store.squareSelected].description}
+						plant={store.plantLibrary.find(
+							element => element["commonName"] == store.garden[store.squareSelected]["name"]
+						)}
+						// plantName={store.garden[store.squareSelected]["name"]}
+						// plantDescription={store.garden[store.squareSelected].description}
 						handlePopup={() => setIsOpen(!isOpen)}
 					/>
 				)}

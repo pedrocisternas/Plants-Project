@@ -10,7 +10,7 @@ export const PlantList = () => {
 	const [plantDescription, setPlantDescription] = useState("");
 
 	const toggleDetailsPopup = elem => {
-		setPlantName(elem["plantName"]);
+		setPlantName(elem["name"]);
 		setPlantDescription(elem["description"]);
 		setIsOpen(!isOpen);
 	};
@@ -34,7 +34,7 @@ export const PlantList = () => {
 								<div className="plant-list ">
 									<div className="d-flex justify-content-between align-items-center">
 										<div>
-											#{i + 1}: <span className="list-text">{el["plantName"]}</span>
+											#{i + 1}: <span className="list-text">{el["name"]}</span>
 										</div>
 										<div>
 											<button
@@ -51,8 +51,11 @@ export const PlantList = () => {
 				})}
 				{isOpen && (
 					<Popup
-						plantName={plantName}
-						plantDescription={plantDescription}
+						plant={store.plantLibrary.find(
+							element => element["commonName"] == store.garden[store.squareSelected]["name"]
+						)}
+						// plantName={plantName}
+						// plantDescription={plantDescription}
 						handlePopup={() => toggleDetailsPopup(plantName)}
 					/>
 				)}

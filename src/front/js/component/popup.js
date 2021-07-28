@@ -19,10 +19,10 @@ export const Popup = props => {
 					<div className="d-flex">
 						<div>
 							<div className="d-flex">
-								<h2 className="color-item mr-3">More about {props.plantName}</h2>
+								<h2 className="color-item mr-3">More about {props.plant["commonName"]}</h2>
 								<i className="fab fa-2x fa-pagelines color-item" />
 							</div>
-							<p>{props.plantDescription}</p>
+							<p>{props.plant["comments"]}</p>
 						</div>
 						<div onClick={props.handlePopup}>
 							<i className="far fa-2x fa-times-circle color-item2" />
@@ -43,8 +43,9 @@ export const Popup = props => {
 };
 
 Popup.propTypes = {
-	plantName: PropTypes.string,
-	handlePopup: PropTypes.func,
-	plantDescription: PropTypes.string
+	plant: PropTypes.object
+	// plantName: PropTypes.string,
+	// handlePopup: PropTypes.func,
+	// plantDescription: PropTypes.string
 	// plant: PropTypes.string
 };

@@ -15,6 +15,8 @@ import { PlantList } from "./pages/PlantList";
 import { LandingPage } from "./pages/LandingPage";
 import { PersonalInfo } from "./pages/PersonalInfo";
 import { GardenInfo } from "./pages/GardenInfo";
+import { SearchPlant } from "./pages/SearchPlant";
+import { FindHardinessZone } from "./pages/FindHardinessZone";
 
 import injectContext from "./store/appContext";
 
@@ -66,6 +68,12 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/addplant">
 							<AddPlant />
+						</Route>
+						<Route exact path="/searchplant">
+							<SearchPlant />
+						</Route>
+						<Route exact path="/hardiness">
+							<FindHardinessZone />
 						</Route>
 						<Route exact path="/plantlist">
 							<PlantList />

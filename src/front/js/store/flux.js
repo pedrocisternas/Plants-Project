@@ -6,7 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					scientificName: "Papaver somniferum",
 					commonName: "Atlas Poppy",
-					plantType: ["annual"],
+					growthCycle: "annual",
+					plantType: "flower",
 					leafType: "Broadleaf",
 					hardinessZone: [6, 7, 8, 9],
 					height: 4,
@@ -21,7 +22,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					scientificName: "Osteospermum hybrids",
 					commonName: "African Daisy",
-					plantType: ["perennial", "annual"],
+					growthCycle: "perennial",
+					plantType: "flower",
 					leafType: "Broadleaf",
 					hardinessZone: [9, 10, 11],
 					height: 1,
@@ -36,7 +38,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					scientificName: "Tagetes erecta",
 					commonName: "Marigold",
-					plantType: ["annual"],
+					growthCycle: "annual",
+					plantType: "flower",
 					leafType: "Broadleaf",
 					hardinessZone: [9, 10, 11],
 					height: 2,
@@ -49,7 +52,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					scientificName: "Begonia semperflorens",
 					commonName: "Begonia",
-					plantType: ["annual"],
+					growthCycle: "annual",
+					plantType: "flower",
 					leafType: "Broadleaf",
 					hardinessZone: [10],
 					height: 1,
@@ -62,7 +66,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					scientificName: "Platycodon grandiflorus",
 					commonName: "Balloon Flower",
-					plantType: ["perennial"],
+					growthCycle: "perennial",
+					plantType: "flower",
 					leafType: "Broadleaf",
 					hardinessZone: [3, 4, 5, 6, 7, 8],
 					height: 2,
@@ -75,7 +80,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					scientificName: "Pelargonium x hortorum",
 					commonName: "Garden Geranium",
-					plantType: ["perennial"],
+					growthCycle: "perennial",
+					plantType: "flower",
 					leafType: "Broadleaf",
 					hardinessZone: [9, 10],
 					height: 2,
@@ -84,6 +90,64 @@ const getState = ({ getStore, getActions, setStore }) => {
 					lightExposure: ["Part Sun"],
 					comments:
 						"Geraniums are popular for their wide range of brilliant flower colors and attractive leaves. They flower during the warm months. However, when daily temperature exceeds 85 degrees F. for many days, flowering will not occur. This happens in the deep south, but flowering will return as temperatures moderate in the fall. Geraniums like sunlight for a minimum of four hours per day, a well drained, moist, and fertile soil."
+				},
+				{
+					scientificName: "Magnolia x soulangiana 'Alexandrina'",
+					commonName: "Alexandria Magnolia",
+					growthCycle: "perennial",
+					plantType: "tree",
+					leafType: "Broadleaf",
+					hardinessZone: [5, 6, 7, 8, 9],
+					height: 30,
+					bloomTime: "Spring",
+					flowerColor: ["Pink", "Purple"],
+					fruitPresent: "Summer",
+					fruitColor: "Red",
+					lightExposure: ["Sun", "Part Sun"],
+					comments: "This cultivar has a deeper purplish flower which has a more tulip-like shape."
+				},
+				{
+					scientificName: "Pimenta dioica",
+					commonName: "Allspice",
+					plantType: "tree",
+					growthCycle: "perennial",
+					leafType: "Broadleaf",
+					hardinessZone: [9, 10, 11],
+					height: 30,
+					flowerColor: ["White"],
+					fruitPresent: ["Summer", "Fall"],
+					fruitColor: "Brown",
+					lightExposure: ["Sun", "Part Sun"],
+					comments:
+						"Allspice is a relatively small evergreen tree that grows in the warm climates of the world. In some parts where conditions are favorable it has escaped cultivarion. The plant produces thick, leathery, aromatic foliage. The condiment, allspice, is produced from the unripened berry-like fruit of this tree."
+				},
+				{
+					scientificName: "Rosa 'Affirm'",
+					commonName: "Affirm Rose",
+					plantType: "shrub",
+					growthCycle: "perennial",
+					leafType: "Broadleaf",
+					hardinessZone: [6, 7, 8, 9, 10],
+					height: 5,
+					bloomTime: ["Spring", "Summer", "Fall"],
+					flowerColor: "Pink",
+					lightExposure: ["Sun"],
+					comments:
+						"This is a hybrid tea rose that produces a classic pink rose bud. As with all roses, good drainage is imperative. Roses do best on raised beds that contain fertile soil with fast drainage. Most hybrid tea roses have several pests that must be controlled during the year."
+				},
+				{
+					scientificName: "Synadenium grantii",
+					commonName: "African Milk Bush",
+					plantType: "shrub",
+					growthCycle: "perennial",
+					leafType: "Broadleaf",
+					hardinessZone: [10, 11],
+					Height: 5,
+					bloomTime: ["Summer", "Fall"],
+					flowerColor: "Red",
+					lightExposure: ["Sun", "Part Sun"],
+					comments:
+						"This is a plant that produces fleshy stems and large chartreuse colored leaves with tiny specks of red in the foliage. When broken plant exudes a milky sap. The sap can be toxic or cause a rash. This is an excellent plant to feature in containers. Plant in a well drained soil mix that contains a generous amount of sand and keep the soil moderately dry, otherwise rot will occur."
 				}
 			],
 			garden: [
@@ -134,8 +198,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				null,
 				null
 			],
-			plotWidth: 10,
-			plotLength: 8,
+			// plotWidth: 10,
+			// plotLength: 8,
 			usersPersonal: [
 				{
 					username: null,
@@ -181,7 +245,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.error(err);
 					});
 			},
-			// Use getActions to call a function within a fuction
 			postNewUser: user => {
 				fetch(getStore().apiAddress + "api/user", {
 					method: "POST",
@@ -311,12 +374,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 			console.log("Looks like there was a problem: \n", error);
 			// 		});
 			// },
-			setPlotWidth: l => {
-				setStore({ plotWidth: l });
-			},
-			setPlotLength: l => {
-				setStore({ plotLength: l });
-			},
+			// setPlotWidth: l => {
+			// 	setStore({ plotWidth: l });
+			// },
+			// setPlotLength: l => {
+			// 	setStore({ plotLength: l });
+			// },
 			postUserPersonal: user => {
 				const new_usersPersonal = getStore().usersPersonal;
 				new_usersPersonal.unshift(user);
