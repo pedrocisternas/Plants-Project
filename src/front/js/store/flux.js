@@ -152,6 +152,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			garden: [
+				// null,
+				// null,
+				// null,
+				// null,
 				{
 					plantName: "Allium",
 					description:
@@ -407,6 +411,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (el) {
 						el.plantName = " ";
 						el.description = " ";
+						// el = null;
 					}
 				});
 				logout_user[0].username = null;
