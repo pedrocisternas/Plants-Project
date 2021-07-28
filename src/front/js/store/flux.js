@@ -134,8 +134,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				null,
 				null
 			],
-			plotWidth: 10,
-			plotLength: 8,
+			// plotWidth: 10,
+			// plotLength: 8,
 			usersPersonal: [
 				{
 					username: null,
@@ -181,7 +181,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.error(err);
 					});
 			},
-			// Use getActions to call a function within a fuction
 			postNewUser: user => {
 				fetch(getStore().apiAddress + "api/user", {
 					method: "POST",
@@ -313,12 +312,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 			console.log("Looks like there was a problem: \n", error);
 			// 		});
 			// },
-			setPlotWidth: l => {
-				setStore({ plotWidth: l });
-			},
-			setPlotLength: l => {
-				setStore({ plotLength: l });
-			},
+			// setPlotWidth: l => {
+			// 	setStore({ plotWidth: l });
+			// },
+			// setPlotLength: l => {
+			// 	setStore({ plotLength: l });
+			// },
 			postUserPersonal: user => {
 				const new_usersPersonal = getStore().usersPersonal;
 				new_usersPersonal.unshift(user);
