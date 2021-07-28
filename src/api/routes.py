@@ -38,6 +38,8 @@ def user():
 @api.route('/plant', methods=['POST', 'GET'])
 def plant():
     request_body = request.get_json()
+    if request_body is None:
+        raise APIException("Request data not found", 403)
     if request.method == "GET":
         plant = Plant.query.filter_by(user_id=request_body["user_id"], grid_location=request_body["grid_location"]).first()
         if plant is None:
@@ -54,8 +56,19 @@ def plant():
 @api.route('/user/<username>', methods=['GET'])
 def get_user(username):
     user = User.query.filter_by(username=username).first()
+    print("59. user", user)
     if user is None:
-        return jsonify("user not found"), 404
+        raise APIException("user not found", 404)
     else:
         user = user.serialize()
         return jsonify(user), 200
+
+@api.route('/user', methods=['GET'])
+def get_all_users():
+    users = User.query.all()
+    print(users)
+    if users is None or len(users) < 1:
+        return jsonify("No users"), 404
+    else:
+        users_serialized = list(map(lambda user: user.serialize(), users)) 
+        return jsonify(users_serialized), 200        
