@@ -43,9 +43,9 @@ export const Popup = props => {
 };
 
 Popup.propTypes = {
-	plant: PropTypes.object
+	plant: PropTypes.object,
 	// plantName: PropTypes.string,
-	// handlePopup: PropTypes.func,
+	handlePopup: PropTypes.func
 	// plantDescription: PropTypes.string
 	// plant: PropTypes.string
 };
