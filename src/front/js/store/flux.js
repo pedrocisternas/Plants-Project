@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			apiAddress: "https://3001-peach-mockingbird-j3bnpxb6.ws-us11.gitpod.io/",
+			apiAddress: "https://3001-sapphire-landfowl-wrh9t8u8.ws-us11.gitpod.io/",
 			plantLibrary: [
 				{
 					scientificName: "Papaver somniferum",
@@ -150,33 +150,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"This is a plant that produces fleshy stems and large chartreuse colored leaves with tiny specks of red in the foliage. When broken plant exudes a milky sap. The sap can be toxic or cause a rash. This is an excellent plant to feature in containers. Plant in a well drained soil mix that contains a generous amount of sand and keep the soil moderately dry, otherwise rot will occur."
 				}
 			],
-			garden: [
-				// null,
-				// null,
-				// null,
-				// null,
-				{
-					plantName: "Allium",
-					description:
-						"Dis parturient montes nascetur ridiculus. Eget mauris pharetra et ultrices. A cras semper auctor neque vitae tempus quam pellentesque nec. Nibh mauris cursus mattis molestie a iaculis at. Egestas dui id ornare arcu. Ullamcorper sit amet risus nullam eget felis eget nunc."
-				},
-				{
-					plantName: "Alyssum",
-					description:
-						"Dis parturient montes nascetur ridiculus. Eget mauris pharetra et ultrices. A cras semper auctor neque vitae tempus quam pellentesque nec. Nibh mauris cursus mattis molestie a iaculis at. Egestas dui id ornare arcu. Ullamcorper sit amet risus nullam eget felis eget nunc."
-				},
-				{
-					plantName: "Aster",
-					description:
-						"Dis parturient montes nascetur ridiculus. Eget mauris pharetra et ultrices. A cras semper auctor neque vitae tempus quam pellentesque nec. Nibh mauris cursus mattis molestie a iaculis at. Egestas dui id ornare arcu. Ullamcorper sit amet risus nullam eget felis eget nunc."
-				},
-				{
-					plantName: "Bellflower",
-					description:
-						"Dis parturient montes nascetur ridiculus. Eget mauris pharetra et ultrices. A cras semper auctor neque vitae tempus quam pellentesque nec. Nibh mauris cursus mattis molestie a iaculis at. Egestas dui id ornare arcu. Ullamcorper sit amet risus nullam eget felis eget nunc."
-				},
-				null,
-				null,
+			garden: [],
+			hardcodedGarden: [
 				null,
 				null,
 				null,
@@ -208,9 +183,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					username: null,
 					id: null,
-					first_name: "Gregor",
-					last_name: "Samsa",
-					email: "gregors@mail.com",
+					first_name: null,
+					last_name: null,
+					email: null,
 					password: null,
 					plot_width: 10,
 					plot_length: 3
