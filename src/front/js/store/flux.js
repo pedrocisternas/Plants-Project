@@ -1,8 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			apiAddress: "https://3001-sapphire-landfowl-wrh9t8u8.ws-us11.gitpod.io/",
-			// apiAddress: "https://3001-coffee-rook-0ci9av4e.ws-eu11.gitpod.io/",
+			apiAddress: "https://3001-peach-mockingbird-j3bnpxb6.ws-us11.gitpod.io/",
 			plantLibrary: [
 				{
 					scientificName: "Papaver somniferum",
@@ -48,7 +47,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					flowerColor: ["Yellow", "Orange"],
 					lightExposure: ["Sun"],
 					comments:
-						"Marigolds have been around since pre-historic times. They grow best in full sunlight and in well drained soils. Marigolds cannot tolerate wet, humid conditions. They love drier climates where soils stay only moderately moist. Marigolds bloom from early summer through the fall if conditions are favorable. There can be a period during the hottest part of the summer when marigolds may cease to bloom until the temperatures fall below 90 F."
+						"Marigolds have been around since pre-historic times. They grow best in full sunlight and in well drained soils. Marigolds cannot tolerate wet, humid conditions. They love drier climates where soils stay only moderately moist. Marigolds bloom from early summer through the fall if conditions are favorable. There can be a period during the hottest part of the summer when mar igolds may cease to bloom until the temperatures fall below 90 F"
 				},
 				{
 					scientificName: "Begonia semperflorens",
@@ -279,11 +278,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(user.password);
 				fetch(getStore().apiAddress + "api/user/" + user.username)
 					.then(function(response) {
+						console.log(response);
 						if (!response.ok) {
-							throw Error(response.statusText);
-						}
-						if (response.status == 401) {
-							throw Error(response.statusText);
+							throw new Error(response.statusText);
 						}
 						return response.json();
 					})
