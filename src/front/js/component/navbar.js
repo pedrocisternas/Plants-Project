@@ -54,6 +54,9 @@ export const Navbar = props => {
 						<Link to="/homeReg" onClick={() => setShowDropdown(!showDropdown)}>
 							<div className="dropdown-item heading">Add Plants</div>
 						</Link>
+						<Link to="/searchplant" onClick={() => setShowDropdown(!showDropdown)}>
+							<div className="dropdown-item heading">Search Plants</div>
+						</Link>
 						<Link to="/logout" onClick={() => setShowDropdown(!showDropdown)}>
 							<div className="dropdown-item heading">Log Out</div>
 						</Link>

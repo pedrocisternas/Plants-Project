@@ -9,7 +9,10 @@ export const Popup = props => {
 	//console.log("POPUP", props.plant);
 	const helper = () => {
 		props.handlePopup();
-		actions.deleteAPlant(store.squareSelected);
+		actions.deletePlant({
+			grid_location: store.squareSelected,
+			user_id: store.usersPersonal[0]["id"]
+		});
 	};
 
 	return (
@@ -32,9 +35,9 @@ export const Popup = props => {
 						<button onClick={() => helper()} className="btn btn-style btn-list">
 							Delete
 						</button>
-						<Link to="/addplant">
+						{/* <Link to="/addplant">
 							<button className="btn btn-style btn-list">Edit selection</button>
-						</Link>
+						</Link> */}
 					</div>
 				</div>
 			</div>
