@@ -280,6 +280,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							}
 						}
 						setStore({ garden: garden_array });
+						setStore({ activeUsername: responseAsJson["username"] });
 					})
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
