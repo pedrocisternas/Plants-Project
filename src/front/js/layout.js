@@ -64,7 +64,7 @@ const Layout = () => {
 							<SignupPersonal />
 						</Route>
 						<Route exact path="/signupgarden">
-							<SignupGarden showButtons={() => setShow(true)} />
+							<SignupGarden />
 						</Route>
 						<Route exact path="/addplant">
 							<AddPlant />

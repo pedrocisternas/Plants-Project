@@ -177,8 +177,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				null,
 				null
 			],
-			// plotWidth: 10,
-			// plotLength: 8,
+			activeUsername: null,
 			usersPersonal: [
 				{
 					username: null,
@@ -241,9 +240,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(function(responseAsJson) {
 						console.log(responseAsJson);
-						const new_usersPersonal = getStore().usersPersonal;
-						new_usersPersonal.unshift(responseAsJson);
-						setStore({ usersPersonal: new_usersPersonal });
+						setStore({ activeUsername: responseAsJson["username"] });
+						// const new_usersPersonal = getStore().usersPersonal;
+						// new_usersPersonal.unshift(responseAsJson);
+						// setStore({ usersPersonal: new_usersPersonal });
 					})
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
@@ -310,7 +310,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "PUT",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({
-						username: getStore().usersPersonal[0]["username"],
+						username: getStore().activeUsername,
 						grid_width: user["plot_width"],
 						grid_length: user["plot_length"]
 					})
@@ -326,6 +326,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(function(responseAsJson) {
 						console.log(responseAsJson);
+						// const new_usersPersonal = getStore().usersPersonal;
+						// new_usersPersonal.unshift(responseAsJson);
+						// setStore({ usersPersonal: new_usersPersonal });
+						// setStore({ garden: [] });
+						// const garden_array = [];
+						// var helper = false;
+						// for (let i = 0; i < responseAsJson["grid_width"] * responseAsJson["grid_length"]; i++) {
+						// 	helper = false;
+						// 	for (let plant of responseAsJson["plants"]) {
+						// 		if (plant["grid_location"] == i) {
+						// 			garden_array.push(plant);
+						// 			helper = true;
+						// 		}
+						// 	}
+						// 	if (helper == false) {
+						// 		garden_array.push(null);
+						// 	}
+						// }
+						// setStore({ garden: garden_array });
 					})
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);

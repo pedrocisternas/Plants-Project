@@ -12,7 +12,7 @@ export const Grid = () => {
 		actions.updateSquareSelected(i);
 	};
 
-	const number = 72 / (store.usersPersonal[0]["grid_width"] + 1);
+	const number = 72 / parseInt(store.usersPersonal[0]["grid_width"] + 1);
 	const width = 0.9 * number + "vw";
 	const margin = 0.1 * number + "vw";
 	const image = 0.4 * number + "vw";
