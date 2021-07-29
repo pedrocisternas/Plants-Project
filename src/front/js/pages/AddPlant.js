@@ -77,7 +77,7 @@ export const AddPlant = () => {
 				</div>
 			</div>
 			<div className="d-flex flex-row justtify-content-start align-items-center">
-				<div>
+				{/* <div>
 					<Link to="/homereg">
 						<button
 							onClick={() => {
@@ -99,7 +99,7 @@ export const AddPlant = () => {
 							Add Plant
 						</button>
 					</Link>
-				</div>
+				</div> */}
 				<Link to="/plantlist">
 					<button type="button" className="btn btn-style btn-list m-3">
 						See Selected
