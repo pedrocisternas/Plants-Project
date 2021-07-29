@@ -35,7 +35,7 @@ def user():
             db.session.commit() 
             return jsonify(user), 200
 
-@api.route('/plant', methods=['POST', 'GET'])
+@api.route('/plant', methods=['POST', 'GET', 'DELETE'])
 def plant():
     request_body = request.get_json()
     if request_body is None:
@@ -51,7 +51,19 @@ def plant():
         new_plant = Plant(name=request_body["name"], user_id=request_body["user_id"], grid_location=request_body["grid_location"])
         db.session.add(new_plant)
         db.session.commit() 
-        return jsonify(new_plant.name + " was added correctly"), 200
+        user_updated = User.query.filter_by(id=request_body["user_id"]).first()
+        user_updated = user_updated.serialize()
+        return jsonify(user_updated), 200
+    elif request.method == "DELETE":
+        desired_plant = Plant.query.filter_by(user_id=request_body["user_id"], grid_location=request_body["grid_location"]).first()
+        if desired_plant is None:
+            return jsonify("plant not found"), 404
+        else:
+            db.session.delete(desired_plant)
+            db.session.commit()
+            user_updated = User.query.filter_by(id=request_body["user_id"]).first()
+            user_updated = user_updated.serialize()
+            return jsonify(user_updated), 200
 
 @api.route('/user/<username>', methods=['GET'])
 def get_user(username):

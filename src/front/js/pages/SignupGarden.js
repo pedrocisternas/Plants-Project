@@ -52,7 +52,7 @@ export const SignupGarden = props => {
 		// 	actions.addSquare();
 		// }
 		actions.putInfoUser(userGarden);
-		props.showButtons();
+		// props.showButtons();
 	};
 
 	return (
@@ -148,7 +148,7 @@ export const SignupGarden = props => {
 						Go Back
 					</button>
 				</Link>
-				<Link to="/homeReg">
+				<Link to="/login">
 					<button
 						onClick={() => {
 							saveGardenInput();

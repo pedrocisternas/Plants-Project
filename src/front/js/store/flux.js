@@ -177,8 +177,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				null,
 				null
 			],
-			// plotWidth: 10,
-			// plotLength: 8,
+			activeUsername: null,
 			usersPersonal: [
 				{
 					username: null,
@@ -241,9 +240,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(function(responseAsJson) {
 						console.log(responseAsJson);
-						const new_usersPersonal = getStore().usersPersonal;
-						new_usersPersonal.unshift(responseAsJson);
-						setStore({ usersPersonal: new_usersPersonal });
+						setStore({ activeUsername: responseAsJson["username"] });
+						// const new_usersPersonal = getStore().usersPersonal;
+						// new_usersPersonal.unshift(responseAsJson);
+						// setStore({ usersPersonal: new_usersPersonal });
 					})
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
@@ -280,6 +280,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							}
 						}
 						setStore({ garden: garden_array });
+						setStore({ activeUsername: responseAsJson["username"] });
 					})
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
@@ -310,7 +311,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "PUT",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({
-						username: getStore().usersPersonal[0]["username"],
+						username: getStore().activeUsername,
 						grid_width: user["plot_width"],
 						grid_length: user["plot_length"]
 					})
@@ -326,39 +327,148 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(function(responseAsJson) {
 						console.log(responseAsJson);
+						// const new_usersPersonal = getStore().usersPersonal;
+						// new_usersPersonal.unshift(responseAsJson);
+						// setStore({ usersPersonal: new_usersPersonal });
+						// setStore({ garden: [] });
+						// const garden_array = [];
+						// var helper = false;
+						// for (let i = 0; i < responseAsJson["grid_width"] * responseAsJson["grid_length"]; i++) {
+						// 	helper = false;
+						// 	for (let plant of responseAsJson["plants"]) {
+						// 		if (plant["grid_location"] == i) {
+						// 			garden_array.push(plant);
+						// 			helper = true;
+						// 		}
+						// 	}
+						// 	if (helper == false) {
+						// 		garden_array.push(null);
+						// 	}
+						// }
+						// setStore({ garden: garden_array });
 					})
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
 					});
 			},
-			// postNewPlant: plant => {
-			// 	fetch(getStore().apiAddress + "api/user", {
-			// 		method: "POST",
-			// 		headers: { "Content-Type": "application/json" },
-			// 		body: JSON.stringify(plant)
-			// 	})
-			// 		.then(function(response) {
-			// 			if (!response.ok) {
-			// 				throw Error(response.statusText);
-			// 			}
-			// 			if (response.status == 401) {
-			// 				throw Error(response.statusText);
-			// 			}
-			// 			return response.json();
-			// 		})
-			// 		.then(function(responseAsJson) {
-			// 			console.log(responseAsJson);
-			// 		})
-			// 		.catch(function(error) {
-			// 			console.log("Looks like there was a problem: \n", error);
-			// 		});
-			// },
-			// setPlotWidth: l => {
-			// 	setStore({ plotWidth: l });
-			// },
-			// setPlotLength: l => {
-			// 	setStore({ plotLength: l });
-			// },
+			postNewPlant: plant => {
+				fetch(getStore().apiAddress + "api/plant", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify(plant)
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						if (response.status == 401) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(function(user) {
+						console.log(user);
+						fetch(getStore().apiAddress + "api/user/" + user.username)
+							.then(function(response) {
+								console.log(response);
+								if (!response.ok) {
+									throw new Error(response.statusText);
+								}
+								return response.json();
+							})
+							.then(function(responseAsJson) {
+								console.log(responseAsJson);
+								const new_usersPersonal = getStore().usersPersonal;
+								new_usersPersonal.unshift(responseAsJson);
+								setStore({ usersPersonal: new_usersPersonal });
+								setStore({ garden: [] });
+								const garden_array = [];
+								var helper = false;
+								for (let i = 0; i < responseAsJson["grid_width"] * responseAsJson["grid_length"]; i++) {
+									helper = false;
+									for (let plant of responseAsJson["plants"]) {
+										if (plant["grid_location"] == i) {
+											garden_array.push(plant);
+											helper = true;
+										}
+									}
+									if (helper == false) {
+										garden_array.push(null);
+									}
+								}
+								setStore({ garden: garden_array });
+								setStore({ activeUsername: responseAsJson["username"] });
+							})
+							.catch(function(error) {
+								console.log("Looks like there was a problem: \n", error);
+							});
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+			},
+			deletePlant: plant => {
+				fetch(getStore().apiAddress + "api/plant", {
+					method: "DELETE",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify(plant)
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						if (response.status == 401) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(function(user) {
+						console.log(user);
+						fetch(getStore().apiAddress + "api/user/" + user.username)
+							.then(function(response) {
+								console.log(response);
+								if (!response.ok) {
+									throw new Error(response.statusText);
+								}
+								return response.json();
+							})
+							.then(function(responseAsJson) {
+								console.log(responseAsJson);
+								const new_usersPersonal = getStore().usersPersonal;
+								new_usersPersonal.unshift(responseAsJson);
+								setStore({ usersPersonal: new_usersPersonal });
+								setStore({ garden: [] });
+								const garden_array = [];
+								var helper = false;
+								for (let i = 0; i < responseAsJson["grid_width"] * responseAsJson["grid_length"]; i++) {
+									helper = false;
+									for (let plant of responseAsJson["plants"]) {
+										if (plant["grid_location"] == i) {
+											garden_array.push(plant);
+											helper = true;
+										}
+									}
+									if (helper == false) {
+										garden_array.push(null);
+									}
+								}
+								setStore({ garden: garden_array });
+								setStore({ activeUsername: responseAsJson["username"] });
+							})
+							.catch(function(error) {
+								console.log("Looks like there was a problem: \n", error);
+							});
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+			},
+			setPlotWidth: l => {
+				setStore({ plotWidth: l });
+			},
+			setPlotLength: l => {
+				setStore({ plotLength: l });
+			},
 			postUserPersonal: user => {
 				const new_usersPersonal = getStore().usersPersonal;
 				new_usersPersonal.unshift(user);
