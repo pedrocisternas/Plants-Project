@@ -62,10 +62,10 @@ export const SignupGarden = props => {
 				<img src="https://i.imgur.com/8ratEk4.png" alt="floral design" />
 			</p>
 			<div className="form-group">
-				{/* <label className="text-center">Hardiness Zone</label>
-				<a href="https://gilmour.com/planting-zones-hardiness-map" target="_blank" rel="noopener noreferrer">
+				<label className="text-center">Find Your Hardiness Zone</label>
+				<a href="https://planthardiness.ars.usda.gov/" target="_blank" rel="noopener noreferrer">
 					{" "}
-					Need help? Find Your Zone
+					Find more about US. hardiness zones
 				</a>
 				<input
 					type="text"
@@ -73,10 +73,14 @@ export const SignupGarden = props => {
 					onChange={userGardenInput}
 					style={{ textAlign: "center" }}
 					name="hardiness"
-					placeholder="Hardiness Zone"
+					placeholder="Enter Your Zip Code"
 					aria-label="Zone"
-				/> */}
+				/>
+				<button type="button" className="btn btn-style my-4">
+					Find
+				</button>
 			</div>
+
 			<div className="form-group">
 				<label>Plot Width</label>
 				<input
@@ -101,6 +105,7 @@ export const SignupGarden = props => {
 					aria-label="plot_length"
 				/>
 			</div>
+			{/* <p>This section is optional</p>
 			<div className="form-group">
 				<label>Sun/Shade</label>
 				<select className="form-control" id="sunlight" name="sunlight" onChange={userGardenInput}>
@@ -136,7 +141,7 @@ export const SignupGarden = props => {
 					<option>No</option>
 					<option>Undecided</option>
 				</select>
-			</div>
+			</div> */}
 			<div className="d-flex justify-content-around">
 				<Link to="/signuppersonal">
 					<button type="button" className="btn btn-style my-4">

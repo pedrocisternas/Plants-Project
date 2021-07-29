@@ -1,11 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-<<<<<<< HEAD
 			apiAddress: "https://3001-coffee-rook-0ci9av4e.ws-eu11.gitpod.io/",
-=======
-			apiAddress: "https://3001-sapphire-landfowl-wrh9t8u8.ws-us11.gitpod.io/",
->>>>>>> d82a08d7e5760681625559c7e6f7a72f41e84934
 			plantLibrary: [
 				{
 					scientificName: "Papaver somniferum",
