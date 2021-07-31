@@ -35,7 +35,13 @@ export const FindHardinessZone = () => {
 				<img src="https://i.imgur.com/iG4axMX.png" alt="forecast icon" />
 			</p>
 			<div className="form-group d-flex flex-column justify-content-center my-4">
-				<label className="text-center">Hardiness Zone Search</label>
+				{/* <label className="text-center">Hardiness Zone Search</label> */}
+				{showLabel ? (
+					<h4 className="heading text-center color-item2 user-info2">
+						The hardiness zone for zip code <b>{store.hardinessZone.zipcode}</b> is{" "}
+						<b>{store.hardinessZone.hardiness_zone}</b>.
+					</h4>
+				) : null}
 				<div className="text-center my-3">
 					<a href="https://planthardiness.ars.usda.gov/" target="_blank" rel="noopener noreferrer">
 						{" "}
@@ -70,12 +76,6 @@ export const FindHardinessZone = () => {
 					</button>
 				</div>
 			</div>
-			{showLabel ? (
-				<h4 className="heading text-center color-item2 user-info2">
-					The hardiness zone for zip code <b>{store.hardinessZone.zipcode}</b> is{" "}
-					<b>{store.hardinessZone.hardiness_zone}</b>.
-				</h4>
-			) : null}
 		</div>
 	);
 };
