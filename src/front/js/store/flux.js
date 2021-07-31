@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			apiAddress: "https://3001-coffee-rook-0ci9av4e.ws-eu11.gitpod.io/",
+			apiAddress: "https://3001-coffee-rook-0ci9av4e.ws-eu13.gitpod.io/",
 			plantLibrary: [
 				{
 					scientificName: "Papaver somniferum",
@@ -187,13 +187,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					email: null,
 					password: null,
 					plot_width: 10,
-					plot_length: 3
+					plot_length: 3,
+					hardiness_zone: null,
+					zipcode: null
 				}
 			],
+			hardinessZone: {
+				hardiness: null,
+				zipcode: null
+			},
 			usersGarden: [
 				{
-					hardiness: null,
-					plot_size: null,
+					//hardiness: null,
+					//plot_size: null,
 					sunlight: null,
 					edibles: null,
 					annuals: null,
@@ -205,24 +211,47 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			findHardinessZone: zip => {
 				fetch("https://plant-hardiness-zone.p.rapidapi.com/zipcodes" + "/" + zip, {
-					// method: "GET",
+					method: "GET",
 					headers: {
 						"content-type": "application/json",
 						"x-rapidapi-key": "40ebbe3ed3msh3a39f76c326acf4p14e3c2jsnb80f8a9d0f8c",
 						"x-rapidapi-host": "plant-hardiness-zone.p.rapidapi.com"
-					},
-					body: {
-						key1: "value",
-						key2: "value"
 					}
+					// body: {
+					// 	key1: "value",
+					// 	key2: "value"
+					// }
 				})
+					.then(function(response) {
+						//console.log(response);
+						if (!response.ok) {
+							throw new Error(response.statusText);
+						}
+						return response.json();
+					})
 					.then(response => {
 						console.log(response);
+						// const user_hardiness = response["hardiness_zone"];
+						// console.log(user_hardiness);
+						getStore().hardinessZone.hardiness = response["hardiness_zone"];
+						getStore().hardinessZone.zipcode = response["zipcode"];
+						console.log(getStore().hardinessZone.hardiness);
+						console.log(getStore().hardinessZone);
+
+						// const userPersonal = getStore().usersPersonal[0];
+						// userPersonal.hardiness_zone = response["hardiness_zone"];
+						// userPersonal.zipcode = response["zipcode"];
+						// console.log("A big flag:", userPersonal);
+
+						// setStore({ usersPersonal: userPersonal });
+						// setStore({ [usersPersonal[0].zipcode]: response["zipcode"] });
+						//setStore({});
 					})
 					.catch(err => {
 						console.error(err);
 					});
 			},
+
 			postNewUser: user => {
 				fetch(getStore().apiAddress + "api/user", {
 					method: "POST",
@@ -239,8 +268,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(function(responseAsJson) {
-						console.log(responseAsJson);
+						console.log("", responseAsJson);
 						setStore({ activeUsername: responseAsJson["username"] });
+						//setStore({ usersPersonal: responseAsJson });
 						// const new_usersPersonal = getStore().usersPersonal;
 						// new_usersPersonal.unshift(responseAsJson);
 						// setStore({ usersPersonal: new_usersPersonal });
@@ -307,13 +337,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// 	});
 			},
 			putInfoUser: user => {
+				console.log(user);
 				fetch(getStore().apiAddress + "api/user", {
 					method: "PUT",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({
 						username: getStore().activeUsername,
 						grid_width: user["plot_width"],
-						grid_length: user["plot_length"]
+						grid_length: user["plot_length"],
+						hardiness_zone: user["hardiness_zone"],
+						zipcode: user["zipcode"]
 					})
 				})
 					.then(function(response) {

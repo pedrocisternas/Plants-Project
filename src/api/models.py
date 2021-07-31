@@ -12,6 +12,8 @@ class User(db.Model):
     plants = db.relationship('Plant', backref='user')
     grid_width = db.Column(db.Integer, unique=False, nullable=True)
     grid_length = db.Column(db.Integer, unique=False, nullable=True)
+    zipcode = db.Column(db.Integer, unique=False, nullable=True)
+    hardiness_zone = db.Column(db.String(20), unique=True, nullable=True)
     # sun_shade = db.Column(db.String(20), unique=True, nullable=False)
     # edible = db.Column(db.String(20), unique=True, nullable=False)
     # annual = db.Column(db.String(20), unique=True, nullable=False)
@@ -30,6 +32,8 @@ class User(db.Model):
             "plants": [plant.serialize() for plant in self.plants ],
             "grid_width": self.grid_width,
             "grid_length": self.grid_length,
+            "hardiness_zone": self.hardiness_zone,
+            "zipcode": self.zipcode
             # "sun_shade": self.sun_shade,
             # "edible": self.edible,
             # "annual": self.annual,

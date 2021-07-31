@@ -9,11 +9,14 @@ export const SignupGarden = props => {
 	const [plotWidth, setPlotWidth] = useState(null);
 	const [plotLength, setPlotLength] = useState(null);
 	const [userGarden, setUserGarden] = useState({
-		hardiness: null,
-		sunlight: null,
-		edibles: null,
-		annuals: null,
-		experience: null
+		zipcode: null,
+		hardiness_zone: null,
+		grid_width: null,
+		grid_length: null
+		// sunlight: null,
+		// edibles: null,
+		// annuals: null,
+		// experience: null
 	});
 
 	const userGardenInput = e => {
@@ -55,53 +58,60 @@ export const SignupGarden = props => {
 		// props.showButtons();
 	};
 
+	// const getHardiness = () => {
+	// 	console.log("this is user zip", userGarden.zip);
+	// 	actions.findHardinessZone(userGarden.zip);
+	// 	//console.log(store.usersPersonal[0].hardiness_zone);
+	// };
+
 	return (
 		<form className="container w-50 m-auto">
-			<h1 className="text-center heading">Garden Details</h1>
+			<h1 className="text-center heading">Plot Size Information</h1>
 			<p className="text-center mb-1">
 				<img src="https://i.imgur.com/8ratEk4.png" alt="floral design" />
 			</p>
-			<div className="form-group">
+			{/* <div className="form-group">
 				<label className="text-center">Find Your Hardiness Zone</label>
 				<a href="https://planthardiness.ars.usda.gov/" target="_blank" rel="noopener noreferrer">
 					{" "}
-					Find more about US. hardiness zones
+					Read more about US. hardiness zones
 				</a>
 				<input
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"
 					onChange={userGardenInput}
 					style={{ textAlign: "center" }}
-					name="hardiness"
+					name="zip"
 					placeholder="Enter Your Zip Code"
-					aria-label="Zone"
+					aria-label="zip"
 				/>
-				<button type="button" className="btn btn-style my-4">
+				<button type="button" className="btn btn-style my-4" onClick={getHardiness}>
 					Find
 				</button>
 			</div>
+			<div>Your hardiness zone is {store.usersPersonal[0].hardiness_zone}</div> */}
 
 			<div className="form-group">
-				<label>Plot Width</label>
+				<label>Plot Width (in m)</label>
 				<input
 					onChange={userGardenInput}
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"
 					style={{ textAlign: "center" }}
 					name="plot_width"
-					placeholder="Plot width"
+					placeholder="Enter Plot width"
 					aria-label="plot_width"
 				/>
 			</div>
 			<div className="form-group">
-				<label>Plot Length</label>
+				<label>Plot Length (in m)</label>
 				<input
 					onChange={userGardenInput}
 					type="text"
 					className="form-control mr-3 mt-2 mb-2"
 					style={{ textAlign: "center" }}
 					name="plot_length"
-					placeholder="Plot length"
+					placeholder="Enter Plot length"
 					aria-label="plot_length"
 				/>
 			</div>

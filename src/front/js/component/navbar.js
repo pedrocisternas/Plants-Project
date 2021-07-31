@@ -8,7 +8,7 @@ export const Navbar = props => {
 	const [showDropdown, setShowDropdown] = useState(false);
 	return (
 		<nav className="navbar m-0">
-			<Link to={store.usersPersonal[0].username != null ? "/homereg" : "/"}>
+			<Link to={store.activeUsername != null ? "/homereg" : "/"}>
 				<span className="navbar-brand ml-4 h1">
 					<img className="logo-img" src="https://i.imgur.com/3VBrs4C.png" />
 				</span>
@@ -56,6 +56,9 @@ export const Navbar = props => {
 						</Link>
 						<Link to="/searchplant" onClick={() => setShowDropdown(!showDropdown)}>
 							<div className="dropdown-item heading">Search Plants</div>
+						</Link>
+						<Link to="/hardiness" onClick={() => setShowDropdown(!showDropdown)}>
+							<div className="dropdown-item heading">Find Hardiness Zone</div>
 						</Link>
 						<Link to="/logout" onClick={() => setShowDropdown(!showDropdown)}>
 							<div className="dropdown-item heading">Log Out</div>

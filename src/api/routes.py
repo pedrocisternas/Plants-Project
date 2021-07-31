@@ -31,6 +31,8 @@ def user():
         else:
             user.grid_width = request_body["grid_width"]
             user.grid_length = request_body["grid_length"]
+            user.hardiness_zone = request_body["hardiness_zone"]
+            user.zipcode = request_body["zipcode"]
             user = user.serialize()
             db.session.commit() 
             return jsonify(user), 200

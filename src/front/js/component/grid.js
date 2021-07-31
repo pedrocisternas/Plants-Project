@@ -29,7 +29,11 @@ export const Grid = () => {
 								style={{ width: width, height: width, margin: margin }}
 								key={i}
 								onClick={() => helper(i)}>
-								<img style={{ width: image }} src="https://i.imgur.com/0fftZmM.png" alt="seedling" />
+								<img
+									style={{ width: image }}
+									src="https://i.imgur.com/DUvsZAH.png"
+									alt="color seedling"
+								/>
 							</div>
 						) : store.usersPersonal[0].username != null ? (
 							<div
@@ -39,8 +43,8 @@ export const Grid = () => {
 								<Link onClick={() => actions.updateSquareSelected(i)} to="/addplant">
 									<img
 										style={{ width: image }}
-										src="https://i.imgur.com/KlyBk8R.png"
-										alt="seedling"
+										src="https://i.imgur.com/CJTivse.png"
+										alt="green seedling"
 									/>
 								</Link>
 							</div>
