@@ -12,6 +12,16 @@ export const GardenInfo = props => {
 		experience: store.usersPersonal[0]["experience"]
 	});
 
+	const userGardenInput = e => {
+		// setPlotSize(parseInt(e.target.value));
+		setGardenInfo({ ...gardenInfo, [e.target.name]: e.target.value });
+	};
+
+	const userGardenInputNumber = e => {
+		// setPlotSize(parseInt(e.target.value));
+		setGardenInfo({ ...gardenInfo, [e.target.name]: parseInt(e.target.value) });
+	};
+
 	//const [badge, setBadge] = useState(false);
 
 	// const showBadge = e => {
@@ -24,6 +34,10 @@ export const GardenInfo = props => {
 	// 		<img src="https://i.imgur.com/RWxOMaU.png" alt="rocket" />;
 	// 	} else <img src="https://i.imgur.com/slVx6Xp.png" alt="medal" />;
 	// };
+
+	const helper = () => {
+		actions.editInfoUser(gardenInfo);
+	};
 
 	return (
 		<div className=" w-75 m-auto ">
@@ -40,7 +54,9 @@ export const GardenInfo = props => {
 							? store.usersPersonal[0].hardiness_zone
 							: "Enter Your Hardiness Zone"
 					}
+					onChange={userGardenInput}
 					aria-label="hardiness_zone"
+					name="hardiness_zone"
 					type="text"
 				/>
 				{/* <div className="color-item2 text-center">{store.usersPersonal[0].hardiness_zone}</div> */}
@@ -50,7 +66,9 @@ export const GardenInfo = props => {
 				<input
 					className="color-item2 text-center w-25"
 					placeholder={store.usersPersonal[0].zipcode ? store.usersPersonal[0].zipcode : "Enter Your Zipcode"}
+					onChange={userGardenInput}
 					aria-label="zipcode"
+					name="zipcode"
 					type="text"
 				/>
 				{/* <div className="color-item2 text-center">{store.usersPersonal[0]["zipcode"]}</div> */}
@@ -59,8 +77,14 @@ export const GardenInfo = props => {
 				<h5 className="heading text-center mb-0 w-25">Plot Width: </h5>
 				<input
 					className="color-item2 text-center w-25"
-					placeholder={store.usersPersonal[0]["grid_width"]}
+					placeholder={
+						store.usersPersonal[0]["grid_width"]
+							? store.usersPersonal[0]["grid_width"]
+							: "Enter Your Grid Width"
+					}
+					onChange={userGardenInputNumber}
 					aria-label="grid_width"
+					name="grid_width"
 					type="text"
 				/>
 				{/* <div className="color-item2 text-center">{store.usersPersonal[0]["grid_width"]}</div> */}
@@ -69,8 +93,14 @@ export const GardenInfo = props => {
 				<h5 className="heading text-center mb-0 w-25">Plot Length: </h5>
 				<input
 					className="color-item2 text-center w-25"
-					placeholder={store.usersPersonal[0]["grid_length"]}
+					placeholder={
+						store.usersPersonal[0]["grid_length"]
+							? store.usersPersonal[0]["grid_length"]
+							: "Enter Your Grid Length"
+					}
+					onChange={userGardenInputNumber}
 					aria-label="grid_length"
+					name="grid_length"
 					type="text"
 				/>
 				{/* <div className="color-item2 text-center">{store.usersPersonal[0]["grid_length"]}</div> */}
@@ -83,13 +113,16 @@ export const GardenInfo = props => {
 						<img src="https://i.imgur.com/slVx6Xp.png" alt="medal" />
 					</span>
 				</h5>
-				<select className="custom-select color-item text-center w-50">
+				<select
+					className="custom-select color-item text-center w-50"
+					onChange={userGardenInput}
+					name="experience">
 					<option selected>
 						{store.usersPersonal[0].experience ? store.usersPersonal[0].experience : "Choose Level"}
 					</option>
-					<option value="new">New-born gardener</option>
-					<option value="some">Climbing the learning curve</option>
-					<option value="green">Green thumb level</option>
+					<option value="New-born gardener">New-born gardener</option>
+					<option value="Climbing the learning curve">Climbing the learning curve</option>
+					<option value="Green thumb level">Green thumb level</option>
 				</select>
 			</div>
 
@@ -102,9 +135,11 @@ export const GardenInfo = props => {
 				{/* <button type="button" className="btn btn-style m-auto ">
 					Edit
 				</button> */}
-				<button type="button" className="btn btn-style m-auto ">
-					Update and Save
-				</button>
+				<Link to="/profile">
+					<button type="button" className="btn btn-style m-auto" onClick={helper}>
+						Update and Save
+					</button>
+				</Link>
 			</div>
 		</div>
 	);

@@ -10,16 +10,8 @@ api = Blueprint('api', __name__)
 @api.route('/user', methods=['POST', 'PUT'])
 def user():
     request_body = request.get_json()
-    # if request.method == "GET":
-    #     user = User.query.filter_by(username=request_body["username"], password=request_body["password"]).first()
-    #     if user is None:
-    #         return jsonify("user not found"), 404
-    #     else:
-    #         user = user.serialize()
-    #         return jsonify(user), 200
     if request.method == "POST":
         new_user = User(username=request_body["username"], email=request_body["email"], password=request_body["password"], first_name=request_body["first_name"], last_name=request_body["last_name"])
-        # Add grid_width=request_body["grid_length"], grid_length=request_body["grid_length"] ?
         db.session.add(new_user)
         db.session.commit() 
         new_user = new_user.serialize()
@@ -29,21 +21,27 @@ def user():
         if user is None:
             return jsonify("user not found"), 404
         else:
-            if (request_body["hardiness_zone"] and request_body["zipcode"] and request_body["experience"]) in request_body:
-                user.grid_width = request_body["grid_width"]
-                user.grid_length = request_body["grid_length"]
-                user.hardiness_zone = request_body["hardiness_zone"]
-                user.zipcode = request_body["zipcode"]
-                user.experience = request_body["experience"]
-                user = user.serialize()
-                db.session.commit() 
-                return jsonify(user), 200
-            else:
-                user.grid_width = request_body["grid_width"]
-                user.grid_length = request_body["grid_length"]
-                user = user.serialize()
-                db.session.commit() 
-                return jsonify(user), 200
+            user.grid_width = request_body["grid_width"]
+            user.grid_length = request_body["grid_length"]
+            user = user.serialize()
+            db.session.commit() 
+            return jsonify(user), 200
+
+@api.route('/edituser', methods=['PUT'])
+def edit_user():
+    request_body = request.get_json()
+    user = User.query.filter_by(username=request_body["username"]).first()
+    if user is None:
+        return jsonify("user not found"), 404
+    else:
+        user.grid_width = request_body["grid_width"]
+        user.grid_length = request_body["grid_length"]
+        user.hardiness_zone = request_body["hardiness_zone"]
+        user.zipcode = request_body["zipcode"]
+        user.experience = request_body["experience"]
+        user = user.serialize()
+        db.session.commit() 
+        return jsonify(user), 200
 
 @api.route('/plant', methods=['POST', 'GET', 'DELETE'])
 def plant():
@@ -84,6 +82,20 @@ def get_user(username):
     else:
         user = user.serialize()
         return jsonify(user), 200
+
+# @api.route('/plants', methods=['DELETE'])
+# def delete_plants():
+#     request_body = request.get_json()
+#     plants = Plant.query.filter_by(id=request_body["user_id"])
+#     if plants is None:
+#         return jsonify("No plants to erase"), 404
+#     else:
+#         for plant in plants:
+#             db.session.delete(plant)
+#             db.session.commit()
+#         user_updated = User.query.filter_by(id=request_body["user_id"]).first()
+#         user_updated = user_updated.serialize()
+#         return jsonify(user_updated), 200
 
 @api.route('/user', methods=['GET'])
 def get_all_users():

@@ -11,8 +11,8 @@ export const SignupGarden = props => {
 	const [userGarden, setUserGarden] = useState({
 		zipcode: null,
 		hardiness_zone: null,
-		grid_width: null,
-		grid_length: null,
+		plot_width: null,
+		plot_length: null,
 
 		experience: null
 	});

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Popup } from "../component/popup";
 
-import ReactToPrint from "react-to-print";
+// import ReactToPrint from "react-to-print";
 
 //import { ComponentToPrint } from "../pages/";
 

@@ -1,8 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			//apiAddress: "https://3001-sapphire-landfowl-wrh9t8u8.ws-us13.gitpod.io/",
-			apiAddress: "https://3001-coffee-rook-0ci9av4e.ws-eu13.gitpod.io/",
+			apiAddress: "https://3001-sapphire-landfowl-wrh9t8u8.ws-us13.gitpod.io/",
+			// apiAddress: "https://3001-coffee-rook-0ci9av4e.ws-eu13.gitpod.io/",
 			plantLibrary: [
 				{
 					scientificName: "Papaver somniferum",
@@ -362,7 +362,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.error(err);
 					});
 			},
-
 			postNewUser: user => {
 				fetch(getStore().apiAddress + "api/user", {
 					method: "POST",
@@ -447,7 +446,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// 		console.log("Looks like there was a problem: \n", error);
 				// 	});
 			},
-			putInfoUser: user => {
+			putInfoUser: async user => {
 				console.log(user);
 				fetch(getStore().apiAddress + "api/user", {
 					method: "PUT",
@@ -455,9 +454,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					body: JSON.stringify({
 						username: getStore().activeUsername,
 						grid_width: user["plot_width"],
-						grid_length: user["plot_length"],
-						hardiness_zone: user["hardiness_zone"],
-						zipcode: user["zipcode"]
+						grid_length: user["plot_length"]
 					})
 				})
 					.then(function(response) {
@@ -490,6 +487,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 						// 	}
 						// }
 						// setStore({ garden: garden_array });
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+			},
+			editInfoUser: user => {
+				console.log(user);
+				fetch(getStore().apiAddress + "api/edituser", {
+					method: "PUT",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						username: getStore().activeUsername,
+						grid_width: user["grid_width"],
+						grid_length: user["grid_length"],
+						hardiness_zone: user["hardiness_zone"],
+						zipcode: user["zipcode"],
+						experience: user["experience"]
+					})
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						if (response.status == 401) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(function(responseAsJson) {
+						console.log(responseAsJson);
+						getActions().getUser(responseAsJson);
 					})
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
