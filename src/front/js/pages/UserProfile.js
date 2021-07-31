@@ -20,7 +20,6 @@ export const UserProfile = () => {
 						</button>
 					</Link>
 					<img className="ml-5" src="https://i.imgur.com/uXEpgQA.png" alt="scarecrow" />
-					{/* <i className="far fa-2x color-item3 fa-user-circle" /> */}
 				</div>
 				<div className="d-flex flex-row align-items-center m-4 p-4 text-anime">
 					<img className="mr-5" src="https://i.imgur.com/nJOHwX1.png" alt="garden tools" />
@@ -29,8 +28,6 @@ export const UserProfile = () => {
 							Garden Information
 						</button>
 					</Link>
-
-					{/* <i className="fas fa-2x color-item3 fa-seedling" /> */}
 				</div>
 				<div className="d-flex flex-row align-items-center m-4 p-4 text-anime">
 					<Link to="/plantlist">
@@ -40,7 +37,6 @@ export const UserProfile = () => {
 					</Link>
 					<span />
 					<img className="ml-5" src="https://i.imgur.com/p5SeFG5.png" alt="flower" />
-					{/* <i className="far fa-2x color-item3 fa-check-circle" /> */}
 				</div>
 			</div>
 		</div>

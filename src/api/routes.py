@@ -29,11 +29,21 @@ def user():
         if user is None:
             return jsonify("user not found"), 404
         else:
-            user.grid_width = request_body["grid_width"]
-            user.grid_length = request_body["grid_length"]
-            user = user.serialize()
-            db.session.commit() 
-            return jsonify(user), 200
+            if (request_body["hardiness_zone"] and request_body["zipcode"] and request_body["experience"]) in request_body:
+                user.grid_width = request_body["grid_width"]
+                user.grid_length = request_body["grid_length"]
+                user.hardiness_zone = request_body["hardiness_zone"]
+                user.zipcode = request_body["zipcode"]
+                user.experience = request_body["experience"]
+                user = user.serialize()
+                db.session.commit() 
+                return jsonify(user), 200
+            else:
+                user.grid_width = request_body["grid_width"]
+                user.grid_length = request_body["grid_length"]
+                user = user.serialize()
+                db.session.commit() 
+                return jsonify(user), 200
 
 @api.route('/plant', methods=['POST', 'GET', 'DELETE'])
 def plant():

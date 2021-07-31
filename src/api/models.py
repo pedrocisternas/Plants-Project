@@ -12,10 +12,8 @@ class User(db.Model):
     plants = db.relationship('Plant', backref='user')
     grid_width = db.Column(db.Integer, unique=False, nullable=True)
     grid_length = db.Column(db.Integer, unique=False, nullable=True)
-    # sun_shade = db.Column(db.String(20), unique=True, nullable=False)
-    # edible = db.Column(db.String(20), unique=True, nullable=False)
-    # annual = db.Column(db.String(20), unique=True, nullable=False)
-    # trees = db.Column(db.String(20), unique=True, nullable=False)
+    zipcode = db.Column(db.Integer, unique=False, nullable=True)
+    hardiness_zone = db.Column(db.String(20), unique=False, nullable=True)
 
     def __repr__(self):
         return '<User %r,%r>' % (self.id, self.username)
@@ -30,11 +28,9 @@ class User(db.Model):
             "plants": [plant.serialize() for plant in self.plants ],
             "grid_width": self.grid_width,
             "grid_length": self.grid_length,
-            # "sun_shade": self.sun_shade,
-            # "edible": self.edible,
-            # "annual": self.annual,
-            # "trees": self.trees
-            # do not serialize the password, its a security breach
+            "hardiness_zone": self.hardiness_zone,
+            "zipcode": self.zipcode,
+            "experience": self.experience
         }
 
 class Plant(db.Model):
@@ -52,5 +48,4 @@ class Plant(db.Model):
             "name": self.name,
             "username": self.user_id,
             "grid_location": self.grid_location
-            # do not serialize the password, its a security breach
         }
