@@ -45,6 +45,7 @@ export const SignupGarden = props => {
 					name="plot_width"
 					placeholder="Enter Plot width"
 					aria-label="plot_width"
+					required
 				/>
 			</div>
 			<div className="form-group">
@@ -57,6 +58,7 @@ export const SignupGarden = props => {
 					name="plot_length"
 					placeholder="Enter Plot length"
 					aria-label="plot_length"
+					required
 				/>
 			</div>
 

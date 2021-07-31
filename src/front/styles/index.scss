@@ -216,3 +216,8 @@ body {
     box-shadow: 3px 3px 6px 6px rgba(0, 0, 0, 0.01);
     border-radius: 5px;
 }
+
+::placeholder {
+    color: var(--apple-green);
+    font-size: 1rem;
+}
