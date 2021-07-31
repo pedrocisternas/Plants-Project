@@ -189,23 +189,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 					plot_width: 10,
 					plot_length: 3,
 					hardiness_zone: null,
-					zipcode: null
+					zipcode: null,
+					experience: null
 				}
 			],
 			hardinessZone: {
 				hardiness: null,
 				zipcode: null
 			},
-			usersGarden: [
-				{
-					//hardiness: null,
-					//plot_size: null,
-					sunlight: null,
-					edibles: null,
-					annuals: null,
-					experience: null
-				}
-			],
+			// usersGarden: [
+			// 	{
+			// 		hardiness: null,
+			// 		zipcode: null,
+			// 		//plot_size: null,
+			// 		annuals: null,
+			// 		experience: null
+			// 	}
+			// ],
 			squareSelected: null
 		},
 		actions: {
@@ -233,9 +233,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(response);
 						// const user_hardiness = response["hardiness_zone"];
 						// console.log(user_hardiness);
-						getStore().hardinessZone.hardiness = response["hardiness_zone"];
-						getStore().hardinessZone.zipcode = response["zipcode"];
-						console.log(getStore().hardinessZone.hardiness);
+						setStore({ hardinessZone: response });
+						console.log(getStore().hardinessZone.hardiness_zone);
 						console.log(getStore().hardinessZone);
 
 						// const userPersonal = getStore().usersPersonal[0];

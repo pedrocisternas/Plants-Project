@@ -1,7 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Popup } from "../component/popup";
+
+import ReactToPrint from "react-to-print";
+
+//import { ComponentToPrint } from "../pages/";
 
 export const PlantList = () => {
 	const { store, actions } = useContext(Context);
