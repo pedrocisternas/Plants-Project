@@ -5,9 +5,6 @@ import PropTypes from "prop-types";
 
 export const SignupGarden = props => {
 	const { store, actions } = useContext(Context);
-	// const [plotSize, setPlotSize] = useState(null);
-	// const [plotWidth, setPlotWidth] = useState(null);
-	// const [plotLength, setPlotLength] = useState(null);
 	const [userGarden, setUserGarden] = useState({
 		zipcode: null,
 		hardiness_zone: null,
@@ -18,14 +15,12 @@ export const SignupGarden = props => {
 	});
 
 	const userGardenInput = e => {
-		// setPlotSize(parseInt(e.target.value));
 		setUserGarden({ ...userGarden, [e.target.name]: e.target.value });
 		console.log(e.target.name, e.target.value);
 	};
 
 	const saveGardenInput = () => {
 		actions.putInfoUser(userGarden);
-		// props.showButtons();
 	};
 
 	return (
@@ -36,7 +31,7 @@ export const SignupGarden = props => {
 			</p>
 
 			<div className="form-group">
-				<label>Plot Width (in m)</label>
+				<label>Plot Width (in meters)</label>
 				<input
 					onChange={userGardenInput}
 					type="text"
@@ -49,7 +44,7 @@ export const SignupGarden = props => {
 				/>
 			</div>
 			<div className="form-group">
-				<label>Plot Length (in m)</label>
+				<label>Plot Length (in meters)</label>
 				<input
 					onChange={userGardenInput}
 					type="text"

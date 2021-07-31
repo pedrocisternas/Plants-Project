@@ -22,10 +22,10 @@ export const PersonalInfo = props => {
 				<h5 className="heading text-center mb-0">Email: </h5>
 				<div className="color-item2 text-center">{store.usersPersonal[0]["email"]}</div>
 			</div>
-			<div className="user-info">
+			{/* <div className="user-info">
 				<h5 className="heading text-center mb-0">Password: </h5>
 				<div className="color-item2 text-center">{store.usersPersonal[0]["password"]}</div>
-			</div>
+			</div> */}
 			<div className="w-25 m-auto">
 				<Link to="/profile">
 					<button type="button" className="btn btn-style m-auto w-100">

@@ -12,7 +12,7 @@ export const FindHardinessZone = () => {
 		console.log(e);
 	};
 
-	const getHardiness = zip => {
+	const getHardiness = async zip => {
 		console.log("this is user zip: ", zipCode);
 		actions.findHardinessZone(zip);
 		setShowLabel(true);
@@ -55,6 +55,7 @@ export const FindHardinessZone = () => {
 					style={{ textAlign: "center" }}
 					name="zip"
 					placeholder="Enter Your Zip Code"
+					value={zipCode}
 					aria-label="zip"
 				/>
 				<div className="d-flex justify-content-center">

@@ -390,7 +390,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getUser: user => {
-				console.log(user.password);
+				// console.log(user.password);
 				fetch(getStore().apiAddress + "api/user/" + user.username)
 					.then(function(response) {
 						console.log(response);
@@ -517,7 +517,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(function(responseAsJson) {
 						console.log(responseAsJson);
-						getActions().getUser(responseAsJson);
+						if (
+							responseAsJson["grid_width"] != getStore().usersPersonal[0]["grid_width"] ||
+							responseAsJson["grid_length"] != getStore().usersPersonal[0]["grid_length"]
+						) {
+							getActions().deleteAllPlants(getStore().usersPersonal[0]["id"]);
+						} else {
+							getActions().getUser(responseAsJson);
+						}
 					})
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
@@ -635,29 +642,55 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log("Looks like there was a problem: \n", error);
 					});
 			},
-			setPlotWidth: l => {
-				setStore({ plotWidth: l });
+			deleteAllPlants: () => {
+				fetch(getStore().apiAddress + "api/plants", {
+					method: "DELETE",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						user_id: getStore().usersPersonal[0]["id"]
+					})
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						if (response.status == 401) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(function(responseAsJson) {
+						getActions().getUser(responseAsJson);
+						// const new_usersPersonal = getStore().usersPersonal;
+						// new_usersPersonal.unshift(responseAsJson);
+						// setStore({ usersPersonal: new_usersPersonal });
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
 			},
-			setPlotLength: l => {
-				setStore({ plotLength: l });
-			},
-			postUserPersonal: user => {
-				const new_usersPersonal = getStore().usersPersonal;
-				new_usersPersonal.unshift(user);
-				setStore({ usersPersonal: new_usersPersonal });
-			},
-			postUserGarden: user => {
-				const new_usersGarden = getStore().usersGarden;
-				new_usersGarden.unshift(user);
-				setStore({ usersGarden: new_usersGarden });
-			},
-			getUserPersonal: () => {},
-			userLogin: user => {
-				const login_user = getStore().usersPersonal;
-				login_user[0].username = user.username;
-				login_user[0].password = user.password;
-				setStore({ usersPersonal: login_user });
-			},
+			// setPlotWidth: l => {
+			// 	setStore({ plotWidth: l });
+			// },
+			// setPlotLength: l => {
+			// 	setStore({ plotLength: l });
+			// },
+			// postUserPersonal: user => {
+			// 	const new_usersPersonal = getStore().usersPersonal;
+			// 	new_usersPersonal.unshift(user);
+			// 	setStore({ usersPersonal: new_usersPersonal });
+			// },
+			// postUserGarden: user => {
+			// 	const new_usersGarden = getStore().usersGarden;
+			// 	new_usersGarden.unshift(user);
+			// 	setStore({ usersGarden: new_usersGarden });
+			// },
+			// userLogin: user => {
+			// 	const login_user = getStore().usersPersonal;
+			// 	login_user[0].username = user.username;
+			// 	login_user[0].password = user.password;
+			// 	setStore({ usersPersonal: login_user });
+			// },
 			userLogout: () => {
 				const logout_user = getStore().usersPersonal;
 				const logout_garden = getStore().garden;
@@ -710,21 +743,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// },
 			updateSquareSelected: position => {
 				setStore({ squareSelected: position });
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
 			}
+			// changeColor: (index, color) => {
+			// 	//get the store
+			// 	const store = getStore();
+
+			// 	//we have to loop the entire demo array to look for the respective index
+			// 	//and change its color
+			// 	const demo = store.demo.map((elm, i) => {
+			// 		if (i === index) elm.background = color;
+			// 		return elm;
+			// 	});
+
+			// 	//reset the global store
+			// 	setStore({ demo: demo });
+			// }
 		}
 	};
 };

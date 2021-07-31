@@ -83,19 +83,21 @@ def get_user(username):
         user = user.serialize()
         return jsonify(user), 200
 
-# @api.route('/plants', methods=['DELETE'])
-# def delete_plants():
-#     request_body = request.get_json()
-#     plants = Plant.query.filter_by(id=request_body["user_id"])
-#     if plants is None:
-#         return jsonify("No plants to erase"), 404
-#     else:
-#         for plant in plants:
-#             db.session.delete(plant)
-#             db.session.commit()
-#         user_updated = User.query.filter_by(id=request_body["user_id"]).first()
-#         user_updated = user_updated.serialize()
-#         return jsonify(user_updated), 200
+@api.route('/plants', methods=['DELETE'])
+def delete_plants():
+    request_body = request.get_json()
+    plants = Plant.query.filter_by(user_id=request_body["user_id"])
+    if plants is None:
+        return jsonify("No plants to erase"), 404
+    else:
+        # plants = list(map(lambda plant: plant.serialize(),plants))
+        for plant in plants:
+            # helper.append(plant["name"])
+            db.session.delete(plant)
+            db.session.commit()
+        user_updated = User.query.filter_by(id=request_body["user_id"]).first()
+        user_updated = user_updated.serialize()
+        return jsonify(user_updated), 200
 
 @api.route('/user', methods=['GET'])
 def get_all_users():
