@@ -35,12 +35,12 @@ export const SignupGarden = props => {
 				<input
 					onChange={userGardenInput}
 					type="text"
+					required
 					className="form-control mr-3 mt-2 mb-2"
 					style={{ textAlign: "center" }}
 					name="plot_width"
 					placeholder="Enter Plot width"
 					aria-label="plot_width"
-					required
 				/>
 			</div>
 			<div className="form-group">
@@ -48,12 +48,12 @@ export const SignupGarden = props => {
 				<input
 					onChange={userGardenInput}
 					type="text"
+					required
 					className="form-control mr-3 mt-2 mb-2"
 					style={{ textAlign: "center" }}
 					name="plot_length"
 					placeholder="Enter Plot length"
 					aria-label="plot_length"
-					required
 				/>
 			</div>
 

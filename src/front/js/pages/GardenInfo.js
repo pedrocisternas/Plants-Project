@@ -36,6 +36,7 @@ export const GardenInfo = props => {
 	const userGardenInputNumber = e => {
 		// setPlotSize(parseInt(e.target.value));
 		setGardenInfo({ ...gardenInfo, [e.target.name]: parseInt(e.target.value) });
+		gardenInfo.zipcode.toString().padStart(5, 0);
 	};
 
 	//const [badge, setBadge] = useState(false);

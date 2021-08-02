@@ -34,6 +34,7 @@ export const SignupPersonal = props => {
 				<label>Username</label>
 				<input
 					type="text"
+					required
 					className="form-control mr-3 mt-2 mb-2"
 					onChange={userInput}
 					style={{ textAlign: "center" }}
@@ -46,6 +47,7 @@ export const SignupPersonal = props => {
 				<label>First Name </label>
 				<input
 					type="text"
+					required
 					className="form-control mr-3 mt-2 mb-2"
 					onChange={userInput}
 					style={{ textAlign: "center" }}
@@ -70,6 +72,7 @@ export const SignupPersonal = props => {
 				<label>Email</label>
 				<input
 					type="text"
+					required
 					className="form-control mr-3  mt-2 mb-2"
 					onChange={userInput}
 					style={{ textAlign: "center" }}
@@ -82,6 +85,7 @@ export const SignupPersonal = props => {
 				<label>Password</label>
 				<input
 					type="text"
+					required
 					className="form-control mr-3 mt-2 mb-2"
 					onChange={userInput}
 					style={{ textAlign: "center" }}
@@ -94,6 +98,7 @@ export const SignupPersonal = props => {
 				<label>Repeat Password</label>
 				<input
 					type="text"
+					required
 					className="form-control mr-3 mt-2 mb-2"
 					onChange={userInput}
 					style={{ textAlign: "center" }}

@@ -12,8 +12,8 @@ export const UserProfile = () => {
 					{store.usersPersonal[0].first_name} {store.usersPersonal[0].last_name}
 				</h2>
 			</div>
-			<div className="d-flex flex-column justify-content-center align-items-center  w-50 m-auto">
-				<div className="d-flex flex-row align-items-center m-4 p-4 text-anime">
+			<div className="d-flex flex-column justify-content-center align-items-center mt-4 w-100 m-auto">
+				<div className="d-flex flex-row align-items-center ml-4 my-4 pl-4 py-4 text-anime">
 					<Link to="/personal">
 						<button type="button" className="btn border-0 btn-profile list-text">
 							Personal Information
@@ -21,7 +21,7 @@ export const UserProfile = () => {
 					</Link>
 					<img className="ml-5" src="https://i.imgur.com/uXEpgQA.png" alt="scarecrow" />
 				</div>
-				<div className="d-flex flex-row align-items-center m-4 p-4 text-anime">
+				<div className="d-flex flex-row align-items-center my-4 mr-4 py-4 pr-4 text-anime">
 					<img className="mr-5" src="https://i.imgur.com/nJOHwX1.png" alt="garden tools" />
 					<Link to="/garden">
 						<button type="button" className="btn border-0 btn-profile list-text">
@@ -29,7 +29,7 @@ export const UserProfile = () => {
 						</button>
 					</Link>
 				</div>
-				<div className="d-flex flex-row align-items-center m-4 p-4 text-anime">
+				<div className="d-flex flex-row align-items-center ml-4 my-4 pl-4 py-4 text-anime">
 					<Link to="/plantlist">
 						<button type="button" className="btn border-0 btn-profile list-text">
 							See Your Selections

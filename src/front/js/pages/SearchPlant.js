@@ -148,11 +148,13 @@ export const SearchPlant = () => {
 	return (
 		<div className="container-fluid">
 			<h1 className="text-center py-3 heading">Search for a Plant</h1>
-
+			<p className="text-center mb-1">
+				<img src="https://i.imgur.com/2cNthnK.png" alt="lens" />
+			</p>
 			<div className="d-flex my-5 p-5">
 				<form
-					className="w-50 rounded shadow-lg p-5"
-					style={{ background: "linear-gradient(35deg, yellowgreen, white 40%)", height: "fit-content" }}>
+					className="w-50 rounded shadow-lg p-5 "
+					style={{ background: "linear-gradient(35deg, #7bb517, white 40%)", height: "fit-content" }}>
 					<div className="form-check d-block form-check-inline">
 						<input
 							className="form-check-input"
@@ -191,7 +193,7 @@ export const SearchPlant = () => {
 							onChange={e => setSearchInputs({ ...searchInputs, name: e.target.value })}
 						/>
 						<button
-							className="btn btn-outline-success"
+							className="btn btn-style2"
 							type="button"
 							onClick={() => onFilterChange(searchInputs.name)}>
 							Find plant
@@ -207,7 +209,7 @@ export const SearchPlant = () => {
 							onChange={e => setSearchInputs({ ...searchInputs, zone: e.target.value })}
 						/>
 						<button
-							className="btn btn-outline-success"
+							className="btn btn-style2"
 							type="button"
 							onClick={e => onFilterChange(searchInputs.zone)}>
 							Find plant
@@ -223,7 +225,7 @@ export const SearchPlant = () => {
 							onChange={e => setSearchInputs({ ...searchInputs, color: e.target.value })}
 						/>
 						<button
-							className="btn btn-outline-success"
+							className="btn btn-style2"
 							type="button"
 							onClick={e => onFilterChange(searchInputs.color)}>
 							Find plant
@@ -234,10 +236,8 @@ export const SearchPlant = () => {
 					{filteredList &&
 						filteredList.map((item, i) => (
 							<div key={i}>
-								<li className="shadow rounded-pill">
-									<div
-										className="card rounded-pill mb-3"
-										style={{ maxWidth: "100%", maxHeight: "150px" }}>
+								<li className="shadow ">
+									<div className="card  mb-3" style={{ maxWidth: "100%", maxHeight: "180px" }}>
 										<div className="row g-0">
 											<div className="col-md-3">
 												<img src="..." className="img-fluid rounded-start" alt="..." />

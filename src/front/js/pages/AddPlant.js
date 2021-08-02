@@ -43,6 +43,9 @@ export const AddPlant = () => {
 	return (
 		<div className="container h-100">
 			<h1 className="text-center py-3 heading">Add a Plant to Your Garden</h1>
+			<p className="text-center mb-1">
+				<img src="https://i.imgur.com/jz0oCz6.png" alt="lens" />
+			</p>
 			<div className="input-group mb-3 d-flex flex-column">
 				<input
 					// onChange={e => {
@@ -51,7 +54,7 @@ export const AddPlant = () => {
 					onChange={handleChange}
 					value={searchTerm}
 					type="text"
-					className="form-control rounded"
+					className="form-control rounded mt-4"
 					// onChange={plantInput}
 					placeholder="Type plant name"
 					aria-label="Type plant name"
@@ -108,7 +111,7 @@ export const AddPlant = () => {
 					</Link>
 				</div> */}
 				<Link to="/plantlist">
-					<button type="button" className="btn btn-style btn-list m-3">
+					<button type="button" className="btn btn-style btn-list ml-0 my-3">
 						See Selected
 					</button>
 				</Link>
