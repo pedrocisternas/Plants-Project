@@ -23,8 +23,12 @@ export const Popup = props => {
 						<div>
 							<div className="d-flex">
 								<h2 className="color-item mr-3">More about {props.plant["commonName"]}</h2>
-								<i className="fab fa-2x fa-pagelines color-item" />
+								{/* <i className="fab fa-2x fa-pagelines color-item" /> */}
+								<span>
+									<img src="https://i.imgur.com/7KnWoOT.png" alt="plant" />
+								</span>
 							</div>
+							<p className="color-item">Growth Cycle: {props.plant["growthCycle"]}</p>
 							<p>{props.plant["comments"]}</p>
 						</div>
 						<div onClick={props.handlePopup}>
