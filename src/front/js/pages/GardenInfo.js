@@ -12,6 +12,20 @@ export const GardenInfo = props => {
 		experience: store.usersPersonal[0]["experience"]
 	});
 
+	const [selectExperience, setSelectExperience] = useState("");
+
+	const showBadge = e => {
+		setSelectExperience(e.target.value);
+		console.log(e.target.value);
+		if (e.target.value == "Green thumb level") {
+			<img src="https://i.imgur.com/naA552h.png" alt="thumb" />;
+		} else if (e.target.value == "New-born gardener") {
+			<img src="https://i.imgur.com/sQrAVZK.png" alt="newbie" />;
+		} else if (e.target.value == "Climbing the learning curve") {
+			<img src="https://i.imgur.com/RWxOMaU.png" alt="rocket" />;
+		} else <img src="https://i.imgur.com/slVx6Xp.png" alt="medal" />;
+	};
+
 	const userGardenInput = e => {
 		// setPlotSize(parseInt(e.target.value));
 		setGardenInfo({ ...gardenInfo, [e.target.name]: e.target.value });
@@ -23,17 +37,6 @@ export const GardenInfo = props => {
 	};
 
 	//const [badge, setBadge] = useState(false);
-
-	// const showBadge = e => {
-	// 	console.log(e.target.value);
-	// 	if (badge && e.target.value == "green") {
-	// 		<img src="https://i.imgur.com/naA552h.png" alt="thumb" />;
-	// 	} else if (badge && e.target.value == "new") {
-	// 		<img src="https://i.imgur.com/sQrAVZK.png" alt="newbie" />;
-	// 	} else if (badge && e.target.value == "some") {
-	// 		<img src="https://i.imgur.com/RWxOMaU.png" alt="rocket" />;
-	// 	} else <img src="https://i.imgur.com/slVx6Xp.png" alt="medal" />;
-	// };
 
 	const helper = () => {
 		actions.editInfoUser(gardenInfo);
