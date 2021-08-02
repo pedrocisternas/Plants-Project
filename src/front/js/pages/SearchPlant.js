@@ -3,171 +3,181 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const SearchPlant = () => {
-	const [searchTerm, setSearchTerm] = useState("");
-	const [searchResults, setSearchResults] = useState([]);
-	const [checked, setChecked] = useState([]);
-
 	const { store, actions } = useContext(Context);
-
-	const [annual, setAnnual] = useState(false);
-	const [perennial, setPerennial] = useState(false);
-
-	const [checkboxValue, setCheckboxValue] = useState("");
-	const [filteredResults, setFilteredResults] = useState([]);
-	const [plantInfo, setPlantInfo] = useState("");
-
-	const handleCheckbox = (e, plantInfo) => {
-		console.log("THIS ", e.target.value);
-		console.log(store.plantLibrary);
-		if (e.target.value == "annual") {
-			setAnnual();
+	const [filterList, setFilterList] = useState([
+		{
+			id: 105,
+			name: "Annual",
+			value: "annual"
+		},
+		{
+			id: 106,
+			name: "Perennial",
+			value: "perennial"
+		},
+		{
+			id: 107,
+			name: "Flowers",
+			value: "flower"
+		},
+		{
+			id: 111,
+			name: "Trees",
+			value: "tree"
+		},
+		{
+			id: 113,
+			name: "Ground cover",
+			value: "ground cover"
+		},
+		{
+			id: 118,
+			name: "Shrubs",
+			value: "shrub"
+		},
+		{
+			id: 108,
+			name: "Blooms in spring",
+			value: "spring"
+		},
+		{
+			id: 112,
+			name: "Blooms in summer",
+			value: "summer"
+		},
+		{
+			id: 114,
+			name: "Blooms in fall",
+			value: "fall"
+		},
+		{
+			id: 109,
+			name: "Plants for full sun",
+			value: "sun"
+		},
+		{
+			id: 115,
+			name: "Plants for part sun",
+			value: "part sun"
+		},
+		{
+			id: 116,
+			name: "Plants for filtered shade",
+			value: "filtered shade"
+		},
+		{
+			id: 117,
+			name: "Plants for shade",
+			value: "shade"
+		},
+		{
+			id: 110,
+			name: "Edible",
+			value: "edible"
+		},
+		{
+			id: 119,
+			name: "Blooming",
+			value: "blooming"
 		}
+	]);
+	const [searchLists, setSearchLists] = useState(store.plantLibrary);
+	const [activeFilter, setActiveFilter] = useState([]);
 
-		// const isChecked = checked;
-		// console.log(isChecked);
-		if (checked) {
-			const checkedPlant = store.plantLibrary.filter((el, i) => {
-				console.log(el.plantInfo, e.target.value);
-				return el[plantInfo] == e.target.value;
-			});
-			setFilteredResults([...filteredResults, ...checkedPlant]);
-		} else setFilteredResults([]);
+	const [filteredList, setFilteredList] = useState(null);
 
-		//console.log(checkedPlant);
+	const onFilterChange = filter => {
+		if (filter === "ALL") {
+			if (activeFilter.length === filterList.length) {
+				setActiveFilter([]);
+			} else {
+				setActiveFilter(filterList.map(filter => filter.value));
+			}
+		} else {
+			if (activeFilter.includes(filter)) {
+				const filterIndex = activeFilter.indexOf(filter);
+				const newFilter = [...activeFilter];
+				newFilter.splice(filterIndex, 1);
+				setActiveFilter(newFilter);
+			} else {
+				setActiveFilter([...activeFilter, filter]);
+			}
+		}
 	};
 
-	const runSearch = () => {
-		var searchedPlants = checked.map((attribute, i) => {
-			var savedPlants = store.plantLibrary.map((plant, ind) => {
-				if (plant.growthCycle == attribute || plant.plantType == attribute) {
-					return plant;
-				}
-			});
-			return savedPlants;
-		});
-
-		console.log("Searched plants", searchedPlants);
-
-		// if (checked) {
-		// 	const checkedPlant = store.plantLibrary.filter((el, i) => {
-		// 		console.log(el.plantInfo, e.target.value);
-		// 		return el[plantInfo] == e.target.value;
-		// 	});
-		// 	setFilteredResults([...filteredResults, ...checkedPlant]);
-		// } else setFilteredResults([]);
-	};
-
-	const handleChange = event => {
-		setSearchTerm(event.target.value);
-	};
 	useEffect(
 		() => {
-			const results = store.plantLibrary.filter(plant =>
-				plant.commonName.toLowerCase().includes(searchTerm.toLowerCase())
-			);
-			setSearchResults(results);
+			if (activeFilter.length === 0) {
+				setFilteredList(null);
+			}
+			if (activeFilter.length === filterList.length) {
+				setFilteredList(searchLists);
+			} else {
+				setFilteredList(
+					searchLists.filter(item => {
+						return (
+							activeFilter.includes(item.growthCycle) ||
+							activeFilter.includes(item.plantType) ||
+							activeFilter.includes(item.plantIs) ||
+							activeFilter.includes(item.bloomTime ? item.bloomTime[0] : "nothing") ||
+							activeFilter.includes(item.bloomTime ? item.bloomTime[1] : "nothing") ||
+							activeFilter.includes(item.bloomTime ? item.bloomTime[2] : "nothing") ||
+							activeFilter.includes(item.lightExposure ? item.lightExposure[0] : "nothing") ||
+							activeFilter.includes(item.lightExposure ? item.lightExposure[1] : "nothing") ||
+							activeFilter.includes(item.lightExposure ? item.lightExposure[2] : "nothing") ||
+							activeFilter.includes(item.lightExposure ? item.lightExposure[3] : "nothing")
+						);
+					})
+				);
+			}
 		},
-		[searchTerm]
+		[activeFilter]
 	);
 
 	return (
 		<div className="container h-100">
 			<h1 className="text-center py-3 heading">Search for a Plant</h1>
-			<div>
-				<div>Growth Cycle</div>
-				<div className="form-check form-check-inline">
-					<input
-						onClick={e => setChecked([...checked, "annual"])}
-						className="form-check-input"
-						type="checkbox"
-						id="annual"
-						value="annual"
-					/>
-					<label className="form-check-label" htmlFor="inlineCheckbox1">
-						Annuals
-					</label>
-				</div>
-				<div className="form-check form-check-inline">
-					<input
-						className="form-check-input"
-						type="checkbox"
-						id="perennial"
-						value="perennial"
-						onClick={e => setChecked([...checked, "perennial"])}
-					/>
-					<label className="form-check-label" htmlFor="inlineCheckbox2">
-						Perennials
-					</label>
-				</div>
-			</div>
-			<div>
-				<div>Plant Type</div>
-				<div className="form-check form-check-inline">
-					<input
-						className="form-check-input"
-						type="radio"
-						name="exampleRadios"
-						id="exampleRadios1"
-						value="option1"
-					/>
-					<label className="form-check-label" htmlFor="exampleRadios1">
-						Default radio
-					</label>
-				</div>
 
-				<div className="form-check form-check-inline">
-					<input className="form-check-input" type="radio" id="trees" value="trees" />
-					<label className="form-check-label" htmlFor="trees">
-						Trees
-					</label>
-				</div>
-				<div className="form-check form-check-inline">
-					<input className="form-check-input" type="radio" id="cover" value="cover" />
-					<label className="form-check-label" htmlFor="cover">
-						Ground Cover
-					</label>
-				</div>
-				<div className="form-check form-check-inline">
-					<input className="form-check-input" type="radio" id="shrub" value="shrub" />
-					<label className="form-check-label" htmlFor="shrub">
-						Shrub
-					</label>
-				</div>
-				<div className="form-check form-check-inline">
-					<input
-						className="form-check-input"
-						type="radio"
-						id="flower"
-						value="flower"
-						onClick={e => setChecked([...checked, "flower"])}
-					/>
-					<label className="form-check-label" htmlFor="bulb">
-						Flower
-					</label>
-				</div>
-				<div className="form-check form-check-inline">
-					<input className="form-check-input" type="radio" id="all" value="all" />
-					<label className="form-check-label" htmlFor="all">
-						All plants
-					</label>
-				</div>
+			<div className="d-flex">
+				<form className="w-50">
+					<div className="form-check d-block form-check-inline">
+						<input
+							className="form-check-input"
+							type="checkbox"
+							id="all"
+							value="all"
+							onClick={() => onFilterChange("ALL")}
+							checked={activeFilter.length === filterList.length}
+						/>
+						<label className="form-check-label" htmlFor="all">
+							ALL
+						</label>
+					</div>
+					{filterList.map(filter => (
+						<div className="form-check d-block form-check-inline" key={filter.id}>
+							<input
+								className="form-check-input"
+								type="checkbox"
+								id={filter.id}
+								value={filter.value}
+								onClick={e => onFilterChange(filter.value)}
+								checked={activeFilter.includes(filter.value)}
+							/>
+							<label className="form-check-label mr-3" htmlFor={filter.id}>
+								{filter.name}
+							</label>
+						</div>
+					))}
+				</form>
+				<ul className="w-50">
+					{filteredList &&
+						filteredList.map((item, i) => (
+							<div key={i}>
+								<li>{item.commonName}</li>
+							</div>
+						))}
+				</ul>
 			</div>
-			{/* <input type="text" placeholder="Search" value={searchTerm} onChange={handleChange} /> */}
-			{/* <ul>
-				{searchResults.map((plant, i) => (
-					<li key={i}>{plant.commonName}</li>
-				))}
-			</ul> */}
-			{searchResults.map((plant, i) => {
-				// if (checked) console.log("hi");
-			})}
-			<button type="button" className="btn btn-style" onClick={runSearch}>
-				Search
-			</button>
-
-			<button type="button" className="btn btn-style" onClick={actions.addPlant}>
-				Add
-			</button>
 		</div>
 	);
 };
