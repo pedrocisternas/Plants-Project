@@ -46,7 +46,7 @@ export const Navbar = props => {
 						Hi, {store.usersPersonal[0]["username"]}
 					</button>
 					<div
-						className={showDropdown ? "dropdown-menu mr-5 show" : "d-none"}
+						className={showDropdown ? "dropdown-menu show dropdown-menu-right" : "d-none"}
 						aria-labelledby="dropdownMenuButton">
 						<Link to="/profile" onClick={() => setShowDropdown(!showDropdown)}>
 							<div className="dropdown-item heading">Your Profile</div>

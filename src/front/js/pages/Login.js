@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 
 export const Login = props => {
+	let history = useHistory();
 	const { store, actions } = useContext(Context);
 	const [userLog, setUserLog] = useState({
 		username: null,
@@ -18,6 +19,7 @@ export const Login = props => {
 		// actions.userLogin(userLog);
 		actions.getUser(userLog);
 		props.showButtons();
+		history.push("/homeReg");
 	};
 
 	return (
@@ -46,17 +48,16 @@ export const Login = props => {
 						placeholder="Password"
 						aria-label="Password"
 					/>
-					<Link to="/homeReg">
-						<button
-							onClick={() => {
-								actions.getUser(userLog);
-								props.showButtons();
-							}}
-							className="btn btn-style mb-2"
-							type="button">
-							Submit
-						</button>
-					</Link>
+					{/* <Link to="/homeReg"> */}
+					<button
+						onClick={() => {
+							logIn();
+						}}
+						className="btn btn-style mb-2"
+						type="button">
+						Submit
+					</button>
+					{/* </Link> */}
 					<Link to="/signuppersonal">
 						<div className="color-item mt-3">Create Account</div>
 					</Link>
