@@ -1,8 +1,9 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			//apiAddress: "https://3001-sapphire-landfowl-wrh9t8u8.ws-us13.gitpod.io/",
-			apiAddress: "https://3001-coffee-rook-0ci9av4e.ws-eu13.gitpod.io/",
+			apiAddress: "https://3001-white-kiwi-2tqo35gy.ws-us13.gitpod.io/",
+			// apiAddress: "https://3001-sapphire-landfowl-wrh9t8u8.ws-us13.gitpod.io/",
+			// apiAddress: "https://3001-coffee-rook-0ci9av4e.ws-eu13.gitpod.io/",
 			plantLibrary: [
 				{
 					scientificName: "Papaver somniferum",
@@ -10,7 +11,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					growthCycle: "annual",
 					plantType: "flower",
 					leafType: "broadleaf",
-					hardinessZone: [6, 7, 8, 9],
+					hardinessZone: ["6", "7"],
 					height: 4,
 					plantIs: "blooming",
 					bloomTime: ["spring"],
@@ -28,11 +29,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					growthCycle: "perennial",
 					plantType: "flower",
 					leafType: "broadleaf",
-					hardinessZone: [9, 10, 11],
+					hardinessZone: ["9", "10", "11"],
 					height: 1,
 					plantIs: "blooming",
 					bloomTime: ["spring", "summer", "fall"],
-					flowerColor: "various",
+					flowerColor: ["various"],
 					// fruitPresent: null,
 					// fruitColor: [null],
 					lightExposure: ["sun", "part sun"],
@@ -46,7 +47,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					growthCycle: "annual",
 					plantType: "flower",
 					leafType: "broadleaf",
-					hardinessZone: [9, 10, 11],
+					hardinessZone: ["10", "11"],
 					height: 2,
 					plantIs: "blooming",
 					bloomTime: ["summer", "fall"],
@@ -62,11 +63,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					growthCycle: "annual",
 					plantType: "flower",
 					leafType: "broadleaf",
-					hardinessZone: [10],
+					hardinessZone: ["10"],
 					height: 1,
 					plantIs: "blooming",
 					bloomTime: ["spring", "summer", "fall"],
-					flowerColor: "various",
+					flowerColor: ["various"],
 					lightExposure: ["sun", "part sun"],
 					plantImage: "",
 					comments:
@@ -78,11 +79,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					growthCycle: "perennial",
 					plantType: "flower",
 					leafType: "broadleaf",
-					hardinessZone: [3, 4, 5, 6, 7, 8],
+					hardinessZone: ["3", "4", "5", "6", "7"],
 					height: 2,
 					plantIs: "blooming",
 					bloomTime: ["summer"],
-					flowerColor: "Blue",
+					flowerColor: ["blue"],
 					lightExposure: ["sun", "part sun"],
 					plantImage: "",
 					comments:
@@ -94,11 +95,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					growthCycle: "perennial",
 					plantType: "flower",
 					leafType: "broadleaf",
-					hardinessZone: [9, 10],
+					hardinessZone: ["8", "9", "10"],
 					height: 2,
 					plantIs: "blooming",
 					bloomTime: ["spring", "summer", "fall"],
-					flowerColor: "various",
+					flowerColor: ["various"],
 					lightExposure: ["part sun"],
 					plantImage: "",
 					comments:
@@ -110,11 +111,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					growthCycle: "perennial",
 					plantType: "tree",
 					leafType: "broadleaf",
-					hardinessZone: [5, 6, 7, 8, 9],
+					hardinessZone: ["7", "8", "9"],
 					height: 30,
 					plantIs: "blooming",
 					bloomTime: ["spring"],
-					flowerColor: ["Pink", "Purple"],
+					flowerColor: ["pink", "purple"],
 					fruitPresent: "summer",
 					fruitColor: "Red",
 					lightExposure: ["sun", "part sun"],
@@ -128,11 +129,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					plantType: "tree",
 					growthCycle: "perennial",
 					leafType: "broadleaf",
-					hardinessZone: [9, 10, 11],
+					hardinessZone: ["9", "10", "11"],
 					height: 30,
 					plantIs: "edible",
 					bloomTime: ["spring"],
-					flowerColor: ["White"],
+					flowerColor: ["white"],
 					fruitPresent: ["summer", "fall"],
 					fruitColor: "Brown",
 					lightExposure: ["sun", "part sun"],
@@ -146,11 +147,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					plantType: "shrub",
 					growthCycle: "perennial",
 					leafType: "broadleaf",
-					hardinessZone: [6, 7, 8, 9, 10],
+					hardinessZone: ["8", "9", "10"],
 					height: 5,
 					plantIs: "blooming",
 					bloomTime: ["spring", "summer", "fall"],
-					flowerColor: "Pink",
+					flowerColor: ["pink"],
 					lightExposure: ["sun"],
 					plantImage: "",
 					comments:
@@ -162,11 +163,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					plantType: "shrub",
 					growthCycle: "perennial",
 					leafType: "broadleaf",
-					hardinessZone: [10, 11],
+					hardinessZone: ["10", "11"],
 					height: 5,
 					plantIs: "blooming",
 					bloomTime: ["summer", "fall"],
-					flowerColor: "Red",
+					flowerColor: ["red"],
 					lightExposure: ["sun", "part sun"],
 					plantImage: "",
 					comments:
@@ -178,11 +179,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					plantType: "shrub",
 					growthCycle: "perennial",
 					leafType: "broadleaf",
-					hardinessZone: [6, 7, 8, 9],
+					hardinessZone: ["7", "8", "9"],
 					height: 5,
 					plantIs: "blooming",
 					bloomTime: ["spring"],
-					flowerColor: "yellow",
+					flowerColor: ["yellow"],
 					lightExposure: ["part sun", "filtered shade", "shade"],
 					plantImage: "",
 					comments:
@@ -193,7 +194,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					commonName: "Cherry Wave Petunia",
 					plantType: "flower",
 					growthCycle: "annual",
-					hardinessZone: [6, 7, 8, 9],
+					hardinessZone: ["6", "7", "8"],
 					height: 1,
 					plantIs: "blooming",
 					bloomTime: ["spring", "summer"],
@@ -208,11 +209,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					commonName: "Cosmos",
 					plantType: "flower",
 					growthCycle: "annual",
-					hardinessZone: [6, 7, 8, 9, 10],
+					hardinessZone: ["7", "8", "9", "10"],
 					height: 5,
 					plantIs: "blooming",
 					bloomTime: ["spring", "summer"],
-					flowerColor: "various",
+					flowerColor: ["various"],
 					lightExposure: ["sun", "part sun"],
 					plantImage: "",
 					comments:
@@ -224,7 +225,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					plantType: "ground cover",
 					growthCycle: "perennial",
 					leafType: "broadleaf",
-					hardinessZone: [7, 8, 9, 10],
+					hardinessZone: ["7", "8", "9"],
 					height: 2,
 					plantIs: "insignificant",
 					bloomTime: ["spring"],
@@ -239,7 +240,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					plantType: "ground cover",
 					growthCycle: "perennial",
 					leafType: "broadleaf",
-					hardinessZone: [4, 5, 6, 7, 8],
+					hardinessZone: ["4", "5", "6", "7"],
 					height: 1,
 					plantIs: "insignificant",
 					bloomTime: ["spring"],
@@ -254,7 +255,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					plantType: "ground cover",
 					growthCycle: "perennial",
 					leafType: "broadleaf",
-					hardinessZone: [6, 7, 8, 9],
+					hardinessZone: ["6", "7", "8", "9"],
 					height: 2,
 					plantIs: "insignificant",
 					lightExposure: ["sun", "part sun", "filtered shade", "shade", "Morning sun"],
@@ -268,11 +269,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					plantType: "tree",
 					growthCycle: "perennial",
 					leafType: "broadleaf",
-					hardinessZone: [10, 11],
+					hardinessZone: ["10", "11"],
 					height: 50,
 					plantIs: "edible",
 					bloomTime: ["spring"],
-					flowerColor: "White",
+					flowerColor: ["white"],
 					fruitPresent: "fall",
 					lightExposure: ["sun"],
 					plantImage: "",
@@ -361,10 +362,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(response => {
 						console.log(response);
-
+						// const user_hardiness = response["hardiness_zone"];
+						// console.log(user_hardiness);
 						setStore({ hardinessZone: response });
-						// console.log(getStore().hardinessZone.hardiness_zone);
-						// console.log(getStore().hardinessZone);
+						console.log(getStore().hardinessZone.hardiness_zone);
+						console.log(getStore().hardinessZone);
+
+						// const userPersonal = getStore().usersPersonal[0];
+						// userPersonal.hardiness_zone = response["hardiness_zone"];
+						// userPersonal.zipcode = response["zipcode"];
+						// console.log("A big flag:", userPersonal);
+
+						// setStore({ usersPersonal: userPersonal });
+						// setStore({ [usersPersonal[0].zipcode]: response["zipcode"] });
+						//setStore({});
 					})
 					.catch(err => {
 						console.error(err);

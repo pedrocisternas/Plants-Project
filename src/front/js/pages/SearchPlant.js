@@ -4,6 +4,7 @@ import { Context } from "../store/appContext";
 
 export const SearchPlant = () => {
 	const { store, actions } = useContext(Context);
+
 	const [filterList, setFilterList] = useState([
 		{
 			id: 105,
@@ -83,24 +84,28 @@ export const SearchPlant = () => {
 	]);
 	const [searchLists, setSearchLists] = useState(store.plantLibrary);
 	const [activeFilter, setActiveFilter] = useState([]);
-
 	const [filteredList, setFilteredList] = useState(null);
+	const [searchInputs, setSearchInputs] = useState({
+		name: "",
+		zone: null,
+		color: ""
+	});
 
-	const onFilterChange = filter => {
-		if (filter === "ALL") {
+	const onFilterChange = term => {
+		if (term === "ALL") {
 			if (activeFilter.length === filterList.length) {
 				setActiveFilter([]);
 			} else {
 				setActiveFilter(filterList.map(filter => filter.value));
 			}
 		} else {
-			if (activeFilter.includes(filter)) {
-				const filterIndex = activeFilter.indexOf(filter);
+			if (activeFilter.includes(term)) {
+				const filterIndex = activeFilter.indexOf(term);
 				const newFilter = [...activeFilter];
 				newFilter.splice(filterIndex, 1);
 				setActiveFilter(newFilter);
 			} else {
-				setActiveFilter([...activeFilter, filter]);
+				setActiveFilter([...activeFilter, term]);
 			}
 		}
 	};
@@ -125,7 +130,13 @@ export const SearchPlant = () => {
 							activeFilter.includes(item.lightExposure ? item.lightExposure[0] : "nothing") ||
 							activeFilter.includes(item.lightExposure ? item.lightExposure[1] : "nothing") ||
 							activeFilter.includes(item.lightExposure ? item.lightExposure[2] : "nothing") ||
-							activeFilter.includes(item.lightExposure ? item.lightExposure[3] : "nothing")
+							activeFilter.includes(item.lightExposure ? item.lightExposure[3] : "nothing") ||
+							activeFilter.includes(item.commonName) ||
+							activeFilter.includes(item.hardinessZone ? item.hardinessZone[0] : "nothing") ||
+							activeFilter.includes(item.hardinessZone ? item.hardinessZone[1] : "nothing") ||
+							activeFilter.includes(item.hardinessZone ? item.hardinessZone[2] : "nothing") ||
+							activeFilter.includes(item.flowerColor ? item.flowerColor[0] : "nothing") ||
+							activeFilter.includes(item.flowerColor ? item.flowerColor[1] : "nothing")
 						);
 					})
 				);
@@ -135,11 +146,13 @@ export const SearchPlant = () => {
 	);
 
 	return (
-		<div className="container h-100">
+		<div className="container-fluid">
 			<h1 className="text-center py-3 heading">Search for a Plant</h1>
 
-			<div className="d-flex">
-				<form className="w-50">
+			<div className="d-flex my-5 p-5">
+				<form
+					className="w-50 rounded shadow-lg p-5"
+					style={{ background: "linear-gradient(35deg, yellowgreen, white 40%)", height: "fit-content" }}>
 					<div className="form-check d-block form-check-inline">
 						<input
 							className="form-check-input"
@@ -168,12 +181,96 @@ export const SearchPlant = () => {
 							</label>
 						</div>
 					))}
+					<div className="d-flex my-3">
+						<input
+							className="form-control w-75 me-2"
+							type="search"
+							value={searchInputs.name}
+							placeholder="Search by Common Name"
+							aria-label="Search by Common Name"
+							onChange={e => setSearchInputs({ ...searchInputs, name: e.target.value })}
+						/>
+						<button
+							className="btn btn-outline-success"
+							type="button"
+							onClick={() => onFilterChange(searchInputs.name)}>
+							Find plant
+						</button>
+					</div>
+					<div className="d-flex my-3">
+						<input
+							className="form-control w-75 me-2"
+							type="search"
+							value={searchInputs.zone}
+							placeholder="Search by Zone"
+							aria-label="Search by Zone"
+							onChange={e => setSearchInputs({ ...searchInputs, zone: e.target.value })}
+						/>
+						<button
+							className="btn btn-outline-success"
+							type="button"
+							onClick={e => onFilterChange(searchInputs.zone)}>
+							Find plant
+						</button>
+					</div>
+					<div className="d-flex my-3">
+						<input
+							className="form-control w-75 me-2"
+							type="search"
+							value={searchInputs.color}
+							placeholder="Search by Flower Color"
+							aria-label="Search by Flower Color"
+							onChange={e => setSearchInputs({ ...searchInputs, color: e.target.value })}
+						/>
+						<button
+							className="btn btn-outline-success"
+							type="button"
+							onClick={e => onFilterChange(searchInputs.color)}>
+							Find plant
+						</button>
+					</div>
 				</form>
-				<ul className="w-50">
+				<ul className="w-50" style={{ listStyleType: "none" }}>
 					{filteredList &&
 						filteredList.map((item, i) => (
 							<div key={i}>
-								<li>{item.commonName}</li>
+								<li className="shadow rounded-pill">
+									<div
+										className="card rounded-pill mb-3"
+										style={{ maxWidth: "100%", maxHeight: "150px" }}>
+										<div className="row g-0">
+											<div className="col-md-3">
+												<img src="..." className="img-fluid rounded-start" alt="..." />
+											</div>
+											<div className="col-md-9">
+												<div className="card-body">
+													<h5 className="card-title" style={{ color: "green" }}>
+														{item.commonName} ({item.scientificName})
+													</h5>
+													<p className="card-text d-flex justify-content-between">
+														<span>
+															Plant:{" "}
+															<i style={{ color: "yellowgreen" }}>{item.plantType}</i>
+														</span>
+														<span>
+															Growth:{" "}
+															<i style={{ color: "yellowgreen" }}>{item.growthCycle}</i>
+														</span>
+														<span>
+															Hardiness:{" "}
+															<i style={{ color: "yellowgreen" }}>
+																{item.hardinessZone.toString()}
+															</i>
+														</span>
+													</p>
+													<p className="card-text">
+														<small className="text-muted">Last updated 3 mins ago</small>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
 							</div>
 						))}
 				</ul>
