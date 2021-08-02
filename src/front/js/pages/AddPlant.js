@@ -23,7 +23,7 @@ export const AddPlant = () => {
 		() => {
 			searchTerm
 				? (results = store.plantLibrary.filter(plant =>
-						plant.commonName.toLowerCase().includes(searchTerm.toLowerCase())
+						plant.commonName.toLowerCase().startsWith(searchTerm.toLowerCase())
 				  ))
 				: (results = []);
 			setSearchResults(results);

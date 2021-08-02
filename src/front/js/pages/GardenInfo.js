@@ -14,16 +14,18 @@ export const GardenInfo = props => {
 
 	const [selectExperience, setSelectExperience] = useState("");
 
-	const showBadge = e => {
-		setSelectExperience(e.target.value);
-		console.log(e.target.value);
-		if (e.target.value == "Green thumb level") {
-			<img src="https://i.imgur.com/naA552h.png" alt="thumb" />;
-		} else if (e.target.value == "New-born gardener") {
-			<img src="https://i.imgur.com/sQrAVZK.png" alt="newbie" />;
-		} else if (e.target.value == "Climbing the learning curve") {
-			<img src="https://i.imgur.com/RWxOMaU.png" alt="rocket" />;
-		} else <img src="https://i.imgur.com/slVx6Xp.png" alt="medal" />;
+	const showBadge = () => {
+		// setSelectExperience(e.target.value);
+		// console.log(e.target.value);
+		let img = "";
+		if (gardenInfo.experience == "Green thumb level") {
+			img = <img src="https://i.imgur.com/naA552h.png" alt="thumb" />;
+		} else if (gardenInfo.experience == "New-born gardener") {
+			img = <img src="https://i.imgur.com/sQrAVZK.png" alt="newbie" />;
+		} else if (gardenInfo.experience == "Climbing the learning curve") {
+			img = <img src="https://i.imgur.com/RWxOMaU.png" alt="rocket" />;
+		} else img = <img src="https://i.imgur.com/slVx6Xp.png" alt="medal" />;
+		return img;
 	};
 
 	const userGardenInput = e => {
@@ -113,7 +115,8 @@ export const GardenInfo = props => {
 				<h5 className="heading text-center mb-0">
 					Level of Gardening Experience:{" "}
 					<span className="badge ">
-						<img src="https://i.imgur.com/slVx6Xp.png" alt="medal" />
+						{/* <img src={"https://i.imgur.com/slVx6Xp.png"} alt="medal" /> */}
+						{showBadge()}
 					</span>
 				</h5>
 				<select
