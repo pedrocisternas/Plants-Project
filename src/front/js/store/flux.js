@@ -1,8 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			apiAddress: "https://3001-white-kiwi-2tqo35gy.ws-us13.gitpod.io/",
-			// apiAddress: "https://3001-sapphire-landfowl-wrh9t8u8.ws-us13.gitpod.io/",
+            // apiAddress: "https://3001-white-kiwi-2tqo35gy.ws-us13.gitpod.io/",
+			apiAddress: "https://3001-sapphire-landfowl-wrh9t8u8.ws-us13.gitpod.io/",
 			// apiAddress: "https://3001-coffee-rook-0ci9av4e.ws-eu13.gitpod.io/",
 			plantLibrary: [
 				{
@@ -408,7 +408,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log("Looks like there was a problem: \n", error);
 					});
 			},
-			getUser: user => {
+			getUser: async user => {
 				// console.log(user.password);
 				fetch(getStore().apiAddress + "api/user/" + user.username)
 					.then(function(response) {
