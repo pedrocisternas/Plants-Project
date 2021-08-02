@@ -1,9 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			apiAddress: "https://3001-white-kiwi-2tqo35gy.ws-us13.gitpod.io/",
-			// apiAddress: "https://3001-sapphire-landfowl-wrh9t8u8.ws-us13.gitpod.io/",
-			// apiAddress: "https://3001-coffee-rook-0ci9av4e.ws-eu13.gitpod.io/",
+			//apiAddress: "https://3001-sapphire-landfowl-wrh9t8u8.ws-us13.gitpod.io/",
+			apiAddress: "https://3001-coffee-rook-0ci9av4e.ws-eu13.gitpod.io/",
 			plantLibrary: [
 				{
 					scientificName: "Papaver somniferum",
@@ -362,20 +361,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(response => {
 						console.log(response);
-						// const user_hardiness = response["hardiness_zone"];
-						// console.log(user_hardiness);
+
 						setStore({ hardinessZone: response });
-						console.log(getStore().hardinessZone.hardiness_zone);
-						console.log(getStore().hardinessZone);
-
-						// const userPersonal = getStore().usersPersonal[0];
-						// userPersonal.hardiness_zone = response["hardiness_zone"];
-						// userPersonal.zipcode = response["zipcode"];
-						// console.log("A big flag:", userPersonal);
-
-						// setStore({ usersPersonal: userPersonal });
-						// setStore({ [usersPersonal[0].zipcode]: response["zipcode"] });
-						//setStore({});
+						// console.log(getStore().hardinessZone.hardiness_zone);
+						// console.log(getStore().hardinessZone);
 					})
 					.catch(err => {
 						console.error(err);

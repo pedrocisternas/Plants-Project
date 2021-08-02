@@ -11,17 +11,21 @@ export const AddPlant = () => {
 	// 	setPlantName(e.target.value);
 	// };
 
-	const [searchTerm, setSearchTerm] = useState("");
+	const [searchTerm, setSearchTerm] = useState(null);
 	const [searchResults, setSearchResults] = useState([]);
+
+	let results = [];
 
 	const handleChange = event => {
 		setSearchTerm(event.target.value);
 	};
 	useEffect(
 		() => {
-			const results = store.plantLibrary.filter(plant =>
-				plant.commonName.toLowerCase().includes(searchTerm.toLowerCase())
-			);
+			searchTerm
+				? (results = store.plantLibrary.filter(plant =>
+						plant.commonName.toLowerCase().includes(searchTerm.toLowerCase())
+				  ))
+				: (results = []);
 			setSearchResults(results);
 		},
 		[searchTerm]
@@ -38,7 +42,7 @@ export const AddPlant = () => {
 
 	return (
 		<div className="container h-100">
-			<h1 className="text-center py-3 heading">Search for a Plant</h1>
+			<h1 className="text-center py-3 heading">Add a Plant to Your Garden</h1>
 			<div className="input-group mb-3 d-flex flex-column">
 				<input
 					// onChange={e => {
