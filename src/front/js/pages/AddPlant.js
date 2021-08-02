@@ -68,10 +68,13 @@ export const AddPlant = () => {
 						{searchResults.map((plant, i) => (
 							<li className="list-group-item d-flex justify-content-between align-items-center" key={i}>
 								{plant.commonName}
-								<Link to="/homereg">
+								<Link
+									className="d-flex align-items-center"
+									to="/homereg"
+									style={{ textDecoration: "none" }}>
 									<button
 										onClick={() => postPlant(plant.commonName)}
-										className="btn-style btn-list zoom-in-plant-list">
+										className="btn-style zoom-in-plant-list">
 										Add
 									</button>
 								</Link>
