@@ -117,40 +117,37 @@ export const SearchPlant = () => {
 		}
 	};
 
-	useEffect(
-		() => {
-			if (activeFilter.length === 0) {
-				setFilteredList(null);
-			}
-			if (activeFilter.length === filterList.length) {
-				setFilteredList(searchLists);
-			} else {
-				setFilteredList(
-					searchLists.filter(item => {
-						return (
-							activeFilter.includes(item.growthCycle) ||
-							activeFilter.includes(item.plantType) ||
-							activeFilter.includes(item.plantIs) ||
-							activeFilter.includes(item.bloomTime ? item.bloomTime[0] : "nothing") ||
-							activeFilter.includes(item.bloomTime ? item.bloomTime[1] : "nothing") ||
-							activeFilter.includes(item.bloomTime ? item.bloomTime[2] : "nothing") ||
-							activeFilter.includes(item.lightExposure ? item.lightExposure[0] : "nothing") ||
-							activeFilter.includes(item.lightExposure ? item.lightExposure[1] : "nothing") ||
-							activeFilter.includes(item.lightExposure ? item.lightExposure[2] : "nothing") ||
-							activeFilter.includes(item.lightExposure ? item.lightExposure[3] : "nothing") ||
-							activeFilter.includes(item.commonName) ||
-							activeFilter.includes(item.hardinessZone ? item.hardinessZone[0] : "nothing") ||
-							activeFilter.includes(item.hardinessZone ? item.hardinessZone[1] : "nothing") ||
-							activeFilter.includes(item.hardinessZone ? item.hardinessZone[2] : "nothing") ||
-							activeFilter.includes(item.flowerColor ? item.flowerColor[0] : "nothing") ||
-							activeFilter.includes(item.flowerColor ? item.flowerColor[1] : "nothing")
-						);
-					})
-				);
-			}
-		},
-		[activeFilter]
-	);
+	useEffect(() => {
+		if (activeFilter.length === 0) {
+			setFilteredList(null);
+		}
+		if (activeFilter.length === filterList.length) {
+			setFilteredList(searchLists);
+		} else {
+			setFilteredList(
+				searchLists.filter(item => {
+					return (
+						activeFilter.includes(item.growthCycle) ||
+						activeFilter.includes(item.plantType) ||
+						activeFilter.includes(item.plantIs) ||
+						activeFilter.includes(item.bloomTime ? item.bloomTime[0] : "nothing") ||
+						activeFilter.includes(item.bloomTime ? item.bloomTime[1] : "nothing") ||
+						activeFilter.includes(item.bloomTime ? item.bloomTime[2] : "nothing") ||
+						activeFilter.includes(item.lightExposure ? item.lightExposure[0] : "nothing") ||
+						activeFilter.includes(item.lightExposure ? item.lightExposure[1] : "nothing") ||
+						activeFilter.includes(item.lightExposure ? item.lightExposure[2] : "nothing") ||
+						activeFilter.includes(item.lightExposure ? item.lightExposure[3] : "nothing") ||
+						activeFilter.includes(item.commonName) ||
+						activeFilter.includes(item.hardinessZone ? item.hardinessZone[0] : "nothing") ||
+						activeFilter.includes(item.hardinessZone ? item.hardinessZone[1] : "nothing") ||
+						activeFilter.includes(item.hardinessZone ? item.hardinessZone[2] : "nothing") ||
+						activeFilter.includes(item.flowerColor ? item.flowerColor[0] : "nothing") ||
+						activeFilter.includes(item.flowerColor ? item.flowerColor[1] : "nothing")
+					);
+				})
+			);
+		}
+	}, [activeFilter]);
 
 	return (
 		<div className="container-fluid">

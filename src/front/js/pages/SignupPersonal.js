@@ -31,41 +31,62 @@ export const SignupPersonal = props => {
 		setUserPersonal({ ...userPersonal, [e.target.name]: val });
 	};
 
-	const saveUserInput = e => {
-		e.preventDefault();
-		if (userPersonal["username"]) {
+	const validationUsername = () => {
+		if (userPersonal["username"] != null) {
 			setValidations({ ...validations, username: true });
 			console.log("hola");
 		} else {
 			setValidations({ ...validations, username: false });
 			console.log("chao");
 		}
-		if (userPersonal["first_name"]) {
+	};
+
+	const validationFirstName = () => {
+		if (userPersonal["first_name"] != null) {
 			setValidations({ ...validations, first_name: true });
 		} else {
 			setValidations({ ...validations, first_name: false });
 		}
-		if (userPersonal["last_name"]) {
+	};
+
+	const validationLastName = () => {
+		if (userPersonal["last_name"] != null) {
 			setValidations({ ...validations, last_name: true });
 		} else {
 			setValidations({ ...validations, last_name: false });
 		}
-		if (userPersonal["email"]) {
+	};
+
+	const validationEmail = () => {
+		if (userPersonal["email"] != null) {
 			setValidations({ ...validations, email: true });
 		} else {
 			setValidations({ ...validations, email: false });
 		}
-		if (userPersonal["password"]) {
+	};
+
+	const validationPassword = () => {
+		if (userPersonal["password"] != null) {
 			setValidations({ ...validations, password: true });
 		} else {
 			setValidations({ ...validations, password: false });
 		}
+	};
+
+	const saveUserInput = e => {
+		e.preventDefault();
+		validationUsername();
+		validationFirstName();
+		// validationLastName();
+		// validationEmail();
+		validationPassword();
+		// cambiar userPersonal por Validation
 		if (
-			validations["username"] &&
-			validations["first_name"] &&
-			validations["last_name"] &&
-			validations["email"] &&
-			validations["password"]
+			userPersonal["username"] &&
+			userPersonal["first_name"] &&
+			userPersonal["last_name"] &&
+			userPersonal["email"] &&
+			userPersonal["password"]
 		) {
 			actions.postNewUser(userPersonal);
 			history.push("/SignupGarden");
