@@ -6,7 +6,7 @@ import { Context } from "../store/appContext";
 
 export const Popup = props => {
 	const { store, actions } = useContext(Context);
-	//console.log("POPUP", props.plant);
+	console.log("POPUP", props.plant);
 	const helper = () => {
 		props.handlePopup();
 		actions.deletePlant({

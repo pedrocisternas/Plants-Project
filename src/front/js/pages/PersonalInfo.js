@@ -7,7 +7,10 @@ export const PersonalInfo = props => {
 
 	return (
 		<div className=" w-50 d-flexflex-column justify-content-center align-items-center m-auto">
-			<h3 className="heading text-center">Personal Information</h3>
+			<h3 className="heading text-center mb-3">Personal Information</h3>
+			<p className="text-center m-0">
+				<img src="https://i.imgur.com/lnc2fwA.png" alt="pensil and paper" />
+			</p>
 			<div className="user-info">
 				<h5 className="heading text-center mb-0">Name: </h5>
 				<div className="color-item2 text-center">
