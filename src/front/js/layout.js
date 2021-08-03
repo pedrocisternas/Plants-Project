@@ -45,7 +45,7 @@ const Layout = () => {
 						</Route> */}
 						<Route exact path="/homeReg">
 							<HomeReg />
-							{/* {store.activeUsername ? <AddPlant /> : <Redirect to="/" />} */}
+							{/* {store.activeUsername ? <HomeReg /> : <Redirect to="/" />} */}
 						</Route>
 						<Route exact path="/login">
 							<Login showButtons={() => setShow(true)} />
@@ -57,10 +57,10 @@ const Layout = () => {
 							<UserProfile />
 						</Route>
 						<Route exact path="/personal">
-							<PersonalInfo />
+							{store.activeUsername ? <PersonalInfo /> : <Redirect to="/" />}
 						</Route>
 						<Route exact path="/garden">
-							<GardenInfo />
+							{store.activeUsername ? <GardenInfo /> : <Redirect to="/" />}
 						</Route>
 						<Route exact path="/signuppersonal">
 							<SignupPersonal />

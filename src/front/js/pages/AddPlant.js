@@ -19,16 +19,19 @@ export const AddPlant = () => {
 	const handleChange = event => {
 		setSearchTerm(event.target.value);
 	};
-	useEffect(() => {
-		searchTerm
-			? (results = store.plantLibrary.filter(
-					plant =>
-						plant.commonName.toLowerCase().startsWith(searchTerm.toLowerCase()) ||
-						plant.commonName.toLowerCase().includes(searchTerm.toLowerCase())
-			  ))
-			: (results = []);
-		setSearchResults(results);
-	}, [searchTerm]);
+	useEffect(
+		() => {
+			searchTerm
+				? (results = store.plantLibrary.filter(
+						plant =>
+							plant.commonName.toLowerCase().startsWith(searchTerm.toLowerCase()) ||
+							plant.commonName.toLowerCase().includes(searchTerm.toLowerCase())
+				  ))
+				: (results = []);
+			setSearchResults(results);
+		},
+		[searchTerm]
+	);
 
 	const postPlant = name => {
 		const plantObject = {

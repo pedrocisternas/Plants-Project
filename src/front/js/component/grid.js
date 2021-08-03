@@ -21,32 +21,47 @@ export const Grid = () => {
 		<>
 			<h1 className="text-center py-3 heading">Design Your Garden</h1>
 			<div className="container justify-content-center d-flex flex-row flex-wrap my-2 py-5">
-				{store.garden.map((el, i) =>
-					el && el.plantName != " " ? (
-						<div
-							className="square-selected"
-							style={{ width: width, height: width, margin: margin }}
-							key={i}
-							onClick={() => helper(i)}>
-							<img style={{ width: image }} src="https://i.imgur.com/DUvsZAH.png" alt="color seedling" />
-						</div>
-					) : store.usersPersonal[0].username != null ? (
-						<div className="square zoom-in" style={{ width: width, height: width, margin: margin }} key={i}>
-							<Link onClick={() => actions.updateSquareSelected(i)} to="/addplant">
+				{store.garden.map(
+					(el, i) =>
+						el && el.plantName != " " ? (
+							<div
+								className="square-selected"
+								style={{ width: width, height: width, margin: margin }}
+								key={i}
+								onClick={() => helper(i)}>
 								<img
 									style={{ width: image }}
-									src="https://i.imgur.com/CJTivse.png"
-									alt="green seedling"
+									src="https://i.imgur.com/DUvsZAH.png"
+									alt="color seedling"
 								/>
-							</Link>
-						</div>
-					) : (
-						<div className="square zoom-in" style={{ width: width, height: width, margin: margin }} key={i}>
-							<Link to="/signuppersonal">
-								<img style={{ width: image }} src="https://i.imgur.com/KlyBk8R.png" alt="seedling" />
-							</Link>
-						</div>
-					)
+							</div>
+						) : store.usersPersonal[0].username != null ? (
+							<div
+								className="square zoom-in"
+								style={{ width: width, height: width, margin: margin }}
+								key={i}>
+								<Link onClick={() => actions.updateSquareSelected(i)} to="/addplant">
+									<img
+										style={{ width: image }}
+										src="https://i.imgur.com/CJTivse.png"
+										alt="green seedling"
+									/>
+								</Link>
+							</div>
+						) : (
+							<div
+								className="square zoom-in"
+								style={{ width: width, height: width, margin: margin }}
+								key={i}>
+								<Link to="/signuppersonal">
+									<img
+										style={{ width: image }}
+										src="https://i.imgur.com/KlyBk8R.png"
+										alt="seedling"
+									/>
+								</Link>
+							</div>
+						)
 				)}
 				{isOpen && (
 					<Popup
