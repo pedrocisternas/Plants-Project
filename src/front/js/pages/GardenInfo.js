@@ -21,9 +21,9 @@ export const GardenInfo = props => {
 		if (gardenInfo.experience == "Green thumb level") {
 			img = <img src="https://i.imgur.com/naA552h.png" alt="thumb" />;
 		} else if (gardenInfo.experience == "New-born gardener") {
-			img = <img src="https://i.imgur.com/sQrAVZK.png" alt="newbie" />;
+			img = <img src="https://i.imgur.com/Gj8rbL8.png" alt="newbie" />;
 		} else if (gardenInfo.experience == "Climbing the learning curve") {
-			img = <img src="https://i.imgur.com/RWxOMaU.png" alt="rocket" />;
+			img = <img src="https://i.imgur.com/l3kIM5q.png" alt="climber" />;
 		} else img = <img src="https://i.imgur.com/slVx6Xp.png" alt="medal" />;
 		return img;
 	};
@@ -36,7 +36,6 @@ export const GardenInfo = props => {
 	const userGardenInputNumber = e => {
 		// setPlotSize(parseInt(e.target.value));
 		setGardenInfo({ ...gardenInfo, [e.target.name]: parseInt(e.target.value) });
-		gardenInfo.zipcode.toString().padStart(5, 0);
 	};
 
 	//const [badge, setBadge] = useState(false);

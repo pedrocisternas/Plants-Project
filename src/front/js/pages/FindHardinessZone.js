@@ -6,6 +6,7 @@ export const FindHardinessZone = () => {
 	const { store, actions } = useContext(Context);
 	const [zipCode, setZipCode] = useState(null);
 	const [showLabel, setShowLabel] = useState(false);
+	const [showWarning, setShowWarning] = useState(false);
 
 	const userZipCode = e => {
 		setZipCode(e.target.value);
@@ -15,6 +16,7 @@ export const FindHardinessZone = () => {
 	const getHardiness = async zip => {
 		console.log("this is user zip: ", zipCode);
 		actions.findHardinessZone(zip);
+		// store.hardinessZone.zipcode == zip ? setShowLabel(true) : setShowWarning(true);
 		setShowLabel(true);
 		//console.log(store.usersPersonal[0].hardiness_zone);
 	};
@@ -23,6 +25,7 @@ export const FindHardinessZone = () => {
 		//setZipCode("");
 		console.log("this is the handleFind() zipcode", zipCode, typeof zipCode);
 		setShowLabel(false);
+		//setShowWarning(false);
 		if (zip) {
 			setZipCode("");
 		}
@@ -36,6 +39,10 @@ export const FindHardinessZone = () => {
 			</p>
 			<div className="form-group d-flex flex-column justify-content-center my-4">
 				{/* <label className="text-center">Hardiness Zone Search</label> */}
+				{/* {showWarning ? (
+					<h4 className="heading text-center color-item2 user-info2">
+						The zip code you entered is invalid. Try again.
+                    </h4>):  */}
 				{showLabel ? (
 					<h4 className="heading text-center color-item2 user-info2">
 						The hardiness zone for zip code <b>{store.hardinessZone.zipcode}</b> is{" "}

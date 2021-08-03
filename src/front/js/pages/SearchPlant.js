@@ -110,40 +110,37 @@ export const SearchPlant = () => {
 		}
 	};
 
-	useEffect(
-		() => {
-			if (activeFilter.length === 0) {
-				setFilteredList(null);
-			}
-			if (activeFilter.length === filterList.length) {
-				setFilteredList(searchLists);
-			} else {
-				setFilteredList(
-					searchLists.filter(item => {
-						return (
-							activeFilter.includes(item.growthCycle) ||
-							activeFilter.includes(item.plantType) ||
-							activeFilter.includes(item.plantIs) ||
-							activeFilter.includes(item.bloomTime ? item.bloomTime[0] : "nothing") ||
-							activeFilter.includes(item.bloomTime ? item.bloomTime[1] : "nothing") ||
-							activeFilter.includes(item.bloomTime ? item.bloomTime[2] : "nothing") ||
-							activeFilter.includes(item.lightExposure ? item.lightExposure[0] : "nothing") ||
-							activeFilter.includes(item.lightExposure ? item.lightExposure[1] : "nothing") ||
-							activeFilter.includes(item.lightExposure ? item.lightExposure[2] : "nothing") ||
-							activeFilter.includes(item.lightExposure ? item.lightExposure[3] : "nothing") ||
-							activeFilter.includes(item.commonName) ||
-							activeFilter.includes(item.hardinessZone ? item.hardinessZone[0] : "nothing") ||
-							activeFilter.includes(item.hardinessZone ? item.hardinessZone[1] : "nothing") ||
-							activeFilter.includes(item.hardinessZone ? item.hardinessZone[2] : "nothing") ||
-							activeFilter.includes(item.flowerColor ? item.flowerColor[0] : "nothing") ||
-							activeFilter.includes(item.flowerColor ? item.flowerColor[1] : "nothing")
-						);
-					})
-				);
-			}
-		},
-		[activeFilter]
-	);
+	useEffect(() => {
+		if (activeFilter.length === 0) {
+			setFilteredList(null);
+		}
+		if (activeFilter.length === filterList.length) {
+			setFilteredList(searchLists);
+		} else {
+			setFilteredList(
+				searchLists.filter(item => {
+					return (
+						activeFilter.includes(item.growthCycle) ||
+						activeFilter.includes(item.plantType) ||
+						activeFilter.includes(item.plantIs) ||
+						activeFilter.includes(item.bloomTime ? item.bloomTime[0] : "nothing") ||
+						activeFilter.includes(item.bloomTime ? item.bloomTime[1] : "nothing") ||
+						activeFilter.includes(item.bloomTime ? item.bloomTime[2] : "nothing") ||
+						activeFilter.includes(item.lightExposure ? item.lightExposure[0] : "nothing") ||
+						activeFilter.includes(item.lightExposure ? item.lightExposure[1] : "nothing") ||
+						activeFilter.includes(item.lightExposure ? item.lightExposure[2] : "nothing") ||
+						activeFilter.includes(item.lightExposure ? item.lightExposure[3] : "nothing") ||
+						activeFilter.includes(item.commonName) ||
+						activeFilter.includes(item.hardinessZone ? item.hardinessZone[0] : "nothing") ||
+						activeFilter.includes(item.hardinessZone ? item.hardinessZone[1] : "nothing") ||
+						activeFilter.includes(item.hardinessZone ? item.hardinessZone[2] : "nothing") ||
+						activeFilter.includes(item.flowerColor ? item.flowerColor[0] : "nothing") ||
+						activeFilter.includes(item.flowerColor ? item.flowerColor[1] : "nothing")
+					);
+				})
+			);
+		}
+	}, [activeFilter]);
 
 	return (
 		<div className="container-fluid">
@@ -151,10 +148,13 @@ export const SearchPlant = () => {
 			<p className="text-center mb-1">
 				<img src="https://i.imgur.com/2cNthnK.png" alt="lens" />
 			</p>
-			<div className="d-flex my-5 p-5">
+			<div className="d-flex my-3 p-5">
 				<form
-					className="w-50 rounded shadow-lg p-5 "
-					style={{ background: "linear-gradient(35deg, #7bb517, white 40%)", height: "fit-content" }}>
+					className="w-50 rounded search-box p-5 "
+					style={{
+						background: "linear-gradient(to bottom, #f9f3c8, rgba(255,0,0,0))",
+						height: "fit-content"
+					}}>
 					<div className="form-check d-block form-check-inline">
 						<input
 							className="form-check-input"
@@ -236,11 +236,17 @@ export const SearchPlant = () => {
 					{filteredList &&
 						filteredList.map((item, i) => (
 							<div key={i}>
-								<li className="shadow ">
-									<div className="card  mb-3" style={{ maxWidth: "100%", maxHeight: "180px" }}>
+								<li className="search-box search-results p-0">
+									<div className="card  mb-3" style={{ maxWidth: "100%", maxHeight: "250px" }}>
 										<div className="row g-0">
-											<div className="col-md-3">
-												<img src="..." className="img-fluid rounded-start" alt="..." />
+											<div
+												className="col-md-3 d-flex"
+												style={{ maxWidth: "100%", maxHeight: "150px" }}>
+												<img
+													src={item.plantImage}
+													className="img-fluid rounded-start align-self-center ml-3 search-results-img"
+													alt="..."
+												/>
 											</div>
 											<div className="col-md-9">
 												<div className="card-body">
@@ -263,6 +269,9 @@ export const SearchPlant = () => {
 															</i>
 														</span>
 													</p>
+													<button className="btn btn-style" type="button">
+														Read more
+													</button>
 													<p className="card-text">
 														<small className="text-muted">Last updated 3 mins ago</small>
 													</p>

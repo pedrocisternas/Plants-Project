@@ -19,17 +19,16 @@ export const AddPlant = () => {
 	const handleChange = event => {
 		setSearchTerm(event.target.value);
 	};
-	useEffect(
-		() => {
-			searchTerm
-				? (results = store.plantLibrary.filter(plant =>
-						plant.commonName.toLowerCase().startsWith(searchTerm.toLowerCase())
-				  ))
-				: (results = []);
-			setSearchResults(results);
-		},
-		[searchTerm]
-	);
+	useEffect(() => {
+		searchTerm
+			? (results = store.plantLibrary.filter(
+					plant =>
+						plant.commonName.toLowerCase().startsWith(searchTerm.toLowerCase()) ||
+						plant.commonName.toLowerCase().includes(searchTerm.toLowerCase())
+			  ))
+			: (results = []);
+		setSearchResults(results);
+	}, [searchTerm]);
 
 	const postPlant = name => {
 		const plantObject = {
@@ -61,6 +60,7 @@ export const AddPlant = () => {
 					aria-describedby="button-addon2"
 					style={{ width: "100%" }}
 				/>
+
 				{/* <div className="input-group-append">
 					<button className="btn btn-style m-0" type="button" id="button-addon2">
 						Search
