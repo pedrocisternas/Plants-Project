@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 
 export const SignupPersonal = props => {
 	const { store, actions } = useContext(Context);
+	const [error, setError] = useState(false);
+	let history = useHistory();
 	const [userPersonal, setUserPersonal] = useState({
 		username: null,
 		first_name: null,
@@ -13,15 +15,63 @@ export const SignupPersonal = props => {
 		password: null
 	});
 
+	const [validations, setValidations] = useState({
+		username: true,
+		first_name: true,
+		last_name: true,
+		email: true,
+		password: false
+	});
+
 	const userInput = e => {
-		setUserPersonal({ ...userPersonal, [e.target.name]: e.target.value });
-		// console.log(e.target.name, e.target.value);
+		var val = null;
+		if (e.target.value != "") {
+			val = e.target.value;
+		}
+		setUserPersonal({ ...userPersonal, [e.target.name]: val });
 	};
 
-	const saveUserInput = () => {
-		// console.log(userPersonal);
-		// actions.postUserPersonal(userPersonal);
-		actions.postNewUser(userPersonal);
+	const saveUserInput = e => {
+		e.preventDefault();
+		if (userPersonal["username"]) {
+			setValidations({ ...validations, username: true });
+			console.log("hola");
+		} else {
+			setValidations({ ...validations, username: false });
+			console.log("chao");
+		}
+		if (userPersonal["first_name"]) {
+			setValidations({ ...validations, first_name: true });
+		} else {
+			setValidations({ ...validations, first_name: false });
+		}
+		if (userPersonal["last_name"]) {
+			setValidations({ ...validations, last_name: true });
+		} else {
+			setValidations({ ...validations, last_name: false });
+		}
+		if (userPersonal["email"]) {
+			setValidations({ ...validations, email: true });
+		} else {
+			setValidations({ ...validations, email: false });
+		}
+		if (userPersonal["password"]) {
+			setValidations({ ...validations, password: true });
+		} else {
+			setValidations({ ...validations, password: false });
+		}
+		if (
+			validations["username"] &&
+			validations["first_name"] &&
+			validations["last_name"] &&
+			validations["email"] &&
+			validations["password"]
+		) {
+			actions.postNewUser(userPersonal);
+			history.push("/SignupGarden");
+		} else {
+			setError(true);
+		}
 	};
 
 	return (
@@ -107,9 +157,10 @@ export const SignupPersonal = props => {
 					aria-label="Repeat Password"
 				/>
 			</div>
+			{error ? <div className="d-flex justify-content-around">ERROR</div> : null}
 			<div className="d-flex justify-content-around">
 				{/* <Link to="/SignupGarden"> */}
-				<button onClick={saveUserInput} type="button" className="btn btn-style my-4">
+				<button onClick={saveUserInput} type="button submit" className="btn btn-style my-4">
 					Next
 				</button>
 				{/* </Link> */}
