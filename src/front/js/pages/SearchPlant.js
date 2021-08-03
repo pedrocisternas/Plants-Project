@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { popupSearch } from "../component/popupSearch";
 
 export const SearchPlant = () => {
 	const { store, actions } = useContext(Context);
@@ -90,6 +91,12 @@ export const SearchPlant = () => {
 		zone: null,
 		color: ""
 	});
+
+	const [isOpen, setIsOpen] = useState(false);
+
+	const helper = () => {
+		setIsOpen(!isOpen);
+	};
 
 	const onFilterChange = term => {
 		if (term === "ALL") {
@@ -269,7 +276,10 @@ export const SearchPlant = () => {
 															</i>
 														</span>
 													</p>
-													<button className="btn btn-style" type="button">
+													<button
+														onClick={() => helper()}
+														className="btn btn-style"
+														type="button">
 														Read more
 													</button>
 													<p className="card-text">
@@ -282,6 +292,17 @@ export const SearchPlant = () => {
 								</li>
 							</div>
 						))}
+					{isOpen && (
+						<popupSearch
+							// plant={store.plantLibrary.find(
+							// 	element => element["commonName"] == store.garden[store.squareSelected]["name"]
+							// )}
+							message={"Hello"}
+							// plantName={plantName}
+							// plantDescription={plantDescription}
+							// handlePopup={() => toggleDetailsPopup(plantName)}
+						/>
+					)}
 				</ul>
 			</div>
 		</div>
