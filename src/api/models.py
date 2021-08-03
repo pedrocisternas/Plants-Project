@@ -12,7 +12,7 @@ class User(db.Model):
     plants = db.relationship('Plant', backref='user')
     grid_width = db.Column(db.Integer, unique=False, nullable=True)
     grid_length = db.Column(db.Integer, unique=False, nullable=True)
-    zipcode = db.Column(db.Integer, unique=False, nullable=True)
+    zipcode = db.Column(db.String(20), unique=False, nullable=True)
     hardiness_zone = db.Column(db.String(20), unique=False, nullable=True)
     experience = db.Column(db.String(120), unique=False, nullable=True)
 

@@ -25,7 +25,7 @@ export const SignupPersonal = props => {
 	};
 
 	return (
-		<form className="container w-50 m-auto">
+		<form className="container w-50 m-auto needs-validation" noValidate>
 			<h1 className="text-center heading ">Personal Information</h1>
 			<p className="text-center m-0">
 				<img src="https://i.imgur.com/2vaTvrN.png" alt="floral design" />
@@ -108,13 +108,13 @@ export const SignupPersonal = props => {
 				/>
 			</div>
 			<div className="d-flex justify-content-around">
-				<Link to="/SignupGarden">
-					<button onClick={saveUserInput} type="button" className="btn btn-style my-4">
-						Next
-					</button>
-				</Link>
+				{/* <Link to="/SignupGarden"> */}
+				<button onClick={saveUserInput} type="button" className="btn btn-style my-4">
+					Next
+				</button>
+				{/* </Link> */}
 				<Link to="/">
-					<button type="button" className="btn btn-style my-4">
+					<button type="button submit" className="btn btn-style my-4">
 						Cancel
 					</button>
 				</Link>
