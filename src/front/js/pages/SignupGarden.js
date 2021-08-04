@@ -1,26 +1,33 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 
 export const SignupGarden = props => {
+	let history = useHistory();
 	const { store, actions } = useContext(Context);
+	const [error, setError] = useState(false);
 	const [userGarden, setUserGarden] = useState({
-		zipcode: null,
-		hardiness_zone: null,
 		plot_width: null,
-		plot_length: null,
-
-		experience: null
+		plot_length: null
 	});
 
 	const userGardenInput = e => {
-		setUserGarden({ ...userGarden, [e.target.name]: e.target.value });
-		console.log(e.target.name, e.target.value);
+		var val = null;
+		if (e.target.value != "") {
+			val = e.target.value;
+		}
+		setUserGarden({ ...userGarden, [e.target.name]: val });
 	};
 
-	const saveGardenInput = () => {
-		actions.putInfoUser(userGarden);
+	const saveGardenInput = e => {
+		e.preventDefault();
+		if (userGarden["plot_width"] && userGarden["plot_length"]) {
+			actions.putInfoUser(userGarden);
+			history.push("/login");
+		} else {
+			setError(true);
+		}
 	};
 
 	return (
@@ -56,23 +63,20 @@ export const SignupGarden = props => {
 					aria-label="plot_length"
 				/>
 			</div>
-
+			{error ? (
+				<h4 className="d-flex justify-content-around color-item2">Please fill all the input fields!</h4>
+			) : null}
 			<div className="d-flex justify-content-around">
 				<Link to="/signuppersonal">
 					<button type="button" className="btn btn-style my-4">
 						Go Back
 					</button>
 				</Link>
-				<Link to="/login">
-					<button
-						onClick={() => {
-							saveGardenInput();
-						}}
-						type="button"
-						className="btn btn-style my-4">
-						Submit
-					</button>
-				</Link>
+				{/* <Link to="/login"> */}
+				<button onClick={saveGardenInput} type="button" className="btn btn-style my-4">
+					Submit
+				</button>
+				{/* </Link> */}
 				<Link to="/">
 					<button type="button" className="btn btn-style my-4">
 						Cancel

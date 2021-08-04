@@ -15,13 +15,13 @@ export const SignupPersonal = props => {
 		password: null
 	});
 
-	const [validations, setValidations] = useState({
-		username: true,
-		first_name: true,
-		last_name: true,
-		email: true,
-		password: false
-	});
+	// const [validations, setValidations] = useState({
+	// 	username: true,
+	// 	first_name: true,
+	// 	last_name: true,
+	// 	email: true,
+	// 	password: true
+	// });
 
 	const userInput = e => {
 		var val = null;
@@ -31,56 +31,66 @@ export const SignupPersonal = props => {
 		setUserPersonal({ ...userPersonal, [e.target.name]: val });
 	};
 
-	const validationUsername = () => {
-		if (userPersonal["username"] != null) {
-			setValidations({ ...validations, username: true });
-			console.log("hola");
-		} else {
-			setValidations({ ...validations, username: false });
-			console.log("chao");
-		}
-	};
+	// const validationUsername = () => {
+	// 	if (userPersonal["username"] != null) {
+	// 		setValidations({ ...validations, username: true });
+	// 		console.log("hola");
+	// 	} else {
+	// 		setValidations({ ...validations, username: false });
+	// 		console.log("chao");
+	// 	}
+	// };
 
-	const validationFirstName = () => {
-		if (userPersonal["first_name"] != null) {
-			setValidations({ ...validations, first_name: true });
-		} else {
-			setValidations({ ...validations, first_name: false });
-		}
-	};
+	// const validationFirstName = () => {
+	// 	if (userPersonal["first_name"] != null) {
+	// 		setValidations({ ...validations, first_name: true });
+	// 	} else {
+	// 		setValidations({ ...validations, first_name: false });
+	// 	}
+	// };
 
-	const validationLastName = () => {
-		if (userPersonal["last_name"] != null) {
-			setValidations({ ...validations, last_name: true });
-		} else {
-			setValidations({ ...validations, last_name: false });
-		}
-	};
+	// const validationLastName = () => {
+	// 	if (userPersonal["last_name"] != null) {
+	// 		setValidations({ ...validations, last_name: true });
+	// 	} else {
+	// 		setValidations({ ...validations, last_name: false });
+	// 	}
+	// };
 
-	const validationEmail = () => {
-		if (userPersonal["email"] != null) {
-			setValidations({ ...validations, email: true });
-		} else {
-			setValidations({ ...validations, email: false });
-		}
-	};
+	// const validationEmail = () => {
+	// 	if (userPersonal["email"] != null) {
+	// 		setValidations({ ...validations, email: true });
+	// 	} else {
+	// 		setValidations({ ...validations, email: false });
+	// 	}
+	// };
 
-	const validationPassword = () => {
-		if (userPersonal["password"] != null) {
-			setValidations({ ...validations, password: true });
-		} else {
-			setValidations({ ...validations, password: false });
-		}
-	};
+	// const validationPassword = () => {
+	// 	if (userPersonal["password"] != null) {
+	// 		setValidations({ ...validations, password: true });
+	// 	} else {
+	// 		setValidations({ ...validations, password: false });
+	// 	}
+	// };
+
+	// const finalValidation = () => {
+	// 	if (
+	// 		validations["username"] &&
+	// 		validations["first_name"] &&
+	// 		validations["last_name"] &&
+	// 		validations["email"] &&
+	// 		validations["password"]
+	// 	) {
+	// 		console.log("paso");
+	// 		actions.postNewUser(userPersonal);
+	// 	} else {
+	// 		console.log("no se entrega");
+	// 		setError(true);
+	// 	}
+	// };
 
 	const saveUserInput = e => {
 		e.preventDefault();
-		validationUsername();
-		validationFirstName();
-		// validationLastName();
-		// validationEmail();
-		validationPassword();
-		// cambiar userPersonal por Validation
 		if (
 			userPersonal["username"] &&
 			userPersonal["first_name"] &&
@@ -93,6 +103,39 @@ export const SignupPersonal = props => {
 		} else {
 			setError(true);
 		}
+		// var validatedUsername = true;
+		// var validatedFirstName = true;
+		// var validatedLastName = true;
+		// var validatedEmail = true;
+		// var validatedPassword = true;
+		// if (userPersonal["username"] == null) {
+		// 	validatedUsername = false;
+		// }
+		// if (userPersonal["first_name"] == null) {
+		// 	validatedFirstName = false;
+		// }
+		// if (userPersonal["last_name"] == null) {
+		// 	validatedLastName = false;
+		// }
+		// if (userPersonal["email"] == null) {
+		// 	validatedEmail = false;
+		// }
+		// if (userPersonal["password"] == null) {
+		// 	validatedPassword = false;
+		// }
+		// setValidations({
+		// 	username: validatedUsername,
+		// 	first_name: validatedFirstName,
+		// 	last_name: validatedLastName,
+		// 	email: validatedEmail,
+		// 	password: validatedPassword
+		// });
+		// validationUsername();
+		// validationFirstName();
+		// validationLastName();
+		// validationEmail();
+		// validationPassword();
+		// cambiar userPersonal por validations
 	};
 
 	return (
@@ -178,7 +221,9 @@ export const SignupPersonal = props => {
 					aria-label="Repeat Password"
 				/>
 			</div>
-			{error ? <div className="d-flex justify-content-around">ERROR</div> : null}
+			{error ? (
+				<h4 className="d-flex justify-content-around color-item2">Please fill all the input fields!</h4>
+			) : null}
 			<div className="d-flex justify-content-around">
 				{/* <Link to="/SignupGarden"> */}
 				<button onClick={saveUserInput} type="button submit" className="btn btn-style my-4">
