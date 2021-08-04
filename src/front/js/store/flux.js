@@ -417,6 +417,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(function(responseAsJson) {
 						console.log(responseAsJson);
+						setStore({ activeUsername: responseAsJson["username"] });
 						const new_usersPersonal = getStore().usersPersonal;
 						new_usersPersonal.unshift(responseAsJson);
 						setStore({ usersPersonal: new_usersPersonal });
@@ -436,7 +437,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 							}
 						}
 						setStore({ garden: garden_array });
-						setStore({ activeUsername: responseAsJson["username"] });
 					})
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
