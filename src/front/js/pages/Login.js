@@ -6,10 +6,15 @@ import PropTypes from "prop-types";
 export const Login = props => {
 	let history = useHistory();
 	const { store, actions } = useContext(Context);
+	const [passwordShown, setPasswordShown] = useState(false);
 	const [userLog, setUserLog] = useState({
 		username: null,
 		password: null
 	});
+
+	const togglePasswordVisiblity = () => {
+		setPasswordShown(passwordShown ? false : true);
+	};
 
 	const handleUserLog = e => {
 		setUserLog({ ...userLog, [e.target.name]: e.target.value });
@@ -40,7 +45,7 @@ export const Login = props => {
 						aria-label="Username"
 					/>
 					<input
-						type="text"
+						type={passwordShown ? "text" : "password"}
 						className="form-control mr-6 ml-6 mt-2 mb-2"
 						onChange={handleUserLog}
 						style={{ textAlign: "center" }}
@@ -48,6 +53,7 @@ export const Login = props => {
 						placeholder="Password"
 						aria-label="Password"
 					/>
+					<img src="https://i.imgur.com/fo0eeGM.png" alt="chef's hat" onClick={togglePasswordVisiblity} />
 					{/* <Link to="/homeReg"> */}
 					<button
 						onClick={() => {
