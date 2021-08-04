@@ -30,48 +30,59 @@ export const Login = props => {
 	return (
 		<div className="container w-50 h-100 ">
 			<div className="card card-style text-center border-0">
-				<div className="card-body d-flex flex-column align-items-center ">
-					<h1 className="card-title heading">Welcome back!</h1>
-					<p>
+				<div className="card-body d-flex flex-column align-items-center">
+					<h1 className="card-title heading mr-5">Welcome back!</h1>
+					<p className="mr-5">
 						<img src="https://i.imgur.com/FCpAaaE.png" alt="floral design" />
 					</p>
-					<input
-						type="text"
-						className="form-control mr-3 ml-3 mt-2 mb-2"
-						onChange={handleUserLog}
-						style={{ textAlign: "center" }}
-						name="username"
-						placeholder="Username"
-						aria-label="Username"
-					/>
-					<div className="input-icons" style={{ display: "flex" }}>
-						<input
-							type={passwordShown ? "text" : "password"}
-							className="form-control mr-6 ml-6 mt-2 mb-2"
-							onChange={handleUserLog}
-							style={{ textAlign: "center" }}
-							name="password"
-							placeholder="Password"
-							aria-label="Password"
-						/>
-						{passwordShown ? (
-							<i className="far fa-eye" onClick={togglePasswordVisiblity}></i>
-						) : (
-							<i className="far fa-eye-slash" onClick={togglePasswordVisiblity}></i>
-						)}
+					<div className="input-icons d-flex justify-content-between w-100">
+						<div className="w-100">
+							<input
+								type="text"
+								className="form-control m-0 p-0 w-100"
+								onChange={handleUserLog}
+								style={{ textAlign: "center" }}
+								name="username"
+								placeholder="Username"
+								aria-label="Username"
+							/>
+						</div>
+						<div className="ml-3" style={{ width: "18px" }}></div>
+					</div>
+					<div className="input-icons d-flex justify-content-between w-100 align-items-center mt-3">
+						<div className="w-100">
+							<input
+								type={passwordShown ? "text" : "password"}
+								className="form-control m-0 p-0 w-100"
+								onChange={handleUserLog}
+								style={{ textAlign: "center" }}
+								name="password"
+								placeholder="Password"
+								aria-label="Password"
+							/>
+						</div>
+						<span>
+							{passwordShown ? (
+								<i className="far fa-eye ml-3 align-self-center" onClick={togglePasswordVisiblity}></i>
+							) : (
+								<i
+									className="far fa-eye-slash ml-3 align-self-center"
+									onClick={togglePasswordVisiblity}></i>
+							)}
+						</span>
 					</div>
 					{/* <Link to="/homeReg"> */}
 					<button
 						onClick={() => {
 							logIn();
 						}}
-						className="btn btn-style mb-2"
+						className="btn btn-style mr-5 mb-2"
 						type="button">
 						Submit
 					</button>
 					{/* </Link> */}
 					<Link to="/signuppersonal">
-						<div className="color-item mt-3">Create Account</div>
+						<div className="color-item mt-3 mr-5">Create Account</div>
 					</Link>
 				</div>
 			</div>
