@@ -6,10 +6,15 @@ import PropTypes from "prop-types";
 export const Login = props => {
 	let history = useHistory();
 	const { store, actions } = useContext(Context);
+	const [passwordShown, setPasswordShown] = useState(false);
 	const [userLog, setUserLog] = useState({
 		username: null,
 		password: null
 	});
+
+	const togglePasswordVisiblity = () => {
+		setPasswordShown(passwordShown ? false : true);
+	};
 
 	const handleUserLog = e => {
 		setUserLog({ ...userLog, [e.target.name]: e.target.value });
@@ -39,15 +44,22 @@ export const Login = props => {
 						placeholder="Username"
 						aria-label="Username"
 					/>
-					<input
-						type="text"
-						className="form-control mr-6 ml-6 mt-2 mb-2"
-						onChange={handleUserLog}
-						style={{ textAlign: "center" }}
-						name="password"
-						placeholder="Password"
-						aria-label="Password"
-					/>
+					<div className="input-icons" style={{ display: "flex" }}>
+						<input
+							type={passwordShown ? "text" : "password"}
+							className="form-control mr-6 ml-6 mt-2 mb-2"
+							onChange={handleUserLog}
+							style={{ textAlign: "center" }}
+							name="password"
+							placeholder="Password"
+							aria-label="Password"
+						/>
+						{passwordShown ? (
+							<i className="far fa-eye" onClick={togglePasswordVisiblity}></i>
+						) : (
+							<i className="far fa-eye-slash" onClick={togglePasswordVisiblity}></i>
+						)}
+					</div>
 					{/* <Link to="/homeReg"> */}
 					<button
 						onClick={() => {
