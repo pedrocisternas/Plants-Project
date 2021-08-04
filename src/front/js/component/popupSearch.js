@@ -47,7 +47,7 @@ export const PopupSearch = props => {
 										Growth Cycle: <i className="color-item">{props.plant["growthCycle"]}</i>{" "}
 									</p>
 									<p>
-										Plant type: <i className="color-item">{props.plant["growthType"]}</i>{" "}
+										Plant type: <i className="color-item">{props.plant["plantType"]}</i>{" "}
 									</p>
 									<p>
 										Leaf shape: <i className="color-item">{props.plant["leafType"]}</i>{" "}
