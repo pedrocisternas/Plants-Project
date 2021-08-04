@@ -2,8 +2,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			// apiAddress: "https://3001-white-kiwi-2tqo35gy.ws-us13.gitpod.io/",
-			apiAddress: "https://3001-sapphire-landfowl-wrh9t8u8.ws-us14.gitpod.io/",
-			// apiAddress: "https://3001-coffee-rook-0ci9av4e.ws-eu13.gitpod.io/",
+			// apiAddress: "https://3001-sapphire-landfowl-wrh9t8u8.ws-us14.gitpod.io/",
+			apiAddress: "https://3001-coffee-rook-0ci9av4e.ws-eu14.gitpod.io/",
 			plantLibrary: [
 				{
 					scientificName: "Papaver somniferum",
@@ -199,7 +199,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					plantIs: "blooming",
 					bloomTime: ["spring", "summer"],
 					flowerColor: "Red",
-					lightExposure: ["sun", "Morning sun"],
+					lightExposure: ["sun", "morning sun"],
 					plantImage: "https://i.imgur.com/dVC8Jt1.jpg",
 					comments:
 						"The cherry wave petunia is an excellent selection of this series. It blooms over a long period from late fall through early summer. The spread of this petunia can be over six feet during this period. Provide full sunlight and a well drained soil, preferably a raised bed. It makes a superb container plant because shoots drape over the edge of the container."
@@ -229,7 +229,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					height: 2,
 					plantIs: "insignificant",
 					bloomTime: ["spring"],
-					lightExposure: ["sun", "part sun", "Morning sun"],
+					lightExposure: ["sun", "part sun", "morning sun"],
 					plantImage: "https://i.imgur.com/c9eRVGA.jpg",
 					comments:
 						"This perennial produces strong aromatic foliage with a pungent aroma that is used for flavoring foods. It makes a tight carpetlike mat in full sunlight and well drained soil. It grows fairly well in dry soils and is especially effective in herb gardens and growing among stones, pavers and other garden elements. Plant in full sunlight and a well drained soils."
@@ -258,7 +258,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					hardinessZone: ["6", "7", "8", "9"],
 					height: 2,
 					plantIs: "insignificant",
-					lightExposure: ["sun", "part sun", "filtered shade", "shade", "Morning sun"],
+					lightExposure: ["sun", "part sun", "filtered shade", "shade", "morning sun"],
 					plantImage: "https://i.imgur.com/SsGEtFC.jpg",
 					comments:
 						"This ground cover is used as a ground cover although plants will grow quite tall if left alone. To keep plants low, clip back growth in late winter every year and the new foliage will be green and fresh looking during the following year. Plants become untidy if not clipped periodically."

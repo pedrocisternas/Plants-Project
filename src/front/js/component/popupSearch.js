@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { PlantList } from "../pages/PlantList";
 import { Context } from "../store/appContext";
 
-export const popupSearch = props => {
+export const PopupSearch = props => {
 	const { store, actions } = useContext(Context);
 	console.log("POPUP_SEARCH", props.plant);
 	// const helper = () => {
@@ -17,27 +17,62 @@ export const popupSearch = props => {
 
 	return (
 		<>
-			<div className="popup-container">
+			<div className="popup-search-container">
 				<div className="popup-content">
 					<div className="d-flex">
 						<div>
-							<p>{props.message}</p>
-							<div className="d-flex">
-								{/* <h2 className="color-item mr-3">{props.plant["commonName"]} ({props.plant["scientificName"]})</h2> */}
-								{/* <i className="fab fa-2x fa-pagelines color-item" /> */}
-								<span>
-									<img src="https://i.imgur.com/7KnWoOT.png" alt="plant" />
-								</span>
+							<div className="d-flex flex-column mb-3">
+								<div className="d-flex">
+									<h2 className="color-item2 mr-3">{props.plant["commonName"]}</h2>
+									<span>
+										{props.plant.plantIs == "edible" ? (
+											<img src="https://i.imgur.com/fo0eeGM.png" alt="chef's hat" />
+										) : (
+											<img src="https://i.imgur.com/7KnWoOT.png" alt="plant" />
+										)}
+									</span>
+								</div>
+								<h5>
+									<i>({props.plant["scientificName"]})</i>
+								</h5>
 							</div>
-							{/* <p className="color-item">Growth Cycle: {props.plant["growthCycle"]}</p>
-							<p className="color-item">Plant type: {props.plant["plantType"]}</p>
-							<p className="color-item">Leaf shape: {props.plant["leafType"]}</p>
-							<p className="color-item">Height: up to {props.plant["height"]} feet</p>
-							<p>{props.plant["comments"]}</p> */}
+							<div className="d-flex">
+								<div className="mr-5">
+									<div>
+										<img className="popup-search-img" src={props.plant["plantImage"]} alt="..." />
+									</div>
+								</div>
+								<div>
+									<p>
+										Growth Cycle: <i className="color-item">{props.plant["growthCycle"]}</i>{" "}
+									</p>
+									<p>
+										Plant type: <i className="color-item">{props.plant["growthType"]}</i>{" "}
+									</p>
+									<p>
+										Leaf shape: <i className="color-item">{props.plant["leafType"]}</i>{" "}
+									</p>
+									<p>
+										Height: <i className="color-item">up to {props.plant["height"]} feet</i>
+									</p>
+									<p>
+										Light:{" "}
+										<i className="color-item"> needs {props.plant["lightExposure"].toString()}</i>
+									</p>
+									<p>
+										Hardiness Zone:{" "}
+										<i className="color-item">{props.plant["hardinessZone"].toString()}</i>
+									</p>
+									<p>
+										Blooming: <i className="color-item">{props.plant["bloomTime"].toString()}</i>
+									</p>
+								</div>
+							</div>
+							<p>{props.plant["comments"]}</p>
 						</div>
-						{/* <div onClick={props.handlePopup}>
+						<div onClick={props.handlePopupSearch}>
 							<i className="far fa-2x fa-times-circle color-item2" />
-						</div> */}
+						</div>
 					</div>
 					<div className="text-center">
 						{/* <button onClick={() => helper()} className="btn btn-style btn-list">
@@ -53,10 +88,10 @@ export const popupSearch = props => {
 	);
 };
 
-popupSearch.propTypes = {
+PopupSearch.propTypes = {
 	plant: PropTypes.object,
 	// plantName: PropTypes.string,
-	handlePopup: PropTypes.func,
+	handlePopupSearch: PropTypes.func,
 	// plantDescription: PropTypes.string
 	// plant: PropTypes.string
 	message: PropTypes.string

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { popupSearch } from "../component/popupSearch";
+import { PopupSearch } from "../component/popupSearch";
 
 export const SearchPlant = () => {
 	const { store, actions } = useContext(Context);
@@ -93,9 +93,11 @@ export const SearchPlant = () => {
 	});
 
 	const [isOpen, setIsOpen] = useState(false);
+	const [readMorePlantInfo, setReadMorePlantInfo] = useState({});
 
-	const helper = () => {
+	const helper = el => {
 		setIsOpen(!isOpen);
+		setReadMorePlantInfo(el);
 	};
 
 	const onFilterChange = term => {
@@ -241,68 +243,66 @@ export const SearchPlant = () => {
 				</form>
 				<ul className="w-50" style={{ listStyleType: "none" }}>
 					{filteredList &&
-						filteredList.map((item, i) => (
-							<div key={i}>
-								<li className="search-box search-results p-0">
-									<div className="card  mb-3" style={{ maxWidth: "100%", maxHeight: "250px" }}>
-										<div className="row g-0">
-											<div
-												className="col-md-3 d-flex"
-												style={{ maxWidth: "100%", maxHeight: "150px" }}>
-												<img
-													src={item.plantImage}
-													className="img-fluid rounded-start align-self-center ml-3 search-results-img"
-													alt="..."
-												/>
-											</div>
-											<div className="col-md-9">
-												<div className="card-body">
-													<h5 className="card-title" style={{ color: "green" }}>
-														{item.commonName} ({item.scientificName})
-													</h5>
-													<p className="card-text d-flex justify-content-between">
-														<span>
-															Plant:{" "}
-															<i style={{ color: "yellowgreen" }}>{item.plantType}</i>
-														</span>
-														<span>
-															Growth:{" "}
-															<i style={{ color: "yellowgreen" }}>{item.growthCycle}</i>
-														</span>
-														<span>
-															Hardiness:{" "}
-															<i style={{ color: "yellowgreen" }}>
-																{item.hardinessZone.toString()}
-															</i>
-														</span>
-													</p>
-													<button
-														onClick={() => helper()}
-														className="btn btn-style"
-														type="button">
-														Read more
-													</button>
-													<p className="card-text">
-														<small className="text-muted">Last updated 3 mins ago</small>
-													</p>
+						filteredList.map((item, i) => {
+							return (
+								<div key={i} style={{ maxHeight: "350px" }}>
+									<li className="search-box search-results p-0">
+										<div
+											className="card  "
+											style={{ maxWidth: "100%", maxHeight: "100%", backgroundColor: "#f9f3c8" }}>
+											<div className="row g-0" style={{ maxWidth: "100%", maxHeight: "100%" }}>
+												<div
+													className="col-md-3 d-flex"
+													style={{ maxWidth: "100%", maxHeight: "150px" }}>
+													<img
+														src={item.plantImage}
+														className="img-fluid rounded-start align-self-center ml-3 search-results-img"
+														alt="..."
+													/>
+												</div>
+												<div className="col-md-9">
+													<div className="card-body">
+														<h5 className="card-title" style={{ color: "green" }}>
+															{item.commonName} ({item.scientificName})
+														</h5>
+														<p className="card-text d-flex justify-content-between">
+															<span>
+																Plant:{" "}
+																<i style={{ color: "yellowgreen" }}>{item.plantType}</i>
+															</span>
+															<span>
+																Growth:{" "}
+																<i style={{ color: "yellowgreen" }}>
+																	{item.growthCycle}
+																</i>
+															</span>
+															{/* <span>
+																Hardiness:{" "}
+																<i style={{ color: "yellowgreen" }}>
+																	{item.hardinessZone.toString()}
+																</i>
+															</span> */}
+														</p>
+														<button
+															onClick={() => helper(item)}
+															className="btn btn-style"
+															type="button">
+															Read more
+														</button>
+														<p className="card-text">
+															<small className="text-muted">
+																Last updated 3 mins ago
+															</small>
+														</p>
+													</div>
 												</div>
 											</div>
 										</div>
-									</div>
-								</li>
-							</div>
-						))}
-					{isOpen && (
-						<popupSearch
-							// plant={store.plantLibrary.find(
-							// 	element => element["commonName"] == store.garden[store.squareSelected]["name"]
-							// )}
-							message={"Hello"}
-							// plantName={plantName}
-							// plantDescription={plantDescription}
-							// handlePopup={() => toggleDetailsPopup(plantName)}
-						/>
-					)}
+									</li>
+								</div>
+							);
+						})}
+					{isOpen && <PopupSearch plant={readMorePlantInfo} handlePopupSearch={() => setIsOpen(false)} />}
 				</ul>
 			</div>
 		</div>

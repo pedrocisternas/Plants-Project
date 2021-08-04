@@ -25,16 +25,6 @@ export const HomeUnreg = () => {
 							</Link>
 						</div>
 					))}
-					{/* {isOpen && (
-						<Popup
-							plant={store.plantLibrary.find(
-								element => element["commonName"] == store.garden[store.squareSelected]["name"]
-							)}
-							// plantName={store.garden[store.squareSelected]["name"]}
-							// plantDescription={store.garden[store.squareSelected].description}
-							handlePopup={() => setIsOpen(!isOpen)}
-						/>
-					)} */}
 				</div>
 			</>
 
