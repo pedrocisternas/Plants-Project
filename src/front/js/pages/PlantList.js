@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Popup } from "../component/popup";
+import { PopupSearch } from "../component/popupSearch";
 
 // import ReactToPrint from "react-to-print";
 
@@ -54,13 +55,13 @@ export const PlantList = () => {
 					}
 				})}
 				{isOpen && (
-					<Popup
+					<PopupSearch
 						plant={store.plantLibrary.find(
 							element => element["commonName"] == store.garden[store.squareSelected]["name"]
 						)}
 						// plantName={plantName}
 						// plantDescription={plantDescription}
-						handlePopup={() => toggleDetailsPopup(plantName)}
+						handlePopupSearch={() => toggleDetailsPopup(plantName)}
 					/>
 				)}
 			</div>
