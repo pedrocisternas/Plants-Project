@@ -18,7 +18,7 @@ export const PopupSearch = props => {
 	return (
 		<>
 			<div className="popup-search-container">
-				<div className="popup-content">
+				<div className="popup-search-content">
 					<div className="d-flex">
 						<div>
 							<div className="d-flex flex-column mb-3">
