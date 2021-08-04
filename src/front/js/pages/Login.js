@@ -44,16 +44,22 @@ export const Login = props => {
 						placeholder="Username"
 						aria-label="Username"
 					/>
-					<input
-						type={passwordShown ? "text" : "password"}
-						className="form-control mr-6 ml-6 mt-2 mb-2"
-						onChange={handleUserLog}
-						style={{ textAlign: "center" }}
-						name="password"
-						placeholder="Password"
-						aria-label="Password"
-					/>
-					<img src="https://i.imgur.com/fo0eeGM.png" alt="chef's hat" onClick={togglePasswordVisiblity} />
+					<div className="input-icons" style={{ display: "flex" }}>
+						<input
+							type={passwordShown ? "text" : "password"}
+							className="form-control mr-6 ml-6 mt-2 mb-2"
+							onChange={handleUserLog}
+							style={{ textAlign: "center" }}
+							name="password"
+							placeholder="Password"
+							aria-label="Password"
+						/>
+						{passwordShown ? (
+							<i className="far fa-eye" onClick={togglePasswordVisiblity}></i>
+						) : (
+							<i className="far fa-eye-slash" onClick={togglePasswordVisiblity}></i>
+						)}
+					</div>
 					{/* <Link to="/homeReg"> */}
 					<button
 						onClick={() => {
