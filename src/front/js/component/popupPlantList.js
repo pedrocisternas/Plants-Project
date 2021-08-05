@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 import { PlantList } from "../pages/PlantList";
 import { Context } from "../store/appContext";
 
-export const PopupSearch = props => {
+export const PopupPlantList = props => {
 	const { store, actions } = useContext(Context);
 	console.log("POPUP_SEARCH", props.plant);
-	// const helper = () => {
-	// 	props.handlePopup();
-	// 	// actions.deletePlant({
-	// 	// 	grid_location: store.squareSelected,
-	// 	// 	user_id: store.usersPersonal[0]["id"]
-	// 	// });
-	// };
+	const helper = () => {
+		//props.handlePopup();
+		actions.deletePlant({
+			grid_location: store.squareSelected,
+			user_id: store.usersPersonal[0]["id"]
+		});
+	};
 
 	return (
 		<>
@@ -44,28 +44,6 @@ export const PopupSearch = props => {
 								</div>
 								<div>
 									<p>
-										Water Requirements:<i className="color-item">{props.plant["waterReq"]}</i>{" "}
-									</p>
-									<p>
-										Soil:{" "}
-										<i className="color-item">needs {props.plant["drainage"].toString()} soil</i>
-									</p>
-									<p>
-										Light:{" "}
-										<i className="color-item">
-											grows well on {props.plant["lightExposure"].toString()}
-										</i>
-									</p>
-									<p>
-										Rate of growth: <i className="color-item">{props.plant["growthRate"]}</i>
-									</p>
-									<p>
-										Susceptible to diseases:{" "}
-										<i className="color-item">{props.plant["isSusceptible"]}</i>
-									</p>
-								</div>
-								<div className="ml-3">
-									<p>
 										Growth Cycle: <i className="color-item">{props.plant["growthCycle"]}</i>{" "}
 									</p>
 									<p>
@@ -77,10 +55,10 @@ export const PopupSearch = props => {
 									<p>
 										Height: <i className="color-item">up to {props.plant["height"]} feet</i>
 									</p>
-									{/* <p>
+									<p>
 										Light:{" "}
 										<i className="color-item"> needs {props.plant["lightExposure"].toString()}</i>
-									</p> */}
+									</p>
 									<p>
 										Hardiness Zone:{" "}
 										<i className="color-item">{props.plant["hardinessZone"].toString()}</i>
@@ -92,14 +70,14 @@ export const PopupSearch = props => {
 							</div>
 							<p>{props.plant["comments"]}</p>
 						</div>
-						<div onClick={props.handlePopupSearch}>
+						<div onClick={props.handlePopupPlantList}>
 							<i className="far fa-2x fa-times-circle color-item2" />
 						</div>
 					</div>
 					<div className="text-center">
-						{/* <button onClick={() => helper()} className="btn btn-style btn-list">
+						<button onClick={() => helper()} className="btn btn-style btn-list">
 							Delete
-						</button> */}
+						</button>
 						{/* <Link to="/addplant">
 							<button className="btn btn-style btn-list">Edit selection</button>
 						</Link> */}
@@ -110,10 +88,10 @@ export const PopupSearch = props => {
 	);
 };
 
-PopupSearch.propTypes = {
+PopupPlantList.propTypes = {
 	plant: PropTypes.object,
 	// plantName: PropTypes.string,
-	handlePopupSearch: PropTypes.func,
+	handlePopupPlantList: PropTypes.func,
 	// plantDescription: PropTypes.string
 	// plant: PropTypes.string
 	message: PropTypes.string

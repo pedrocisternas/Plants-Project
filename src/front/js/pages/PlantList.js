@@ -69,7 +69,7 @@ export const PlantList = () => {
 				<div className="w-50 m-auto">
 					<Link to="/homeReg">
 						<button type="button" className="btn btn-style m-3 w-100">
-							Add Another Plant
+							Add a Plant
 						</button>
 					</Link>
 				</div>
