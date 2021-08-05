@@ -115,6 +115,27 @@ body {
     font-family: Yeseva One;
 }
 
+.landing-titles {
+    font-family: Yeseva One;
+    background-image: url("https://i.imgur.com/EyLTtRG.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    //color: var(--persimmon);
+    height: 4rem;
+}
+
+.landing-numbers {
+    font-family: Yeseva One;
+    font-size: 1.5rem
+}
+
+.landing-text {
+    //color: var(--persimmon);
+    //background: var(--lemon-chiffon);
+    font-size: 1.5rem;
+}
+
 .btn-style {
     background: var(--apple-green);
     color: var(--ivory);
@@ -232,7 +253,7 @@ body {
     position: fixed;
     height: 100%;
     width: 100%;
-    top: 10%;
+    top: 5%;
     left: 13%;
     right: 10%;
     bottom: 10%;
@@ -251,8 +272,8 @@ body {
     position: absolute;
     width: 75%;
     height: auto;
-    margin: 3rem auto;
-    padding: 3rem;
+    margin: 1rem auto;
+    padding: 1.8rem;
     color: var(--black-chocolate);
     background: var(--ivory);
     border: solid 2px var(--lemon-chiffon);
