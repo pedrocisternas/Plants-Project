@@ -50,7 +50,11 @@ export const FindHardinessZone = () => {
 					</h4>
 				) : null}
 				<div className="text-center my-3">
-					<a href="https://planthardiness.ars.usda.gov/" target="_blank" rel="noopener noreferrer">
+					<a
+						href="https://planthardiness.ars.usda.gov/"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="color-item3">
 						{" "}
 						Read more about US. hardiness zones
 					</a>

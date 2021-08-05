@@ -68,7 +68,7 @@ export const GardenInfo = props => {
 				</div>
 				<div style={{ marginLeft: "8.3vw", width: "20vw" }}>
 					<Link to="/hardiness">
-						<p className="text-center" style={{ fontSize: "1vw" }}>
+						<p className="text-center color-item3" style={{ fontSize: "1vw" }}>
 							Find your hardiness zone
 						</p>
 					</Link>
