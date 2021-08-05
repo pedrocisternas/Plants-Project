@@ -50,20 +50,29 @@ export const GardenInfo = props => {
 			<p className="text-center mb-1">
 				<img src="https://i.imgur.com/8ratEk4.png" alt="floral design" />
 			</p>
-			<div className="user-info d-flex justify-content-around">
-				<h5 className="heading text-center mb-0 w-25">Hardiness Zone: </h5>
-				<input
-					className="color-item2 text-center w-25"
-					placeholder={
-						store.usersPersonal[0].hardiness_zone
-							? store.usersPersonal[0].hardiness_zone
-							: "Enter Your Hardiness Zone"
-					}
-					onChange={userGardenInput}
-					aria-label="hardiness_zone"
-					name="hardiness_zone"
-					type="text"
-				/>
+			<div className="user-info d-flex flex-column">
+				<div className="d-flex justify-content-around flex-row">
+					<h5 className="heading text-center mb-0 w-25">Hardiness Zone: </h5>
+					<input
+						className="color-item2 text-center w-25"
+						placeholder={
+							store.usersPersonal[0].hardiness_zone
+								? store.usersPersonal[0].hardiness_zone
+								: "Enter Your Hardiness Zone"
+						}
+						onChange={userGardenInput}
+						aria-label="hardiness_zone"
+						name="hardiness_zone"
+						type="text"
+					/>
+				</div>
+				<div style={{ marginLeft: "8.3vw", width: "20vw" }}>
+					<Link to="/hardiness">
+						<p className="text-center" style={{ fontSize: "1vw" }}>
+							Find your hardiness zone
+						</p>
+					</Link>
+				</div>
 				{/* <div className="color-item2 text-center">{store.usersPersonal[0].hardiness_zone}</div> */}
 			</div>
 			<div className="user-info d-flex justify-content-around">
@@ -150,3 +159,26 @@ export const GardenInfo = props => {
 		</div>
 	);
 };
+
+{
+	/* <div className="user-info d-flex justify-content-around">
+				<div className="text-center mb-0 w-25">
+					<h5 className="heading text-center">Hardiness Zone: </h5>
+					<Link to="/hardiness">
+						<p>Find your hardiness zone</p>
+					</Link>
+				</div>
+				<input
+					className="color-item2 text-center w-25"
+					placeholder={
+						store.usersPersonal[0].hardiness_zone
+							? store.usersPersonal[0].hardiness_zone
+							: "Enter Your Hardiness Zone"
+					}
+					onChange={userGardenInput}
+					aria-label="hardiness_zone"
+					name="hardiness_zone"
+					type="text"
+				/>
+			</div> */
+}
