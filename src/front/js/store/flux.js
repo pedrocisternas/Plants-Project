@@ -407,6 +407,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 			squareSelected: null
 		},
 		actions: {
+			getLoginUserData: user => {
+				console.log(user);
+				setStore({ activeUsername: user["username"] });
+				const new_usersPersonal = getStore().usersPersonal;
+				new_usersPersonal.unshift(user);
+				setStore({ usersPersonal: new_usersPersonal });
+				setStore({ garden: [] });
+				const garden_array = [];
+				var helper = false;
+				for (let i = 0; i < user["grid_width"] * user["grid_length"]; i++) {
+					helper = false;
+					for (let plant of user["plants"]) {
+						if (plant["grid_location"] == i) {
+							garden_array.push(plant);
+							helper = true;
+						}
+					}
+					if (helper == false) {
+						garden_array.push(null);
+					}
+				}
+				setStore({ garden: garden_array });
+			},
 			findHardinessZone: zip => {
 				fetch("https://plant-hardiness-zone.p.rapidapi.com/zipcodes" + "/" + zip, {
 					method: "GET",

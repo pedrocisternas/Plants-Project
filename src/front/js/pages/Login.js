@@ -21,10 +21,23 @@ export const Login = props => {
 	};
 
 	const logIn = () => {
-		// actions.userLogin(userLog);
-		actions.getUser(userLog);
-		props.showButtons();
-		history.push("/homeReg");
+		// actions.getUser(userLog);
+		fetch(store.apiAddress + "api/user/" + userLog.username)
+			.then(function(response) {
+				console.log(response);
+				if (!response.ok) {
+					throw new Error(response.statusText);
+				}
+				return response.json();
+			})
+			.then(function(responseAsJson) {
+				actions.getLoginUserData(responseAsJson);
+				props.showButtons();
+				history.push("/homeReg");
+			})
+			.catch(function(error) {
+				console.log("Looks like there was a problem: \n", error);
+			});
 	};
 
 	return (
