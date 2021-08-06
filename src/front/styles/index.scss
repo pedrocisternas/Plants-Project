@@ -15,6 +15,7 @@ body {
     font-size: 1rem;
     background: var(--ivory);
     color: var(--black-chocolate);
+    overflow-x: hidden;
 }
 .square {
     background-color: white;
@@ -135,6 +136,15 @@ body {
     //background: var(--lemon-chiffon);
     font-size: 1.5rem;
 }
+
+.landing-img {
+    width: 250px;
+    height: auto;
+    // border: 1px solid #ddd;
+    // border-radius: 4px;
+    padding: 5px;
+}
+
 
 .btn-style {
     background: var(--apple-green);
