@@ -66,11 +66,12 @@ export const GardenInfo = props => {
 						type="text"
 					/>
 				</div>
-				<div style={{ marginLeft: "8.3vw", width: "20vw" }}>
+				<div className="garden-info-link">
+					<small className="text-center color-item3">Wonder what you hardiness zone is? Find it </small>
 					<Link to="/hardiness">
-						<p className="text-center color-item3" style={{ fontSize: "1vw" }}>
-							Find your hardiness zone
-						</p>
+						<small className="text-center color-item3">
+							<b className="color-item2">here</b>.
+						</small>
 					</Link>
 				</div>
 				{/* <div className="color-item2 text-center">{store.usersPersonal[0].hardiness_zone}</div> */}

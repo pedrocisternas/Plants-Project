@@ -87,6 +87,9 @@ export const FindHardinessZone = () => {
 						Clear
 					</button>
 				</div>
+				<Link to="/garden" className="m-auto">
+					<p className="color-item mt-3">Go to Garden Info page</p>
+				</Link>
 			</div>
 		</div>
 	);
