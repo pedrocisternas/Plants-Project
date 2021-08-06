@@ -40,12 +40,9 @@ const Layout = () => {
 						<Route exact path="/">
 							<HomeUnreg />
 						</Route>
-						{/* <Route exact path="/homeUnreg">
-							<HomeUnreg />
-						</Route> */}
 						<Route exact path="/homeReg">
-							<HomeReg />
-							{/* {store.activeUsername ? <HomeReg /> : <Redirect to="/" />} */}
+							{/* <HomeReg /> */}
+							{store.activeUsername ? <HomeReg /> : <Redirect to="/" />}
 						</Route>
 						<Route exact path="/login">
 							<Login showButtons={() => setShow(true)} />
@@ -54,7 +51,7 @@ const Layout = () => {
 							<Logout showButtons={() => setShow(false)} />
 						</Route>
 						<Route exact path="/profile">
-							<UserProfile />
+							{store.activeUsername ? <UserProfile /> : <Redirect to="/" />}
 						</Route>
 						<Route exact path="/personal">
 							{store.activeUsername ? <PersonalInfo /> : <Redirect to="/" />}
