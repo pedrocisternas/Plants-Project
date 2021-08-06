@@ -38,7 +38,7 @@ export const HomeUnreg = () => {
 					</div>
 				</div>
 				<div className="row row-cols-2 m-5 text-center">
-					<div className="col landing-img m-auto">
+					<div className="col landing-img mr-5 m-auto">
 						<img className="m-auto" src="https://i.imgur.com/zLqI9Ec.png" alt="flowers" />
 					</div>
 					<div className="col my-3 d-flex flex-column justify-content-center">
