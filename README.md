@@ -1,6 +1,9 @@
-Plotters is a web application designed to help people plan their garden. First, the user has to create an account and enter their garden details. Afterwards, they have access to a wide variety of plant, which are able to be filtered according different characteristics.
+Plotters is a web application designed to help people plan their garden. First, the user has to create an account and enter their garden details. Afterwards, they have access to a wide variety of plants, which are able to be filtered according different characteristics. They are able to add, change and delete their selections.
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/81447303/132621400-3fd5e66d-73b8-4ce4-b288-85e0bed3fe5b.gif)
+
+![plotters2](https://user-images.githubusercontent.com/81447303/132621630-da63e97e-365c-45d4-ac58-72eba2c06ef1.gif)
+
 
 
 # WebApp boilerplate with React JS
