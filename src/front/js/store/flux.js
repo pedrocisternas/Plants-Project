@@ -1,9 +1,6 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			// apiAddress: "https://3001-white-kiwi-2tqo35gy.ws-us13.gitpod.io/",
-			//apiAddress: "https://3001-sapphire-landfowl-wrh9t8u8.ws-us14.gitpod.io/",
-			apiAddress: "https://3001-coffee-rook-0ci9av4e.ws-eu16.gitpod.io",
 			plantLibrary: [
 				{
 					scientificName: "Papaver somniferum",
@@ -472,7 +469,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			postNewUser: user => {
-				fetch(getStore().apiAddress + "api/user", {
+				fetch(process.env.BACKEND_URL + "/api/user", {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify(user)
@@ -500,7 +497,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getUser: async user => {
 				// console.log(user.password);
-				fetch(getStore().apiAddress + "api/user/" + user.username)
+				fetch(process.env.BACKEND_URL + "/api/user/" + user.username)
 					.then(function(response) {
 						console.log(response);
 						if (!response.ok) {
@@ -534,7 +531,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
 					});
-				// fetch(getStore().apiAddress + "api/user", {
+				// fetch(process.env.BACKEND_URL + "/api/user", {
 				// 	method: "GET",
 				// 	headers: { "Content-Type": "application/json" },
 				// 	body: JSON.stringify(user)
@@ -557,7 +554,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			putInfoUser: async user => {
 				console.log(user);
-				fetch(getStore().apiAddress + "api/user", {
+				fetch(process.env.BACKEND_URL + "/api/user", {
 					method: "PUT",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({
@@ -603,7 +600,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			editInfoUser: user => {
 				console.log(user);
-				fetch(getStore().apiAddress + "api/edituser", {
+				fetch(process.env.BACKEND_URL + "/api/edituser", {
 					method: "PUT",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({
@@ -640,7 +637,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			postNewPlant: plant => {
-				fetch(getStore().apiAddress + "api/plant", {
+				fetch(process.env.BACKEND_URL + "/api/plant", {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify(plant)
@@ -656,7 +653,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(function(user) {
 						console.log(user);
-						fetch(getStore().apiAddress + "api/user/" + user.username)
+						fetch(process.env.BACKEND_URL + "/api/user/" + user.username)
 							.then(function(response) {
 								console.log(response);
 								if (!response.ok) {
@@ -696,7 +693,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			deletePlant: plant => {
-				fetch(getStore().apiAddress + "api/plant", {
+				fetch(process.env.BACKEND_URL + "/api/plant", {
 					method: "DELETE",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify(plant)
@@ -712,7 +709,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(function(user) {
 						console.log(user);
-						fetch(getStore().apiAddress + "api/user/" + user.username)
+						fetch(process.env.BACKEND_URL + "/api/user/" + user.username)
 							.then(function(response) {
 								console.log(response);
 								if (!response.ok) {
@@ -752,7 +749,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			deleteAllPlants: () => {
-				fetch(getStore().apiAddress + "api/plants", {
+				fetch(process.env.BACKEND_URL + "/api/plants", {
 					method: "DELETE",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({

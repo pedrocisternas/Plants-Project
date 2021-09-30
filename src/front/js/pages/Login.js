@@ -22,7 +22,7 @@ export const Login = props => {
 
 	const logIn = () => {
 		// actions.getUser(userLog);
-		fetch(store.apiAddress + "api/user/" + userLog.username)
+		fetch(process.env.BACKEND_URL + "/api/user/" + userLog.username)
 			.then(function(response) {
 				console.log(response);
 				if (!response.ok) {
