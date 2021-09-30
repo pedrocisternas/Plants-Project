@@ -579,7 +579,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						// setStore({ usersPersonal: new_usersPersonal });
 						// setStore({ garden: [] });
 						// const garden_array = [];
-						// var helper = false;
+						// var helper = false;;
 						// for (let i = 0; i < responseAsJson["grid_width"] * responseAsJson["grid_length"]; i++) {
 						// 	helper = false;
 						// 	for (let plant of responseAsJson["plants"]) {
