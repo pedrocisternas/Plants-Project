@@ -22,7 +22,7 @@ export const UserProfile = () => {
 					<img className="ml-5" src="https://i.imgur.com/uXEpgQA.png" alt="scarecrow" />
 				</div>
 				<div className="d-flex flex-row align-items-center my-4 mr-4 py-4 pr-4 text-anime">
-					<img className="mr-5" src="https://i.imgur.com/nJOHwX1.png" alt="garden tools" />
+					<img className="mr-5" src="https://i.imgur.com/PYcBt5v.png" alt="garden tools" />
 					<Link to="/garden">
 						<button type="button" className="btn border-0 btn-profile list-text">
 							Garden Information
